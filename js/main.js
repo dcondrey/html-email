@@ -1,7 +1,6 @@
 var marketingSheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc/od6";
 var designSheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc/o5lsipi";
 var developmentSheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc/oynmg9z";
-var configSheet = ""
 
 function updateProgress() {
     var e = $('input[type="checkbox"]').length;
@@ -24,58 +23,79 @@ $(document).ready(function() {
         max: 100
     });
 
+	$( ".nav a" ).click(function() {
+	  $(".nav a").removeClass('active');
+	});
+
 	var prefix = "https://spreadsheets.google.com/feeds/list/";
 	var suffix = "/public/values?alt=json";
 
 	var liStyle = "position:relative;";
 	var labelStyle = "position:relative;margin-left:-45px;padding-left:45px;";
-	var boxStyle = "position:absolute;top:0;float:left;color:#415D94;margin:-8px 0 0 -20px;font-size: 35px;font-weight:700;display:none;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;";
-	var popStyle = "background-color: rgba(0, 0, 0, 0.85);border-radius: 5px;bottom: 42px;box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);color: #fff;display: none;font-size: 12px;left: -95px;padding: 7px 10px;position: absolute;width: 200px;z-index: 4;";
-    $.getJSON(prefix + marketingSheet + suffix,
+	var boxStyle = "position:absolute;top:0;float:left;color:#415D94;margin:-8px 0 0 20px;font-size: 35px;font-weight:700;display:none;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;";
+
+	$.getJSON(prefix + marketingSheet + suffix,
     function(e) {
         var t = 1;
         for (var n = 0; n < e.feed.entry.length; n++) {
-            var r = String.fromCharCode(65 + e.feed.entry[n].gsx$stepnum.$t);
-            var i = e.feed.entry[n].gsx$step.$t;
-            var s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" data-toggle="checkbox" onchange="updateProgress()">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label><a href="#" data-toggle="modal" data-target="#' + r + '" class="fonticon"><i class="glyphicon glyphicon-plus"></i></a></li>';
-            $("#section-1 ul").prepend(s);
-			var d = e.feed.entry[n].gsx$explaination.$t;
-			if (d !== 0) {
-				var p = '<span class="popover" style="' + popStyle + '">' + d + '</span>';
-				$("input").find("#" + r).append(p);
+			var r,i,d,s,p;
+            r = e.feed.entry[n].gsx$stepnum.$t;
+            i = e.feed.entry[n].gsx$step.$t;
+			d = e.feed.entry[n].gsx$explaination.$t;
+            if (d !== 0) {
+				p = '<span class="popover">' + d + '</span>';
+				s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" onchange="updateProgress();" onclick="updateProgress();">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label>' + p + '</li>';
+			} else {
+				s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" onchange="updateProgress();" onclick="updateProgress();">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label></li>';
 			}
+            $("#section-1 ul").prepend(s);
+			
             t++
         }
-        updateProgress()
+        updateProgress();
     });
 
     $.getJSON(prefix + designSheet + suffix,
-    function(e) {
-        var t = 1;
-        for (var n = 0; n < e.feed.entry.length; n++) {
-	console.log(e.feed.entry[n].gsx$stepnum.$t);
-	console.log(String.fromCharCode(65));
-            var r = String.fromCharCode(65 + e.feed.entry[n].gsx$stepnum.$t);
-            var i = e.feed.entry[n].gsx$step.$t;
-            var s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" data-toggle="checkbox" onchange="updateProgress()">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label><a href="#" data-toggle="modal" data-target="#' + r + '" class="fonticon"><i class="glyphicon glyphicon-plus"></i></a></li>';
-            $("#section-2 ul").prepend(s);
-            t++
-        }
-        updateProgress()
-    });
+    	function(e) {
+	        var t = 1;
+	        for (var n = 0; n < e.feed.entry.length; n++) {
+				var r,i,d,s,p;
+	            r = e.feed.entry[n].gsx$stepnum.$t;
+	            i = e.feed.entry[n].gsx$step.$t;
+				d = e.feed.entry[n].gsx$explaination.$t;
+	            if (d !== 0) {
+					p = '<span class="popover">' + d + '</span>';
+					s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" onchange="updateProgress();" onclick="updateProgress();">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label>' + p + '</li>';
+				} else {
+					s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" onchange="updateProgress();" onclick="updateProgress();">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label></li>';
+				}
+	            $("#section-2 ul").prepend(s);
+
+	            t++
+	        }
+	        updateProgress();
+	    });
 
     $.getJSON(prefix + developmentSheet + suffix,
-    function(e) {
-        var t = 1;
-        for (var n = 0; n < e.feed.entry.length; n++) {
-            var r = String.fromCharCode(65 + e.feed.entry[n].gsx$stepnum.$t);
-            var i = e.feed.entry[n].gsx$step.$t;
-            var s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" data-toggle="checkbox" onchange="updateProgress()">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label><a href="#" data-toggle="modal" data-target="#' + r + '" class="fonticon"><i class="glyphicon glyphicon-plus"></i></a></li>';
-            $("#section-3 ul").prepend(s);
-            t++
-        }
-        updateProgress()
-    });
+    	function(e) {
+	        var t = 1;
+	        for (var n = 0; n < e.feed.entry.length; n++) {
+				var r,i,d,s,p;
+	            r = e.feed.entry[n].gsx$stepnum.$t;
+	            i = e.feed.entry[n].gsx$step.$t;
+				d = e.feed.entry[n].gsx$explaination.$t;
+	            if (d !== 0) {
+					p = '<span class="popover">' + d + '</span>';
+					s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" onchange="updateProgress();" onclick="updateProgress();">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label>' + p + '</li>';
+				} else {
+					s = '<li class="list" style="' + liStyle + '"><label for="' + r + '" class="checkbox" style="' + labelStyle + '"><input type="checkbox" id="' + r + '" name="' + r + t + '" value="1" onchange="updateProgress();" onclick="updateProgress();">' + i + '<div class="box" style="' + boxStyle + '">&#10003;</div></label></li>';
+				}
+	            $("#section-3 ul").prepend(s);
+
+	            t++
+	        }
+	        updateProgress();
+	    });
 
     $(document).on("change", 'input[type="checkbox"]', updateProgress);
     $("#progressbar").progressbar({
