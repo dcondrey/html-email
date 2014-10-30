@@ -1,6 +1,8 @@
-var marketingSheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc/od6";
-var designSheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc/o5lsipi";
-var developmentSheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc/oynmg9z";
+var spreadsheet = "1bz4mDdN6-f-FeEy2wpQaQaGygQ4hOa6BbpUiEeQpttc"
+
+var marketingSheet = spreadsheet + "/od6";
+var designSheet = spreadsheet + "/o5lsipi";
+var developmentSheet = spreadsheet + "/oynmg9z";
 
 function updateProgress() {
     var e = $('input[type="checkbox"]').length;
