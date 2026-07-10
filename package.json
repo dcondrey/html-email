@@ -1,0 +1,29 @@
+{
+  "name": "html-email",
+  "version": "1.0.0",
+  "description": "A hand-authored HTML email template and reference built on one principle:",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "previews": "node scripts/generate-previews.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcondrey/html-email.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dcondrey/html-email/issues"
+  },
+  "homepage": "https://github.com/dcondrey/html-email#readme",
+  "devDependencies": {
+    "puppeteer": "^25.3.0"
+  }
+}
