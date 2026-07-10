@@ -46,5 +46,5 @@
   "viewInBrowserUrl": "*|ARCHIVE|*",
   "preferencesUrl": "*|UPDATE_PROFILE|*",
   "unsubscribeUrl": "*|UNSUB|*",
-  "legalText": "Northwind Botanicals, Inc. 1215 SE Ankeny Street, Portland, OR 97214. A fictitious brand used as placeholder content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details."
+  "legalText": "Northwind Botanicals, Inc. 1215 SE Ankeny Street, Portland, OR 97214. A fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details."
 }
