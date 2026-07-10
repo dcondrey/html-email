@@ -1,0 +1,154 @@
+<!--
+  ============================================================================
+  00-document-open.html  —  doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  This is the single most important partial. Almost every cross-client fix
+  lives here. Each block is annotated with WHY it exists and WHICH client
+  needs it, so this file doubles as a reference.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  WHY the XHTML 1.0 Transitional doctype: the Word rendering engine in classic
+  Outlook (Windows) is most predictable under this doctype. HTML5 doctype can
+  trigger extra spacing and unit bugs in Word. xmlns:v / xmlns:o expose the VML
+  and Office namespaces used by the bulletproof button and background images.
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8"><!-- utf-8: universal; prevents mojibake of smart quotes/emoji -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- mobile: render at device width, not zoomed-out desktop -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- legacy IE-engine clients (Windows Phone 7/8, old Windows Mail) use latest engine -->
+  <meta name="x-apple-disable-message-reformatting"><!-- Apple Mail: stop auto-scaling/reformatting of the layout -->
+  <meta name="color-scheme" content="light dark"><!-- declare we handle both schemes -->
+  <meta name="supported-color-schemes" content="light dark"><!-- Apple Mail / Outlook: prevents FORCED full-color inversion; we opt in deliberately -->
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no"><!-- iOS: stop turning phone numbers/dates/addresses into blue auto-links -->
+  <title>{{title}}</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <!--
+    WHY: classic Outlook on Windows renders at the system DPI (often 120/144),
+    which silently upscales images and widths by 25-50%. Pinning PixelsPerInch
+    to 96 forces 1:1 rendering. AllowPNG keeps PNG transparency from flattening.
+  -->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Word engine has no web-font support and falls back to Times New Roman.
+       Force a web-safe stack so brand type degrades to Arial, not a serif. */
+    * { font-family: Arial, Helvetica, sans-serif !important; }
+    /* mso-line-height-rule:exactly stops Word from adding leading above text. */
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    /* Kill the 1px table gaps Word inserts. */
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <style type="text/css">
+    /* ---------------------------------------------------------------------
+       1. RESETS — normalise the ~15 clients that mangle defaults
+       --------------------------------------------------------------------- */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    /* Stop iOS/Windows auto-inflating font sizes it deems "too small". */
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    /* Remove the space Outlook adds around tables; force collapse everywhere. */
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    /* Images: block-level kills the 3px "descender" gap under images in most
+       clients; bicubic keeps scaled images smooth in Outlook. */
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    /* Outlook.com / Windows Live wraps content in .ExternalClass — force full
+       width and consistent line-height so it does not add vertical padding. */
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    /* iOS auto-detects dates/addresses and re-colours them — neutralise it. */
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    /* Gmail/Android colour phone numbers & the footer address blue — reset. */
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    /* Samsung Mail sometimes adds its own link styling; scope-reset it. */
+    #MessageViewBody a { color:inherit; }
+
+    /* ---------------------------------------------------------------------
+       2. FLUID-HYBRID RESPONSIVE — works even where @media is unsupported
+          (old Android 4.x stock mail, some Samsung builds, Outlook via ghost
+          tables). Columns are inline-blocks that wrap naturally; the media
+          query below is an enhancement, not a dependency.
+       --------------------------------------------------------------------- */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* ---------------------------------------------------------------------
+       3. DARK MODE — no client agrees on this, so we handle three paths:
+          (a) prefers-color-scheme  -> Apple Mail, iOS, Outlook for Mac,
+              Samsung Mail, Thunderbird, Outlook (new/Chromium).
+          (b) [data-ogsc]/[data-ogsb] -> Outlook.com & old Outlook apps, which
+              partially invert and expose these attributes on each element.
+          (c) Gmail ignores everything above and runs its own inversion — the
+              defence for Gmail is in the markup: give every cell an explicit
+              bgcolor and avoid pure #000000/#ffffff (see footer/hero notes).
+       --------------------------------------------------------------------- */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#111114 !important; }
+      .darkmode-text, .darkmode-text * { color:#e6e6e6 !important; }
+      .darkmode-muted, .darkmode-muted * { color:#a8a8a8 !important; }
+      .darkmode-card { background-color:#1c1c20 !important; }
+      /* Swap a light logo in for dark backgrounds without a code fork. */
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#e6e6e6 !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#a8a8a8 !important; }
+    [data-ogsb] .darkmode-bg { background-color:#111114 !important; }
+    [data-ogsb] .darkmode-card { background-color:#1c1c20 !important; }
+  </style>
+</head>
+
+<!--
+  WHY id="body": the Gmail/Android link reset above (u + #body a) needs a hook.
+  WHY the inline background on <body> AND the wrapper table: some clients honour
+  only one. We set both so there is never an unstyled white gutter.
+-->
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#f4f4f7; color:#2b2b2b; font-family:Arial,Helvetica,sans-serif;">
+
+  <!-- {{>preheader}} -->
+
+  <!--
+    role="article" + aria-* gives screen readers a proper document boundary.
+    This is a MODERN accessibility quirk that did not matter in 2014 but is now
+    expected (VoiceOver, TalkBack).
+  -->
+  <div role="article" aria-roledescription="email" aria-label="{{title}}" lang="en" style="background-color:#f4f4f7;">
+
+    <!-- Full-bleed background wrapper. role="presentation" tells screen readers
+         to ignore this layout table and not announce "table, 1 row, 1 column". -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#f4f4f7;">
+      <tr>
+        <td align="center" valign="top" style="padding:24px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <!--
+            The MSO "ghost table" above pins width to 600px in the Word engine,
+            which ignores max-width. Everywhere else, .email-container's
+            max-width:600px + width:100% makes the layout fluid.
+          -->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">

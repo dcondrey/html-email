@@ -1,0 +1,45 @@
+            <!--
+              ================================================================
+              60-footer.html  —  social, address, unsubscribe
+              ================================================================
+              - Background is #2b2b30, NOT pure #000000. Apple Mail inverts pure
+                black/white outright in dark mode; an off-black is left alone.
+                (Same reason the light text is #d8d8d8, not #ffffff.)
+              - Every cell has an explicit bgcolor so Gmail's dark engine cannot
+                paint an unset cell.
+              - The unsubscribe link is REQUIRED for CAN-SPAM / CASL / GDPR and
+                for one-click unsubscribe (RFC 8058) that Gmail & Yahoo now
+                enforce for bulk senders. Keep it real, not a placeholder.
+              - Social icons: width/height as attributes; alt text per icon.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2b2b30; border-radius:0 0 8px 8px;">
+              <tr>
+                <td align="center" valign="top" style="padding:28px 24px 12px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 6px;"><a href="{{facebookUrl}}" target="_blank"><img src="{{iconFacebook}}" width="28" height="28" alt="Facebook" style="display:block; border:0;"></a></td>
+                      <td style="padding:0 6px;"><a href="{{instagramUrl}}" target="_blank"><img src="{{iconInstagram}}" width="28" height="28" alt="Instagram" style="display:block; border:0;"></a></td>
+                      <td style="padding:0 6px;"><a href="{{twitterUrl}}" target="_blank"><img src="{{iconTwitter}}" width="28" height="28" alt="Twitter/X" style="display:block; border:0;"></a></td>
+                      <td style="padding:0 6px;"><a href="{{pinterestUrl}}" target="_blank"><img src="{{iconPinterest}}" width="28" height="28" alt="Pinterest" style="display:block; border:0;"></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top" style="padding:8px 40px 6px 40px; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#d8d8d8;">
+                  <strong>{{companyName}}</strong><br>
+                  {{companyAddress}}
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top" style="padding:6px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#9a9aa2;">
+                  <a href="{{viewInBrowserUrl}}" target="_blank" style="color:#9a9aa2; text-decoration:underline;">View in browser</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="{{preferencesUrl}}" target="_blank" style="color:#9a9aa2; text-decoration:underline;">Update preferences</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="{{unsubscribeUrl}}" target="_blank" style="color:#9a9aa2; text-decoration:underline;">Unsubscribe</a>
+                  <br><br>
+                  {{legalText}}
+                </td>
+              </tr>
+            </table>

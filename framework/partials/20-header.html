@@ -1,0 +1,28 @@
+            <!--
+              ================================================================
+              20-header.html  —  logo bar
+              ================================================================
+              A single centered logo on a white card. Notes:
+              - Width/height are set as ATTRIBUTES (not just CSS) because the
+                Word engine ignores CSS width on <img>.
+              - class="fluid" lets it shrink on narrow screens without upscaling.
+              - The dark-mode logo swap uses two <img>s: the light logo is hidden
+                under prefers-color-scheme:dark, the light-on-transparent logo
+                shown. Gmail (which ignores the media query) keeps the default.
+              - Always ship a real alt: it is the fallback when images are off
+                (Outlook blocks images by default) and it is read aloud.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:8px 8px 0 0;">
+              <tr>
+                <td align="center" valign="middle" style="padding:24px 24px 20px 24px;">
+                  <a href="{{logoLinkUrl}}" target="_blank" style="text-decoration:none;">
+                    <!-- Default / light-mode logo -->
+                    <img class="fluid darkmode-hide" src="{{logoUrl}}" width="{{logoWidth}}" alt="{{companyName}}" style="width:{{logoWidth}}px; max-width:60%; height:auto; display:block; border:0;">
+                    <!-- Dark-mode logo (hidden until prefers-color-scheme:dark) -->
+                    <!--[if !mso]><!-->
+                    <img class="darkmode-show" src="{{logoUrlDark}}" width="{{logoWidth}}" alt="{{companyName}}" style="display:none; width:{{logoWidth}}px; max-width:60%; height:auto; border:0;">
+                    <!--<![endif]-->
+                  </a>
+                </td>
+              </tr>
+            </table>

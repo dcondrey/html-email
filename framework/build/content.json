@@ -1,0 +1,50 @@
+{
+  "title": "Everlasting Blooms — Northwind Botanicals",
+  "preheaderText": "Dried & preserved arrangements, made to last. New season, now shipping.",
+
+  "companyName": "Northwind Botanicals",
+  "logoLinkUrl": "https://example.com",
+  "logoUrl": "../assets/logo.png",
+  "logoUrlDark": "../assets/logo-light.png",
+  "logoWidth": "180",
+
+  "heroLinkUrl": "https://example.com/new",
+  "heroImageUrl": "../assets/hero.jpg",
+  "heroImageAlt": "A hand-tied arrangement of dried botanicals in a terracotta vase",
+  "heroHeadline": "Everlasting Blooms",
+  "heroParagraph": "Our dried and preserved arrangements bring the quiet of a northern meadow indoors — no water, no wilting, just months of understated colour.",
+
+  "heroBgImageUrl": "../assets/hero.jpg",
+  "heroBgHeadline": "Everlasting Blooms",
+  "heroBgSubtext": "Dried & preserved, made to last a season and more.",
+
+  "buttonUrl": "https://example.com/shop",
+  "buttonBg": "#1b4735",
+  "buttonColor": "#ffffff",
+  "buttonText": "Shop the collection",
+
+  "col1Url": "https://example.com/p/foreman",
+  "col1ImageUrl": "../assets/product-1.jpg",
+  "col1Title": "The Foreman",
+  "col1Text": "Cedar, wheat and eucalyptus in a matte stoneware vase.",
+
+  "col2Url": "https://example.com/p/understory",
+  "col2ImageUrl": "../assets/product-2.jpg",
+  "col2Title": "The Understory",
+  "col2Text": "Ferns, ivy and cream roses for a woodland table.",
+
+  "facebookUrl": "https://facebook.com/",
+  "instagramUrl": "https://instagram.com/",
+  "twitterUrl": "https://twitter.com/",
+  "pinterestUrl": "https://pinterest.com/",
+  "iconFacebook": "../assets/social-facebook.png",
+  "iconInstagram": "../assets/social-instagram.png",
+  "iconTwitter": "../assets/social-twitter.png",
+  "iconPinterest": "../assets/social-pinterest.png",
+
+  "companyAddress": "1 Meadow Lane, Portland, OR 97201",
+  "viewInBrowserUrl": "*|ARCHIVE|*",
+  "preferencesUrl": "*|UPDATE_PROFILE|*",
+  "unsubscribeUrl": "*|UNSUB|*",
+  "legalText": "You are receiving this because you subscribed at northwindbotanicals.example. © Northwind Botanicals."
+}

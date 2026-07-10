@@ -1,0 +1,519 @@
+Return-path:
+ <bounce-mc.us4_17409995.559001-davidcondrey=me.com@mail326.us2.mcsv.net>
+Received: from st11p00mm-smtpin002.mac.com ([17.172.83.251])
+ by ms04581.mac.com (Oracle Communications Messaging Server 7u4-27.08
+ (7.0.4.27.7) 64bit (built Aug 22 2013))
+ with ESMTP id <0MY900JHQGALG5E0@ms04581.mac.com> for davidcondrey@me.com; Mon,
+ 23 Dec 2013 13:03:57 +0000 (GMT)
+Original-recipient: rfc822;davidcondrey@me.com
+Received: from mail326.us2.mcsv.net ([173.231.184.38])
+ by st11p00mm-smtpin002.mac.com
+ (Oracle Communications Messaging Server 7u4-27.08(7.0.4.27.7) 64bit (built Aug
+ 22 2013)) with ESMTP id <0MY900GROG7947M0@st11p00mm-smtpin002.mac.com> for
+ davidcondrey@me.com (ORCPT davidcondrey@me.com); Mon,
+ 23 Dec 2013 13:03:57 +0000 (GMT)
+Received-SPF: pass (st11p00mm-spfmilter003.mac.com: domain of
+ bounce-mc.us4_17409995.559001-davidcondrey=me.com@mail326.us2.mcsv.net
+ designates 173.231.184.38 as permitted sender)
+ receiver=st11p00mm-spfmilter003.mac.com; client-ip=173.231.184.38;
+ helo=mail326.us2.mcsv.net;
+ envelope-from=bounce-mc.us4_17409995.559001-davidcondrey=me.com@mail326.us2.mcsv.net;
+ x-software=spfmilter 0.97 http://www.acme.com/software/spfmilter/ with
+ libspf-unknown;
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=k1;
+ d=mail326.us2.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-Unsubscribe:Sender:Content-Type:MIME-Version;
+ i=bouqaneers=3Dthebouqs.com@mail326.us2.mcsv.net;
+ bh=IlGoVA/6s7ItToR1RbVcxuMp3Xg=;
+ b=tVQSOlWE5U7fcA/pMfnwZk36yp7OTWkEOk6goFQSMtbP+4rIaq/kM05m0qoVfRmMm/EuscMjEjsG
+   6v/wcCQqaNagtfyEkePxMGWWKeRZLrzIzgsQzFQ2m8B4ygX3F8/wgSGrdTMa4/MFVbSqm34t14+z
+   CqhJsMxgC93sEFsduos=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=k1; d=mail326.us2.mcsv.net;
+ b=bSCY2myzOmWldLtuCdo6LYbYt0h5hVsTk+Xj0HRcmjW3mU2cndzom5Wd4FUbgiUX4yFAIUb+8NBU
+   j/k6tP1/Ut5zFFmQYOnHldsGyu42XA3jRev+15hgrUfDUlwFLqum48FjBCGe30dZjZ5ukmRFjmIT
+   BOpmfTpRkrW9XDvGACc=;
+Received: from (127.0.0.1) by mail326.us2.mcsv.net id hn0qbc174k49 for
+ <davidcondrey@me.com>; Mon, 23 Dec 2013 13:02:18 +0000
+Subject: =?utf-8?Q?1=20Month=20Anniversary=20=2D=20Get=202=20For=201=20Bouqs?=
+From: =?utf-8?Q?Bouq=27aneers?= <bouqaneers@thebouqs.com>
+Reply-to: =?utf-8?Q?Bouq=27aneers?= <bouqaneers@thebouqs.com>
+To: =?utf-8?Q?David?= <davidcondrey@me.com>
+Date: Mon, 23 Dec 2013 13:02:18 +0000
+Message-id:
+ <e9c7499aeda15720c6e28fa946b27779e22.20131223130211@mail326.us2.mcsv.net>
+X-Mailer: MailChimp Mailer - **CID2f45c081f36b27779e22**
+List-Unsubscribe:
+ <mailto:unsubscribe-e9c7499aeda15720c6e28fa94-2f45c081f3-6b27779e22@mailin1.us2.mcsv.net?subject=unsubscribe>,
+ <http://TheBouqs.us4.list-manage.com/unsubscribe?u=e9c7499aeda15720c6e28fa94&id=217f35c4af&e=6b27779e22&c=2f45c081f3>
+Sender: Bouq'aneers <bouqaneers=thebouqs.com@mail326.us2.mcsv.net>
+Content-type: multipart/alternative; boundary="_----------=_MCPart_1965655222"
+MIME-version: 1.0
+Authentication-results: st11p00mm-smtpin002.mac.com; dkim=pass
+	reason="1024-bit key"	header.d=mail326.us2.mcsv.net
+ header.i=bouqaneers=thebouqs.com@mail326.us2.mcsv.net	header.b=tVQSOlWE;
+ dkim-adsp=none
+x-icloud-spam-score: 33322
+ f=thebouqs.com;e=mail326.us2.mcsv.net;pp=ham;spf=pass;dkim=pass;wl=absent;pwl=absent
+X-Proofpoint-Virus-Version: vendor=fsecure
+ engine=2.50.10432:5.11.87,1.0.14,0.0.0000
+ definitions=2013-12-23_01:2013-12-23,2013-12-22,1970-01-01 signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ suspectscore=21 phishscore=0 adultscore=0 bulkscore=100 classifier=spam
+ adjust=0 reason=mlx scancount=1 engine=7.0.1-1308280000
+ definitions=main-1312230061
+X-Campaign: mailchimpe9c7499aeda15720c6e28fa94.2f45c081f3
+X-campaignid: mailchimpe9c7499aeda15720c6e28fa94.2f45c081f3
+X-Report-Abuse: Please report abuse for this campaign here:
+ http://www.mailchimp.com/abuse/abuse.phtml?u=e9c7499aeda15720c6e28fa94&id=2f45c081f3&e=6b27779e22
+X-MC-User: e9c7499aeda15720c6e28fa94
+X-Feedback-ID: 17409995:17409995.559001:us4:mc
+x-accounttype: pd
+x-mcda: TRUE
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1965655222
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+Happy 1 Month Anniversary - Get 2 For 1 & Always FREE shipping. =E2=86=92=
+ (https://www.thebouqs.com/en/content/8-how-it-works?th=3D0&spop=3D0&utm_s=
+ource=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DDrip&utm_content=3D1+M=
+onth) Having trouble viewing this email? (http://us4.campaign-archive2.com=
+/?u=3De9c7499aeda15720c6e28fa94&id=3D2f45c081f3&e=3D6b27779e22)
+
+http://www.thebouqs.com?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=
+=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month https://www.thebouqs.co=
+m/en/concierge-service?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=
+=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month
+
+SHOP ALL (https://www.thebouqs.com/en/43-all?th=3D0&spop=3D0&utm_source=3D=
+Mailchimp&utm_medium=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month) CO=
+NCIERGE SERVICE (https://www.thebouqs.com/en/concierge-service?th=3D0&spop=
+=3D0&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DDrip&utm_con=
+tent=3D1+Month) GET FREE BOUQS (https://www.thebouqs.com/en/getfreebouq?th=
+=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DDri=
+p&utm_content=3D1+Month) https://www.thebouqs.com/en/concierge-service?th=
+=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DDri=
+p&utm_content=3D1+Month
+
+http://www.thebouqs.com?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=
+=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month
+http://www.thebouqs.com?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=
+=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month
+YOUR CODE
+BQT4OQ0001X
+
+SNAG YOUR DEAL (http://www.thebouqs.com?th=3D0&spop=3D0&utm_source=3DMailc=
+himp&utm_medium=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month)
+
+1. Select any deluxe-sized Volcano Bouq (that's 2 bouqs!)
+2. At checkout=2C enter your code for $10 off the $50 price
+3. You pay the original-sized price of only $40
+4. Boom! Double-up=2C Boom Boom!
+
+* Code expires in 10 days & works only with your personal account
+
+https://www.thebouqs.com/en/content/19-press?th=3D0&spop=3D0&utm_source=3D=
+Mailchimp&utm_medium=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month
+
+ABOUT US (https://www.thebouqs.com/en/content/4-about-us?th=3D0&spop=3D0&u=
+tm_source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DDrip&utm_content=
+=3D1+Month) ABOUT THE FARM (https://www.thebouqs.com/en/content/20-about-t=
+he-farms?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_medium=3DEmail&utm_cam=
+paign=3DDrip&utm_content=3D1+Month) CONCIERGE SERVICE (https://www.thebouq=
+s.com/en/concierge-service?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_medi=
+um=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month) FAQ (https://www.the=
+bouqs.com/en/content/11-faq?th=3D0&spop=3D0&utm_source=3DMailchimp&utm_med=
+ium=3DEmail&utm_campaign=3DDrip&utm_content=3D1+Month)
+https://www.facebook.com/TheBouqs https://twitter.com/thebouqs/ http://ins=
+tagram.com/thebouqs/ http://pinterest.com/thebouqs/ https://plus.google.co=
+m/+thebouqs
+Fresh. Easy. Beautiful. The Bouqs Company: Bouquets=2C Simplified.
+If you would like to stop receiving emails from us=2C unsubscribe here (ht=
+tp://TheBouqs.us4.list-manage.com/unsubscribe?u=3De9c7499aeda15720c6e28fa9=
+4&id=3D217f35c4af&e=3D6b27779e22&c=3D2f45c081f3) .
+--_----------=_MCPart_1965655222
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1.0">
+<title>The Bouqs</title>
+<style type=3D"text/css">
+html>body {width:100% !important; -webkit-text-size-adjust:100%; margin:0;=
+ padding:0;}
+body=2C div=2C p=2C a=2C li=2C td{-webkit-text-size-adjust:none;}
+=2EReadMsgBody=2C .ExternalClass {width: 100% !important; background-color:#=
+ffffff;}
+=2EExternalClass=2C .ExternalClass p=2C .ExternalClass span=2C .ExternalClas=
+s font=2C .ExternalClass td=2C .ExternalClass div {line-height: 100%;}
+#outlook a {padding:0;}
+table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0=
+pt;}
+table td {border-collapse: collapse;}
+img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;d=
+isplay:block;}a img{border:none;}
+p{margin: 1em 0;}
+h1=2Ch3{color: #333333;}h2{color: #999999;}
+h1 a=2C h2 a=2C h3 a=2C h4 a=2C h5 a=2C h6 a {color: #ffffff !important;}
+h1 a:active=2Ch2 a:active=2Ch3 a:active=2Ch4 a:active=2Ch5 a:active=2C h6=
+ a:active {color: #ffffff;}
+h1 a:visited=2Ch2 a:visited=2Ch3 a:visited=2Ch4 a:visited=2Ch5 a:visited=
+=2Ch6 a:visited{color: #ffffff !important;}
+a {color:#ffffff;}a:link{color:#ffffff;}a:visited{color:#ffffff;}a:hover{c=
+olor:#ffffff; }
+=2Eyshortcuts a { border-bottom: none !important; }
+</style>
+</head>
+<body bgcolor=3D"#ffffff" style=3D"margin-top:0px;margin-bottom:0px;margin=
+-left:0px;margin-right:0px;padding-top:0px;padding-bottom:0px;padding-left=
+:0px;padding-right:0px;color:#333333;font-family:Arial=2Csans-serif;" bord=
+er=3D"0">
+<!-- preheader -->
+<table cellpadding=3D"2" cellspacing=3D"0" width=3D"97%" align=3D"center">
+=09<tr>
+=09=09<td align=3D"left" style=3D"font-family:Arial=2Csans-serif;"><a href=
+=3D"http://TheBouqs.us4.list-manage.com/track/click?u=3De9c7499aeda15720c6=
+e28fa94&id=3De8533976f1&e=3D6b27779e22" style=3D"color:#999999;text-decor=
+ation:none;font-size:9px;" target=3D"_blank" rel=3D"external" class=3D"ysh=
+ortcuts"><span style=3D"color:#999999;">Happy 1 Month Anniversary - Get 2=
+ For 1 &amp; Always FREE shipping.</span> <span style=3D"font-size:11px;">=
+=E2=86=92</span></a></td>
+=09=09<td align=3D"right" style=3D"font-family:Arial=2Csans-serif;"><a hre=
+f=3D"http://us4.campaign-archive2.com/?u=3De9c7499aeda15720c6e28fa94&id=3D=
+2f45c081f3&e=3D6b27779e22" style=3D"color:#999999;text-decoration:underline;=
+font-size:9px;" target=3D"_blank" rel=3D"alternate" class=3D"yshortcuts"><=
+span style=3D"color:#999999;">Having trouble viewing this email?</span></a=
+></td>
+=09</tr>
+</table>
+<!-- header -->
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" background=3D"https://www.thebouqs.com/img/cms/mail/_a/head/=
+v3/h-bg.jpg" bgcolor=3D"#ffffff">
+=09<tr>
+=09=09<td align=3D"center" valign=3D"top">
+=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"600">
+=09=09=09=09<tr><!-- Logo -->
+=09=09=09=09=09<td align=3D"center"><img alt=3D"" src=3D"https://www.thebo=
+uqs.com/img/cms/mail/_a/head/v3/h1.jpg" style=3D"display:block;" border=3D=
+"0" width=3D"235"></td>
+=09=09=09=09=09<td align=3D"center"><a href=3D"http://TheBouqs.us4.list-ma=
+nage.com/track/click?u=3De9c7499aeda15720c6e28fa94&id=3D9548e24025&e=3D=
+6b27779e22" target=3D"_blank" rel=3D"external"><img alt=3D"The Bouqs" src=3D=
+"https://www.thebouqs.com/img/cms/mail/_a/head/v3/h2.jpg" style=3D"display=
+:block;" border=3D"0" width=3D"129"></a></td>
+=09=09=09=09=09<td align=3D"center"><img alt=3D"" src=3D"https://www.thebo=
+uqs.com/img/cms/mail/_a/head/v3/h3.jpg" style=3D"display:block;" border=3D=
+"0" width=3D"142"></td>
+=09=09=09=09=09<td align=3D"center"><a href=3D"http://TheBouqs.us4.list-ma=
+nage.com/track/click?u=3De9c7499aeda15720c6e28fa94&id=3D667f4db7b3&e=3D=
+6b27779e22" target=3D"_blank" rel=3D"external"><img alt=3D"" src=3D"https://=
+www.thebouqs.com/img/cms/mail/_a/head/v3/h4.jpg" style=3D"display:block;"=
+ border=3D"0" width=3D"94"></a></td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr>
+</table>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" b=
+gcolor=3D"#333333" width=3D"100%">
+=09<tr>
+=09=09<td align=3D"center" valign=3D"top">
+=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" bgcolor=3D"#333333" width=3D"600">
+=09=09=09=09<tr>
+=09=09=09=09=09<td><!-- Nav Bar -->
+=09=09=09=09=09=09<table align=3D"right" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" bgcolor=3D"#333333" width=3D"506">
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<td align=3D"right" style=3D"font-family:Arial=2Cs=
+ans-serif;font-size:10px;"><a href=3D"http://TheBouqs.us4.list-manage.com/=
+track/click?u=3De9c7499aeda15720c6e28fa94&id=3D162856be6f&e=3D6b27779e22"=
+ style=3D"text-decoration:none;color:#ffffff;font-weight:normal;font-size:=
+9pt;" target=3D"_blank" rel=3D"external"><span style=3D"color:#ffffff;">SH=
+OP ALL</span></a></td>
+=09=09=09=09=09=09=09=09<td align=3D"right" style=3D"font-family:Arial=2Cs=
+ans-serif;font-size: 10px;"><a href=3D"http://TheBouqs.us4.list-manage.com=
+/track/click?u=3De9c7499aeda15720c6e28fa94&id=3D667f4db7b3&e=3D6b27779e22=
+" style=3D"text-decoration:none;color:#ffffff;font-weight:normal;font-size=
+:9pt;" target=3D"_blank" rel=3D"external"><span style=3D"color:#ffffff;">C=
+ONCIERGE SERVICE</span></a></td>
+=09=09=09=09=09=09=09=09<td align=3D"right" style=3D"font-family:Arial=2Cs=
+ans-serif;font-size:10px;"><a href=3D"http://TheBouqs.us4.list-manage.com/=
+track/click?u=3De9c7499aeda15720c6e28fa94&id=3Db99fdba95e&e=3D6b27779e22"=
+ style=3D"text-decoration:none;color:#ffffff;font-weight:normal;font-size:=
+9pt;" target=3D"_blank" rel=3D"external"><span style=3D"color:#ffffff;">GE=
+T FREE BOUQS</span></a></td>
+=09=09=09=09=09=09=09=09<td align=3D"right" style=3D"font-family:Arial=2Cs=
+ans-serif;"><a href=3D"http://TheBouqs.us4.list-manage1.com/track/click?u=
+=3De9c7499aeda15720c6e28fa94&id=3D667f4db7b3&e=3D6b27779e22" target=3D"_b=
+lank" rel=3D"external"><img alt=3D"" src=3D"https://www.thebouqs.com/img/c=
+ms/mail/_a/head/v3/h5.jpg" style=3D"display:block;" border=3D"0"></a></td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09</td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr>
+</table>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr=
+><td height=3D"18"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+><tr><td width=3D"100%" height=3D"18"></td></tr></table></td></tr></table>
+
+<center><!-- Body -->
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"600">
+=09<tr>=09=09=09=09=09=09
+=09=09<td align=3D"center" valign=3D"top">
+=09=09=09<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+=09=09=09=09<tr><!-- Top -->
+=09=09=09=09=09<td align=3D"center" valign=3D"top"><a href=3D"http://TheBo=
+uqs.us4.list-manage.com/track/click?u=3De9c7499aeda15720c6e28fa94&id=3D954=
+8e24025&e=3D6b27779e22" target=3D"_blank" rel=3D"external"><img src=3D"ht=
+tps://www.thebouqs.com/img/cms/mail/2013/drip/1-month/top.jpg" alt=3D"Refe=
+r to friends" style=3D"display:block; font-family:Arial=2Csans-serif;color=
+:#000000; font-size:14px;" border=3D"0"></a></td>
+=09=09=09=09</tr>
+=09=09=09=09<tr>
+=09=09=09=09=09<td align=3D"center" valign=3D"top">
+=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+=09=09=09=09=09=09=09<tr><!-- Left -->
+=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=3D"http:=
+//TheBouqs.us4.list-manage.com/track/click?u=3De9c7499aeda15720c6e28fa94&i=
+d=3D9548e24025&e=3D6b27779e22" target=3D"_blank" rel=3D"external"><img sr=
+c=3D"https://www.thebouqs.com/img/cms/mail/2013/drip/1-month/left.jpg" alt=
+=3D"" style=3D"display:block;" border=3D"0"></a></td>
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09<td valign=3D"top"><!-- Circle Column -->
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td colspan=3D"3" valign=3D"top"><img src=
+=3D"https://www.thebouqs.com/img/cms/mail/2013/drip/1-month/mtop.jpg" alt=
+=3D"" style=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td colspan=3D"3" valign=3D"top"><img src=
+=3D"https://www.thebouqs.com/img/cms/mail/2013/drip/1-month/ctop.jpg" alt=
+=3D"" style=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td valign=3D"top"><img src=3D"https://ww=
+w.thebouqs.com/img/cms/mail/2013/drip/1-month/cleft.jpg" alt=3D"" style=3D=
+"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09=09<td width=3D"92" valign=3D"middle" align=
+=3D"center" style=3D"color:#231f20; font-family:Arial=2Csans-serif;font-si=
+ze:13px;font-weight:bold;">YOUR CODE<br>BQT4OQ0001X</td>
+=09=09=09=09=09=09=09=09=09=09=09<td valign=3D"top"><img src=3D"https://ww=
+w.thebouqs.com/img/cms/mail/2013/drip/1-month/cright.jpg" alt=3D"" style=
+=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td colspan=3D"3" valign=3D"top"><img src=
+=3D"https://www.thebouqs.com/img/cms/mail/2013/drip/1-month/cbottom.jpg" a=
+lt=3D"" style=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td colspan=3D"3" valign=3D"top"><img src=
+=3D"https://www.thebouqs.com/img/cms/mail/2013/drip/1-month/mbottom.jpg" a=
+lt=3D"" style=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td height=3D"30" colspan=3D"3" bgcolor=
+=3D"#ff0099" style=3D"color:#ffffff;font-family:Arial=2Csans-serif;font-si=
+ze:13px;font-weight:bold;"><center><a href=3D"http://TheBouqs.us4.list-man=
+age1.com/track/click?u=3De9c7499aeda15720c6e28fa94&id=3D9548e24025&e=3D=
+6b27779e22" target=3D"_blank" rel=3D"external" style=3D"color:#ffffff; text-=
+decoration:none;"><span style=3D"color:#ffffff;">SNAG YOUR DEAL</span></a>=
+</center></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09<td colspan=3D"3" align=3D"bottom" valign=
+=3D"top"><img src=3D"https://www.thebouqs.com/img/cms/mail/2013/drip/1-mon=
+th/bottom.jpg" alt=3D"" style=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09<td align=3D"right" valign=3D"top"><img src=3D"htt=
+ps://www.thebouqs.com/img/cms/mail/2013/drip/1-month/right.jpg" alt=3D"" s=
+tyle=3D"display:block;" border=3D"0"></td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09</td>
+=09=09=09=09</tr>
+=09=09=09=09<tr><!-- Space -->
+=09=09=09=09=09<td align=3D"center"><table height=3D"2" width=3D"100%" sty=
+le=3D"font-size:0; line-height:0;" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0"><tr><td height=3D"2" width=3D"100%"></td></tr></table></td>
+=09=09=09=09</tr>
+=09=09=09=09<tr>
+=09=09=09=09=09<td width=3D"561" height=3D"136" align=3D"center">
+=09=09=09=09=09=09<table background=3D"https://www.thebouqs.com/img/cms/ma=
+il/2013/drip/1-month/steps.jpg" bgcolor=3D"#333333" width=3D"561" height=
+=3D"136" cellpadding=3D"0" cellspacing=3D"0">
+=09=09=09=09=09=09=09<tr><!-- Ordered List -->
+=09=09=09=09=09=09=09=09<td style=3D"color:#ffffff; font-family:Arial=2Csa=
+ns-serif;font-size:12px;" align=3D"left" valign=3D"middle">
+=09=09=09=09=09=09=09=09=09<ol style=3D"margin:0px;">
+=09=09=09=09=09=09=09=09=09=09<li style=3D"margin:0px;">Select any deluxe-=
+sized Volcano Bouq &#40;that's 2 bouqs&#33;&#41;<br><br></li>
+=09=09=09=09=09=09=09=09=09=09<li style=3D"margin:0px;">At checkout=2C ent=
+er your code for &#36;10 off the &#36;50 price<br><br></li>
+=09=09=09=09=09=09=09=09=09=09<li style=3D"margin:0px;">You pay the origin=
+al-sized price of only &#36;40<br><br></li>
+=09=09=09=09=09=09=09=09=09=09<li style=3D"margin:0px;">Boom&#33; Double&#=
+45;up=2C Boom Boom&#33;</li>
+=09=09=09=09=09=09=09=09=09</ol>
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09<tr><td align=3D"center"><table height=3D"2" width=3D=
+"100%" style=3D"font-size:0; line-height:0;" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0"><tr><td height=3D"2" width=3D"100%"></td></tr></table>=
+</td></tr>
+=09=09=09=09=09    </table>
+=09=09=09=09=09</td>
+=09=09=09=09</tr>
+=09=09=09=09<tr>
+=09=09=09=09=09<td width=3D"561" align=3D"center" style=3D"color:#333333;=
+ font-family:Arial=2Csans-serif;font-size: 9.4px;font-weight:300; text-ali=
+gn:center; padding:8px;" valign=3D"middle">&#42; Code expires in 10 days &=
+#38; works only with your personal account</td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr>
+</table>
+</center>
+<!-- Space -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr=
+><td height=3D"40"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+><tr><td width=3D"100%" height=3D"40"></td></tr></table></td></tr></table>
+<center>
+<!-- Footer -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+
+=09<tr><!-- Press Bar -->
+=09=09<td height=3D"53" align=3D"center" bgcolor=3D"#ffffff">
+=09=09=09<table border=3D"0" cellpadding=3D"15" cellspacing=3D"0" width=3D=
+"560" align=3D"center">
+=09=09=09=09<tr>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage1.com/track/c=
+lick?u=3De9c7499aeda15720c6e28fa94&id=3D3259c63a17&e=3D6b27779e22" target=
+=3D"_blank" rel=3D"endorsed"><img src=3D"https://www.thebouqs.com/img/cms/=
+mail/_a/press/v1/press.jpg" alt=3D"Featured by Forbes=2C The Wall Street J=
+ournal=2C Oprah Magazine=2C USA Today=2C and others" border=3D"0" style=3D=
+"display:block;font-family:Arial=2Csans-serif;font-size:14px;color:#000000=
+;"></a></td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr>
+</table>
+</center>
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgc=
+olor=3D"#333333">
+=09<tr><!-- Footer Nav Bar -->
+=09=09<td height=3D"42" align=3D"justify" bgcolor=3D"#333333" valign=3D"to=
+p">
+=09=09=09<table border=3D"0" cellpadding=3D"12" cellspacing=3D"0" width=3D=
+"560" align=3D"center">
+=09=09=09=09<tr>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage.com/track/cl=
+ick?u=3De9c7499aeda15720c6e28fa94&id=3Dc33e8661d7&e=3D6b27779e22" style=
+=3D"font-family:Arial=2Csans-serif;font-size:12px;font-weight:bold;color:#=
+ffffff;text-decoration:none;" class=3D"yshortcuts" target=3D"_blank" rel=
+=3D"help resource"><span style=3D"color:#ffffff;">ABOUT US</span></a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage.com/track/cl=
+ick?u=3De9c7499aeda15720c6e28fa94&id=3D447b929c30&e=3D6b27779e22" style=
+=3D"font-family:Arial=2Csans-serif;font-size:12px;font-weight:bold;color:#=
+ffffff;text-decoration:none;" class=3D"yshortcuts" target=3D"_blank" rel=
+=3D"external resource"><span style=3D"color:#ffffff;">ABOUT THE FARM</span=
+></a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage.com/track/cl=
+ick?u=3De9c7499aeda15720c6e28fa94&id=3D667f4db7b3&e=3D6b27779e22" style=
+=3D"font-family:Arial=2Csans-serif;font-size:12px;font-weight:bold;color:#=
+ffffff;text-decoration:none;" class=3D"yshortcuts" target=3D"_blank" rel=
+=3D"home category"><span style=3D"color:#ffffff;">CONCIERGE SERVICE</span>=
+</a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage1.com/track/c=
+lick?u=3De9c7499aeda15720c6e28fa94&id=3Ddabb698151&e=3D6b27779e22" style=
+=3D"font-family:Arial=2Csans-serif;font-size:12px;font-weight:bold;color:#=
+ffffff;text-decoration:none;" class=3D"yshortcuts" target=3D"_blank" rel=
+=3D"external help resource"><span style=3D"color:#ffffff;">FAQ</span></a><=
+/td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr>
+=09<tr><!-- Social Icons -->
+=09=09<td height=3D"38" align=3D"justify" bgcolor=3D"#333333" valign=3D"to=
+p">
+=09=09=09<table border=3D"0" cellpadding=3D"1" cellspacing=3D"0" width=3D"=
+190" align=3D"center">
+=09=09=09=09<tr>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage.com/track/cl=
+ick?u=3De9c7499aeda15720c6e28fa94&id=3D774ec16f20&e=3D6b27779e22" target=
+=3D"_blank" rel=3D"me"><img src=3D"https://www.thebouqs.com/img/cms/mail/_=
+a/social/v2/fb.jpg" alt=3D"Facebook" border=3D"0"></a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage1.com/track/c=
+lick?u=3De9c7499aeda15720c6e28fa94&id=3D318aebff8a&e=3D6b27779e22" target=
+=3D"_blank" rel=3D"me"><img src=3D"https://www.thebouqs.com/img/cms/mail/_=
+a/social/v2/tw.jpg" alt=3D"Twitter" border=3D"0"></a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage.com/track/cl=
+ick?u=3De9c7499aeda15720c6e28fa94&id=3De10eac0c3a&e=3D6b27779e22" target=
+=3D"_blank" rel=3D"me"><img src=3D"https://www.thebouqs.com/img/cms/mail/_=
+a/social/v2/ig.jpg" alt=3D"Instagram" border=3D"0"></a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage1.com/track/c=
+lick?u=3De9c7499aeda15720c6e28fa94&id=3D55fe17fc03&e=3D6b27779e22" target=
+=3D"_blank" rel=3D"me"><img src=3D"https://www.thebouqs.com/img/cms/mail/_=
+a/social/v2/pi.jpg" alt=3D"pInterest" border=3D"0"></a></td>
+=09=09=09=09=09<td><a href=3D"http://TheBouqs.us4.list-manage.com/track/cl=
+ick?u=3De9c7499aeda15720c6e28fa94&id=3D855781898f&e=3D6b27779e22" target=
+=3D"_blank" rel=3D"me publisher"><!-- rel:publisher value only works for G=
++ --><img src=3D"https://www.thebouqs.com/img/cms/mail/_a/social/v2/gp.jpg=
+" alt=3D"Google&#43;" border=3D"0"></a></td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr><!-- Post -->
+=09<tr>
+=09=09<td align=3D"center" bgcolor=3D"#333333" valign=3D"top">
+=09=09=09<table border=3D"0" cellpadding=3D"8" cellspacing=3D"0" width=3D"=
+100%">
+=09=09=09=09<tr>
+=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09<span style=3D"font-family:Arial=2Csans-serif;font-size:=
+12px;font-weight:normal;color:#ffffff;">Fresh&#46;&#32;Easy&#46;&#32;Beaut=
+iful&#46;&#32;The Bouqs Company&#58;&#32;&#32;Bouquets&#44;&#32;Simplified=
+&#46;</span>
+=09=09=09=09=09=09<br>
+=09=09=09=09=09=09<span style=3D"font-family:Arial=2Csans-serif;font-size:=
+10px;font-weight:normal;color:#ffffff;margin:3px;">If you would like to st=
+op receiving emails from us&#44;&#32;</span><a href=3D"http://TheBouqs.us4=
+=2Elist-manage.com/unsubscribe?u=3De9c7499aeda15720c6e28fa94&id=3D217f35c4af=
+&e=3D6b27779e22&c=3D2f45c081f3" style=3D"color:#ffffff;font-weight:normal;te=
+xt-decoration:underline;text-transform:none;font-size:10px;" rel=3D"extern=
+al" class=3D"yshortcuts">unsubscribe here</a>&#46;<br>
+=09=09=09=09=09</td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09</td>
+=09</tr>
+</table>
+</center>
+<img src=3D"http://TheBouqs.us4.list-manage.com/track/open.php?u=3De9c7499=
+aeda15720c6e28fa94&id=3D2f45c081f3&e=3D6b27779e22" height=3D"1" width=3D"=
+1"></body>
+</html>
+--_----------=_MCPart_1965655222--

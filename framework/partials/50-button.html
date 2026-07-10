@@ -1,0 +1,30 @@
+              <!--
+                ==============================================================
+                50-button.html  —  bulletproof call-to-action
+                ==============================================================
+                The single most-broken component in email. A styled <a> is not
+                enough: the classic Outlook Word engine ignores padding and
+                border-radius on links, so the clickable area collapses to the
+                text. The fix is a dual build:
+
+                (a) [if mso]  -> a VML <v:roundrect> draws a real, fully
+                    clickable, rounded rectangle in classic Outlook. arcsize is
+                    the corner radius as a % of height.
+                (b) [if !mso] -> a padded, rounded <a> for every other client.
+
+                Only one is ever shown. Keep the label text identical in both.
+                mso-padding-alt / the inner center span size the Outlook button.
+              -->
+              <tr>
+                <td align="center" valign="top" style="padding:8px 40px 8px 40px;">
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{buttonUrl}}" style="height:48px; v-text-anchor:middle; width:260px;" arcsize="12%" strokecolor="{{buttonBg}}" fillcolor="{{buttonBg}}">
+                    <w:anchorlock/>
+                    <center style="color:{{buttonColor}}; font-family:Arial,sans-serif; font-size:16px; font-weight:bold;">{{buttonText}}</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--[if !mso]><!-->
+                  <a href="{{buttonUrl}}" target="_blank" style="background-color:{{buttonBg}}; border-radius:6px; color:{{buttonColor}}; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:bold; line-height:48px; text-align:center; text-decoration:none; width:260px; -webkit-text-size-adjust:none; mso-hide:all;">{{buttonText}}</a>
+                  <!--<![endif]-->
+                </td>
+              </tr>

@@ -1,0 +1,18 @@
+          <!--
+            ==================================================================
+            10-preheader.html  —  inbox preview text
+            ==================================================================
+            The preheader is the grey summary line shown after the subject in
+            most inboxes. If you omit it, clients scrape the first visible text
+            (often "View in browser" or a bare link), which looks broken.
+
+            - Hidden from the rendered email (display:none + zero size + opacity).
+            - The run of &zwnj;&nbsp; entities is a spacer: it PUSHES the real
+              body content out of the preview line so only your preheader shows.
+              Without it, clients append body text after your preheader.
+            - mso-hide:all hides it in Outlook too.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#f4f4f7;">
+            {{preheaderText}}
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>

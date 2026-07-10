@@ -1,0 +1,17 @@
+{
+  "name": "cross-client-email-framework-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-dependency assembler for the cross-client HTML email framework. No MJML: output is the hand-tuned partials verbatim.",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:prod": "node build.mjs --production",
+    "skeleton": "node build.mjs --skeleton --out ../template.html",
+    "lint": "node lint.mjs ../dist/email.html",
+    "verify": "node build.mjs && node lint.mjs ../dist/email.html"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

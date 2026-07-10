@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="x-apple-disable-message-reformatting"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no"><title>Everlasting Blooms — Northwind Botanicals</title><!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]--><!--[if mso]><style type="text/css">
+    /* Word engine has no web-font support and falls back to Times New Roman.
+       Force a web-safe stack so brand type degrades to Arial, not a serif. */
+    * { font-family: Arial, Helvetica, sans-serif !important; }
+    /* mso-line-height-rule:exactly stops Word from adding leading above text. */
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    /* Kill the 1px table gaps Word inserts. */
+    table { border-collapse: collapse; }
+  </style><![endif]--><style type="text/css">
+    /* ---------------------------------------------------------------------
+       1. RESETS — normalise the ~15 clients that mangle defaults
+       --------------------------------------------------------------------- */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    /* Stop iOS/Windows auto-inflating font sizes it deems "too small". */
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    /* Remove the space Outlook adds around tables; force collapse everywhere. */
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    /* Images: block-level kills the 3px "descender" gap under images in most
+       clients; bicubic keeps scaled images smooth in Outlook. */
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    /* Outlook.com / Windows Live wraps content in .ExternalClass — force full
+       width and consistent line-height so it does not add vertical padding. */
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    /* iOS auto-detects dates/addresses and re-colours them — neutralise it. */
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    /* Gmail/Android colour phone numbers & the footer address blue — reset. */
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    /* Samsung Mail sometimes adds its own link styling; scope-reset it. */
+    #MessageViewBody a { color:inherit; }
+    /* ---------------------------------------------------------------------
+       2. FLUID-HYBRID RESPONSIVE — works even where @media is unsupported
+          (old Android 4.x stock mail, some Samsung builds, Outlook via ghost
+          tables). Columns are inline-blocks that wrap naturally; the media
+          query below is an enhancement, not a dependency.
+       --------------------------------------------------------------------- */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+    /* ---------------------------------------------------------------------
+       3. DARK MODE — no client agrees on this, so we handle three paths:
+          (a) prefers-color-scheme  -> Apple Mail, iOS, Outlook for Mac,
+              Samsung Mail, Thunderbird, Outlook (new/Chromium).
+          (b) [data-ogsc]/[data-ogsb] -> Outlook.com & old Outlook apps, which
+              partially invert and expose these attributes on each element.
+          (c) Gmail ignores everything above and runs its own inversion — the
+              defence for Gmail is in the markup: give every cell an explicit
+              bgcolor and avoid pure #000000/#ffffff (see footer/hero notes).
+       --------------------------------------------------------------------- */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#111114 !important; }
+      .darkmode-text, .darkmode-text * { color:#e6e6e6 !important; }
+      .darkmode-muted, .darkmode-muted * { color:#a8a8a8 !important; }
+      .darkmode-card { background-color:#1c1c20 !important; }
+      /* Swap a light logo in for dark backgrounds without a code fork. */
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#e6e6e6 !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#a8a8a8 !important; }
+    [data-ogsb] .darkmode-bg { background-color:#111114 !important; }
+    [data-ogsb] .darkmode-card { background-color:#1c1c20 !important; }
+  </style></head><body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#f4f4f7; color:#2b2b2b; font-family:Arial,Helvetica,sans-serif;"><div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#f4f4f7;">
+            Dried & preserved arrangements, made to last. New season, now shipping.
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div><div role="article" aria-roledescription="email" aria-label="Everlasting Blooms — Northwind Botanicals" lang="en" style="background-color:#f4f4f7;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#f4f4f7;"><tr><td align="center" valign="top" style="padding:24px 12px;"><!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]--><div class="email-container" style="max-width:600px; margin:0 auto;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:8px 8px 0 0;"><tr><td align="center" valign="middle" style="padding:24px 24px 20px 24px;"><a href="https://example.com" target="_blank" style="text-decoration:none;"><img class="fluid darkmode-hide" src="../assets/logo.png" width="180" alt="Northwind Botanicals" style="width:180px; max-width:60%; height:auto; display:block; border:0;"><!--[if !mso]><!--><img class="darkmode-show" src="../assets/logo-light.png" width="180" alt="Northwind Botanicals" style="display:none; width:180px; max-width:60%; height:auto; border:0;"><!--<![endif]--></a></td></tr></table><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;"><tr><td align="center" valign="top" style="padding:0;"><a href="https://example.com/new" target="_blank" style="text-decoration:none;"><img class="fluid" src="../assets/hero.jpg" width="600" alt="A hand-tied arrangement of dried botanicals in a terracotta vase" style="width:100%; max-width:600px; height:auto; display:block; border:0;"></a></td></tr><tr><td align="center" valign="top" class="darkmode-text pad-on-narrow" style="padding:32px 40px 8px 40px; font-family:Georgia,'Times New Roman',serif; font-size:28px; line-height:34px; color:#1b1b1b; font-weight:normal;">
+                  Everlasting Blooms
+                </td></tr><tr><td align="center" valign="top" class="darkmode-text pad-on-narrow" style="padding:8px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:24px; color:#4a4a4a;">
+                  Our dried and preserved arrangements bring the quiet of a northern meadow indoors — no water, no wilting, just months of understated colour.
+                </td></tr><!--
+                ==============================================================
+                50-button.html  —  bulletproof call-to-action
+                ==============================================================
+                The single most-broken component in email. A styled <a> is not
+                enough: the classic Outlook Word engine ignores padding and
+                border-radius on links, so the clickable area collapses to the
+                text. The fix is a dual build:
+                (a) [if mso]  -> a VML <v:roundrect> draws a real, fully
+                    clickable, rounded rectangle in classic Outlook. arcsize is
+                    the corner radius as a % of height.
+                (b) [if !mso] -> a padded, rounded <a> for every other client.
+                Only one is ever shown. Keep the label text identical in both.
+                mso-padding-alt / the inner center span size the Outlook button.
+              --><tr><td align="center" valign="top" style="padding:8px 40px 8px 40px;"><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.com/shop" style="height:48px; v-text-anchor:middle; width:260px;" arcsize="12%" strokecolor="#1b4735" fillcolor="#1b4735"><w:anchorlock/><center style="color:#ffffff; font-family:Arial,sans-serif; font-size:16px; font-weight:bold;">Shop the collection</center></v:roundrect><![endif]--><!--[if !mso]><!--><a href="https://example.com/shop" target="_blank" style="background-color:#1b4735; border-radius:6px; color:#ffffff; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:bold; line-height:48px; text-align:center; text-decoration:none; width:260px; -webkit-text-size-adjust:none; mso-hide:all;">Shop the collection</a><!--<![endif]--></td></tr><tr><td style="height:16px; line-height:16px; font-size:0;">&nbsp;</td></tr></table><!--
+              ================================================================
+              40-columns.html  —  two columns that stack on mobile (fluid-hybrid)
+              ================================================================
+              The canonical responsive pattern that also works where media
+              queries do NOT (old Android stock mail, some Samsung builds):
+              - Each column is a .stack-column inline-block with max-width. On a
+                wide screen two sit side by side; on a narrow screen they wrap /
+                the media query forces display:block full width.
+              - The [if mso] ghost <td>s give classic Outlook (no inline-block)
+                a real two-cell table instead.
+              - font-size:0 on the wrapper cell removes the whitespace gap
+                between inline-blocks; each column restores its own font-size.
+              - Duplicate this <tr> block for more rows; use max-width:135px and
+                four columns for a 4-up grid.
+            --><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;"><tr><td align="center" valign="top" style="padding:8px 24px 24px 24px; font-size:0; text-align:center;"><!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="50%" valign="top"><![endif]--><div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="padding:12px;"><a href="https://example.com/p/foreman" target="_blank" style="text-decoration:none;"><img class="fluid" src="../assets/product-1.jpg" width="231" alt="The Foreman" style="width:100%; max-width:231px; height:auto; display:block; border:0; border-radius:6px;"></a></td></tr><tr><td align="center" class="darkmode-text" style="padding:4px 12px 2px 12px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:22px; color:#1b1b1b; font-weight:bold;">The Foreman</td></tr><tr><td align="center" class="darkmode-muted" style="padding:0 12px 8px 12px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:20px; color:#6a6a6a;">Cedar, wheat and eucalyptus in a matte stoneware vase.</td></tr></table></div><!--[if mso]></td><td width="50%" valign="top"><![endif]--><div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="padding:12px;"><a href="https://example.com/p/understory" target="_blank" style="text-decoration:none;"><img class="fluid" src="../assets/product-2.jpg" width="231" alt="The Understory" style="width:100%; max-width:231px; height:auto; display:block; border:0; border-radius:6px;"></a></td></tr><tr><td align="center" class="darkmode-text" style="padding:4px 12px 2px 12px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:22px; color:#1b1b1b; font-weight:bold;">The Understory</td></tr><tr><td align="center" class="darkmode-muted" style="padding:0 12px 8px 12px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:20px; color:#6a6a6a;">Ferns, ivy and cream roses for a woodland table.</td></tr></table></div><!--[if mso]></td></tr></table><![endif]--></td></tr></table><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2b2b30; border-radius:0 0 8px 8px;"><tr><td align="center" valign="top" style="padding:28px 24px 12px 24px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:0 6px;"><a href="https://facebook.com/" target="_blank"><img src="../assets/social-facebook.png" width="28" height="28" alt="Facebook" style="display:block; border:0;"></a></td><td style="padding:0 6px;"><a href="https://instagram.com/" target="_blank"><img src="../assets/social-instagram.png" width="28" height="28" alt="Instagram" style="display:block; border:0;"></a></td><td style="padding:0 6px;"><a href="https://twitter.com/" target="_blank"><img src="../assets/social-twitter.png" width="28" height="28" alt="Twitter/X" style="display:block; border:0;"></a></td><td style="padding:0 6px;"><a href="https://pinterest.com/" target="_blank"><img src="../assets/social-pinterest.png" width="28" height="28" alt="Pinterest" style="display:block; border:0;"></a></td></tr></table></td></tr><tr><td align="center" valign="top" style="padding:8px 40px 6px 40px; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#d8d8d8;"><strong>Northwind Botanicals</strong><br>
+                  1 Meadow Lane, Portland, OR 97201
+                </td></tr><tr><td align="center" valign="top" style="padding:6px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#9a9aa2;"><a href="*|ARCHIVE|*" target="_blank" style="color:#9a9aa2; text-decoration:underline;">View in browser</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="*|UPDATE_PROFILE|*" target="_blank" style="color:#9a9aa2; text-decoration:underline;">Update preferences</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="*|UNSUB|*" target="_blank" style="color:#9a9aa2; text-decoration:underline;">Unsubscribe</a><br><br>
+                  You are receiving this because you subscribed at northwindbotanicals.example. © Northwind Botanicals.
+                </td></tr></table></div><!--[if mso]></td></tr></table><![endif]--></td></tr></table></div></body></html>
+

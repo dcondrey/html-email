@@ -1,0 +1,53 @@
+            <!--
+              ================================================================
+              35-hero-bg.html  —  HERO with text OVER a background image
+              ================================================================
+              The 2014 signature feature, still the hardest thing to do in email.
+              This is an OPTIONAL alternative to 30-hero.html. To use it, swap the
+              filename in build.mjs's MANIFEST (30-hero.html -> 35-hero-bg.html).
+
+              How it works — a "bulletproof background":
+              - Modern clients read the CSS background-image on the <td> (plus the
+                legacy `background` attribute as a belt-and-braces fallback).
+              - Classic Outlook (Word), which has NO background-image support, gets
+                a VML <v:rect> with <v:fill type="frame"> that paints the image,
+                and a <v:textbox> that lets real text sit on top of it. This is the
+                only technique that overlays text on an image in Outlook.
+              - bgcolor + the v:fill `color` give every client a solid fallback so
+                a blocked or unsupported image never leaves an empty/illegible box.
+              - text-shadow keeps the overlaid text readable over a busy photo in
+                clients that support it; the dark fallback colour covers the rest.
+
+              Rule unchanged from 30-hero: the HEADLINE may live in this image-
+              backed block for brand effect, but never bury the core MESSAGE in a
+              background — keep body copy as live HTML below.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1b4735;">
+              <tr>
+                <td background="{{heroBgImageUrl}}" bgcolor="#1b4735" valign="middle" height="400" style="background-image:url('{{heroBgImageUrl}}'); background-position:center center; background-size:cover; background-repeat:no-repeat; height:400px;">
+                  <!--[if gte mso 9]>
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; height:400px;">
+                    <v:fill type="frame" src="{{heroBgImageUrl}}" color="#1b4735" />
+                    <v:textbox inset="0,0,0,0">
+                  <![endif]-->
+                  <div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td align="center" valign="middle" class="pad-on-narrow" style="padding:64px 40px;">
+                          <div style="font-family:Georgia,'Times New Roman',serif; font-size:34px; line-height:40px; color:#ffffff; font-weight:normal; text-shadow:0 1px 6px rgba(0,0,0,0.55);">{{heroBgHeadline}}</div>
+                          <div style="font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:24px; color:#f2f2f2; padding-top:12px; text-shadow:0 1px 5px rgba(0,0,0,0.55);">{{heroBgSubtext}}</div>
+                        </td>
+                      </tr>
+
+                      <!-- {{>button}} -->
+
+                      <tr><td style="height:16px; line-height:16px; font-size:0;">&nbsp;</td></tr>
+                    </table>
+                  </div>
+                  <!--[if gte mso 9]>
+                    </v:textbox>
+                  </v:rect>
+                  <![endif]-->
+                </td>
+              </tr>
+            </table>

@@ -1,0 +1,46 @@
+            <!--
+              ================================================================
+              40-columns.html  —  two columns that stack on mobile (fluid-hybrid)
+              ================================================================
+              The canonical responsive pattern that also works where media
+              queries do NOT (old Android stock mail, some Samsung builds):
+
+              - Each column is a .stack-column inline-block with max-width. On a
+                wide screen two sit side by side; on a narrow screen they wrap /
+                the media query forces display:block full width.
+              - The [if mso] ghost <td>s give classic Outlook (no inline-block)
+                a real two-cell table instead.
+              - font-size:0 on the wrapper cell removes the whitespace gap
+                between inline-blocks; each column restores its own font-size.
+              - Duplicate this <tr> block for more rows; use max-width:135px and
+                four columns for a 4-up grid.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+              <tr>
+                <td align="center" valign="top" style="padding:8px 24px 24px 24px; font-size:0; text-align:center;">
+
+                  <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="50%" valign="top"><![endif]-->
+                  <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr><td align="center" style="padding:12px;">
+                        <a href="{{col1Url}}" target="_blank" style="text-decoration:none;"><img class="fluid" src="{{col1ImageUrl}}" width="231" alt="{{col1Title}}" style="width:100%; max-width:231px; height:auto; display:block; border:0; border-radius:6px;"></a>
+                      </td></tr>
+                      <tr><td align="center" class="darkmode-text" style="padding:4px 12px 2px 12px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:22px; color:#1b1b1b; font-weight:bold;">{{col1Title}}</td></tr>
+                      <tr><td align="center" class="darkmode-muted" style="padding:0 12px 8px 12px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:20px; color:#6a6a6a;">{{col1Text}}</td></tr>
+                    </table>
+                  </div>
+                  <!--[if mso]></td><td width="50%" valign="top"><![endif]-->
+                  <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr><td align="center" style="padding:12px;">
+                        <a href="{{col2Url}}" target="_blank" style="text-decoration:none;"><img class="fluid" src="{{col2ImageUrl}}" width="231" alt="{{col2Title}}" style="width:100%; max-width:231px; height:auto; display:block; border:0; border-radius:6px;"></a>
+                      </td></tr>
+                      <tr><td align="center" class="darkmode-text" style="padding:4px 12px 2px 12px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:22px; color:#1b1b1b; font-weight:bold;">{{col2Title}}</td></tr>
+                      <tr><td align="center" class="darkmode-muted" style="padding:0 12px 8px 12px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:20px; color:#6a6a6a;">{{col2Text}}</td></tr>
+                    </table>
+                  </div>
+                  <!--[if mso]></td></tr></table><![endif]-->
+
+                </td>
+              </tr>
+            </table>

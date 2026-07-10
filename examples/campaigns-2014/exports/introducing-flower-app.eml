@@ -1,0 +1,578 @@
+Return-path:
+ <bounce-mc.us4_17409995.559153-davidcondrey=me.com@mail51.atl51.rsgsv.net>
+Received: from nk11p00mm-smtpin007.mac.com ([17.158.164.136])
+ by ms04581.mac.com
+ (Oracle Communications Messaging Server 7u4-27.08(7.0.4.27.7) 64bit (built Aug
+ 22 2013)) with ESMTP id <0N1900L8X53XSBA0@ms04581.mac.com> for
+ davidcondrey@me.com; Wed, 19 Feb 2014 16:43:09 +0000 (GMT)
+Original-recipient: rfc822;davidcondrey@me.com
+Received: from mail51.atl51.rsgsv.net ([205.201.135.51])
+ by nk11p00mm-smtpin007.mac.com
+ (Oracle Communications Messaging Server 7u4-27.08(7.0.4.27.7) 64bit (built Aug
+ 22 2013)) with ESMTP id <0N19002UZ53EUA41@nk11p00mm-smtpin007.mac.com> for
+ davidcondrey@me.com (ORCPT davidcondrey@me.com); Wed,
+ 19 Feb 2014 16:43:09 +0000 (GMT)
+Received-SPF: pass (nk11p00mm-smtpin015.mac.com: domain of
+ bounce-mc.us4_17409995.559153-davidcondrey=me.com@mail51.atl51.rsgsv.net
+ designates 205.201.135.51 as permitted sender)
+ receiver=nk11p00mm-smtpin015.mac.com; client-ip=205.201.135.51;
+ helo=mail51.atl51.rsgsv.net;
+ envelope-from=bounce-mc.us4_17409995.559153-davidcondrey=me.com@mail51.atl51.rsgsv.net;
+ x-software=spfmilter 0.97 http://www.acme.com/software/spfmilter/ with
+ libspf-unknown;
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=k1;
+ d=mail51.atl51.rsgsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-Unsubscribe:Sender:Content-Type:MIME-Version;
+ i=bouqaneers=3Dthebouqs.com@mail51.atl51.rsgsv.net;
+ bh=ycm4/4JU7I7+63P/EJPq8RZrwvs=;
+ b=Zco8FsSN5InkoS/WgKfW3H7Qt7IbcA2Kh7VuwBxfOPh6Yw0HEtrcX31P+CDTQc1/2pLxPpB94YRw
+   Cv1B8t0pg90L0XYjFbffNuW2AFTvlmXcZs02J9N8SQ8mV1iUhf66+40lwgv+MFpvtuLN+a87XwgG
+   amwhvRlef9g0AUE1PiM=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=k1;
+ d=mail51.atl51.rsgsv.net;
+ b=X9deaOU7Akwd3TXpqKuA+OQASd4i27j0Hv837V9JmGfX3dFKIeHdAesZFTNT7DnXZyNDO0KwjgMG
+   sM3rt6iJY19ZwVsTyV3UiSIZpyjIkUO7KxIen7rqA7iUIR8QqRijJJx4HvR/0SxZDpaTAFktARFp
+   RNcCUE2tBvhsZLYTTUk=;
+Received: from (127.0.0.1) by mail51.atl51.rsgsv.net id h0jfho1mr1oh for
+ <davidcondrey@me.com>; Wed, 19 Feb 2014 16:41:29 +0000
+Subject: =?utf-8?Q?Introducing=20The=20Best=20Flower=20App.=20Ever.?=
+From: =?utf-8?Q?Bouq=27aneers?= <bouqaneers@thebouqs.com>
+Reply-to: =?utf-8?Q?Bouq=27aneers?= <bouqaneers@thebouqs.com>
+To: =?utf-8?Q?David?= <davidcondrey@me.com>
+Date: Wed, 19 Feb 2014 16:41:29 +0000
+Message-id:
+ <e9c7499aeda15720c6e28fa946b27779e22.20140219164023@mail51.atl51.rsgsv.net>
+X-Mailer: MailChimp Mailer - **CID0f733a595c6b27779e22**
+List-Unsubscribe:
+ <mailto:unsubscribe-e9c7499aeda15720c6e28fa94-0f733a595c-6b27779e22@mailin1.us2.mcsv.net?subject=unsubscribe>,
+ <http://TheBouqs.us4.list-manage1.com/unsubscribe?u=e9c7499aeda15720c6e28fa94&id=217f35c4af&e=6b27779e22&c=0f733a595c>
+Sender: Bouq'aneers <bouqaneers=thebouqs.com@mail51.atl51.rsgsv.net>
+Content-type: multipart/alternative; boundary="_----------=_MCPart_433182345"
+MIME-version: 1.0
+Authentication-results: nk11p00mm-smtpin007.mac.com; dkim=pass
+	reason="1024-bit key"	header.d=mail51.atl51.rsgsv.net
+ header.i=bouqaneers=thebouqs.com@mail51.atl51.rsgsv.net	header.b=Zco8FsSN;
+ dkim-adsp=none
+x-icloud-spam-score: 33322
+ f=thebouqs.com;e=mail51.atl51.rsgsv.net;pp=ham;spf=pass;dkim=pass;wl=absent;pwl=absent
+X-Proofpoint-Virus-Version: vendor=fsecure
+ engine=2.50.10432:5.11.87,1.0.14,0.0.0000
+ definitions=2014-02-19_03:2014-02-18,2014-02-19,1970-01-01 signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ suspectscore=87 phishscore=0 adultscore=0 bulkscore=100 classifier=spam
+ adjust=0 reason=mlx scancount=1 engine=7.0.1-1401130000
+ definitions=main-1402190087
+X-Campaign: mailchimpe9c7499aeda15720c6e28fa94.0f733a595c
+X-campaignid: mailchimpe9c7499aeda15720c6e28fa94.0f733a595c
+X-Report-Abuse: Please report abuse for this campaign here:
+ http://www.mailchimp.com/abuse/abuse.phtml?u=e9c7499aeda15720c6e28fa94&id=0f733a595c&e=6b27779e22
+X-MC-User: e9c7499aeda15720c6e28fa94
+X-Feedback-ID: 17409995:17409995.559153:us4:mc
+x-accounttype: pd
+x-mcda: FALSE
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_433182345
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+Introducing The Bouqs Flower App =E2=86=92 (https://www.thebouqs.com?spop=
+=3D0&exttracking=3D2&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaig=
+n=3DMobile+App+Announcement) Having trouble viewing this email? (http://us=
+4.campaign-archive1.com/?u=3De9c7499aeda15720c6e28fa94&id=3D0f733a595c&e=
+=3D6b27779e22)
+
+https://www.thebouqs.com?spop=3D0&exttracking=3D2&utm_source=3DMailchimp&u=
+tm_medium=3DEmail&utm_campaign=3DMobile+App+Announcement  https://www.theb=
+ouqs.com/en/64-all?spop=3D0&exttracking=3D2&utm_source=3DMailchimp&utm_med=
+ium=3DEmail&utm_campaign=3DMobile+App+Announcement
+SHOP ALL (https://www.thebouqs.com/en/64-all?spop=3D0&exttracking=3D2&utm_=
+source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DMobile+App+Announceme=
+nt) CONCIERGE SERVICE (https://www.thebouqs.com/en/concierge-service?spop=
+=3D0&exttracking=3D2&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaig=
+n=3DMobile+App+Announcement) GET FREE BOUQS (https://www.thebouqs.com/en/g=
+etfreebouq?spop=3D0&exttracking=3D2&utm_source=3DMailchimp&utm_medium=3DEm=
+ail&utm_campaign=3DMobile+App+Announcement)
+
+https://www.thebouqs.com?spop=3D0&exttracking=3D2&utm_source=3DMailchimp&u=
+tm_medium=3DEmail&utm_campaign=3DMobile+App+Announcement
+
+SHOP (https://www.thebouqs.com/en/64-all?spop=3D0&exttracking=3D2&utm_sour=
+ce=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DMobile+App+Announcement)=
+ CONCIERGE (https://www.thebouqs.com/en/concierge-service?spop=3D0&exttrac=
+king=3D2&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DMobile+A=
+pp+Announcement) FREE BOUQS (https://www.thebouqs.com/en/getfreebouq?spop=
+=3D0&exttracking=3D2&utm_source=3DMailchimp&utm_medium=3DEmail&utm_campaig=
+n=3DMobile+App+Announcement)
+
+Fresh. Easy. Beautiful.
+INTRODUCING
+THE BOUQS
+FLOWER APP
+Need flowers fast while on the go?
+The Bouqs Flower App lets you
+quickly send that special someone
+something special without being
+tethered to your computer.
+
+https://itunes.apple.com/us/app/bouqs-flowers-simplified/id796853232
+https://play.google.com/store/apps/details?id=3Dcom.bouqs.activity
+
+WHAT'S NEW
+
+QUICK ORDER
+Send flowers in just a few clicks.
+Simply=2C select the recipient=2C the Bouq=2C
+and checkout. It's never been easier to
+make that special someone happy with
+some #BOUQLOVE. 2 clicks to send
+
+MANAGE
+YOUR ORDERS
+Know the status of all your orders while
+on the go. Check the status of all your
+orders and update order details. 2 Clicks to send
+
+SETUP
+CONCIERGE
+SERVICES
+Looking for a gift that gives throughout
+the year? Easily pre-schedule
+deliveries and save up to 25% on your
+concierge orders =E2=80=93 all managed from
+your smartphone. Preorder and save
+
+https://www.thebouqs.com/en/content/19-press?spop=3D0&exttracking=3D2&utm_=
+source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DMobile+App+Announceme=
+nt
+https://www.thebouqs.com/en/content/19-press?spop=3D0&exttracking=3D2&utm_=
+source=3DMailchimp&utm_medium=3DEmail&utm_campaign=3DMobile+App+Announceme=
+nt
+
+https://www.facebook.com/TheBouqs
+https://twitter.com/thebouqs/
+http://instagram.com/thebouqs/
+http://pinterest.com/thebouqs/
+https://plus.google.com/+thebouqs
+Fresh. Easy. Beautiful. The Bouqs Company (https://www.thebouqs.com/en/con=
+tent/39-valentines-day-rebates?spop=3D0&exttracking=3D2&utm_source=3DMailc=
+himp&utm_medium=3DEmail&utm_campaign=3DMobile+App+Announcement) : Bouquets=
+=2C Simplified.
+If you'd like to stop receiving emails from us=2C unsubscribe (http://TheB=
+ouqs.us4.list-manage1.com/unsubscribe?u=3De9c7499aeda15720c6e28fa94&id=3D2=
+17f35c4af&e=3D6b27779e22&c=3D0f733a595c) here.
+--_----------=_MCPart_433182345
+Content-Type: text/html; charset="us-ascii"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	
+	<title>The Bouqs Flower App</title>
+	
+	<style type="text/css">
+		@import url('https://www.thebouqs.com/en/img/cms/mail/_a/fonts/fonts.css');
+		html,body {width:100% !important;-webkit-text-size-adjust:none;margin:0;}
+		body, div, p, a, li, td{-webkit-text-size-adjust:none;}
+		.ReadMsgBody, .ExternalClass {width: 100% !important;background-color:#ffffff;}/* Document background color */
+		.ExternalClass * {line-height: 100%} 
+		table { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}
+		table td {border-collapse: collapse;}
+		img {outline:none;text-decoration:none;-ms-interpolation-mode: bicubic;border-bottom: none !important;padding:0;}
+		a img{border:none !important;padding:0;}
+		p{margin: 1em 0 0;}
+		em { font-weight:normal !important; font-style:normal !important; font-variant:normal !important; text-decoration:none !important;}
+		.appleLinks a {color:#666666; text-decoration: none;}
+		.mobile {display:none;}
+        .mobileMenu {display:none;}
+        .mobileMenuNav {display:none;}
+		.container {width:600px;}
+		h2,h2 a,h2 a:visited,h3,h3 a,h3 a:visited,h4,h5,h6,.t_cht {color:#000 !important}
+		img { white-space:pre; }
+		@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+			img[class="moveover"]{margin-left:30px;margin-bottom:-5px;}
+			img[class="shrinkage"]{max-width:320px!important;}
+			td[class="borderbegone"]{border-bottom:solid 2px #ffffff!important;}
+			img[class="mobileBanner"]{display:block!important;height:39px;width:auto!important;max-height:none!important;line-height:1.5!important;}
+			table[class="mobileSpacer"]{height:3px;}
+			.mobile tbody{width:320px;}
+			*[class="center"]{text-align:center;}
+			*[class="mobileMenuNav"]{width:105px!important;height:auto!important;max-height:none!important;font-size:12px!important;line-height:1.5em!important;display:table-cell!important;overflow:visible!important;float:none!important;}
+			*[class="mobileMenu"]{display:block!important;width:auto!important;height:auto!important;max-height:none!important;line-height:auto!important;overflow:visible!important;float:none!important;font-size:12px!important;}
+			img[class="navspacer"]{display:inline-block!important;width:10px!important;min-width:10px!important;height:10px!important;background-color:#333333;}
+			*[class="desktop"]{display:none !important;}
+			*[class="mobile"]{display:block !important;width:auto !important;max-height:none !important;overflow:visible !important;float:none !important;}
+			*[class="lr30"]{padding-left:30px !important;padding-right:30px !important;}
+			td[class="pad9"]{padding-top:9px !important;}
+			td[class="pad4"]{padding-top:4px !important;}
+			td[class="pad2"]{padding-top:2px !important;}
+			img[class="img320"]{min-width:335px !important;}
+			*[class="banner"]{width:100% !important;}
+			table[class="subbanner"]{width:270px !important;}
+			table[class="container"] {width:none!important;width:320px !important;}
+			*[class="block"]{display:block !important;padding:5px;text-align:center!important;}
+			table[class="gallery"]{max-width:320px!important;}
+		}
+
+		@media only screen and (max-width: 480px) {
+			table[class="span"]{width: 100%!important;}
+			img[class="img320"]{min-width:320px!important;}
+		}
+	</style>
+	 <!--[if gte mso 9]>
+    <style>
+		.flowerpwr { font-family:Arial,sans-serif; }
+		.proxima { font-family:Arial,sans-serif;font-weight:normal; }
+		.proxima_novasemibold { font-family:Arial,sans-serif;font-weight:normal; }
+    </style>
+    <![endif]-->
+</head>
+
+<body bgcolor="#ffffff" border="0" style="min-width:100%;margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0;color:#333333;font-family:Arial,sans-serif;">
+<!-- Preheader -->
+<table width="97%" bgcolor="#ffffff" class="banner" border="0" cellpadding="0" cellspacing="0" align="center" height="20">
+	<tr>
+		<td align="left" height="20">
+			<a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=87a78fbc12&e=6b27779e22" style="font-family:Arial,sans-serif;font-size:7px;color:#999999;text-decoration:none;" target="_blank">
+				<span style="color:#999999;">Introducing The Bouqs Flower App for iOS and Android &#8594;</span>
+			</a>
+		</td>
+		<td align="right" height="20">
+			<a href="http://us4.campaign-archive1.com/?u=e9c7499aeda15720c6e28fa94&id=0f733a595c&e=6b27779e22" style="font-family:Arial,sans-serif;font-size:7px;color:#999999;text-decoration:underline;" target="_blank">
+				<span style="color:#999999;">Having trouble viewing this email&#63;</span>
+			</a>
+		</td>
+	</tr>
+</table>
+<center>
+<table border="0" cellpadding="0" cellspacing="0" class="desktop" width="600">
+    <tr>
+		<td align="right" valign="top" colspan="3">
+			<a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=64e2e79b78&e=6b27779e22"><img src="https://www.thebouqs.com/en/img/cms/mail/_a/head/v8/desktop.jpg" alt="" border="0" style="display:block;"></a>
+		</td>
+		<td rowspan="2" valign="top" align="left">
+			<a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=2217ccfe04&e=6b27779e22">
+				<img alt="" border="0" src="https://www.thebouqs.com/en/img/cms/mail/_a/head/v9/stamp.jpg" width="95px" style="float:left;display:block;">
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" width="180" align="right" bgcolor="#333333" height="22">
+			<a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=6a6f10d2a9&e=6b27779e22" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:12px;text-decoration:none;color:#ffffff;" target="_blank"><span class="proxima">SHOP ALL</span></a>
+		</td>
+
+		<td valign="middle" width="195" align="center" bgcolor="#333333" height="22">
+			<a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=56a94a5212&e=6b27779e22" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:12px;text-decoration:none;color:#ffffff;" target="_blank"><span class="proxima">CONCIERGE SERVICE</span></a>
+		</td>
+
+		<td valign="middle" bgcolor="#333333" height="22">
+			<a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=b4d3989602&e=6b27779e22" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:12px;text-decoration:none;color:#ffffff;" target="_blank"><span class="proxima">GET FREE BOUQS</span></a>
+		</td>
+	</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" background="https://www.thebouqs.com/en/img/cms/mail/_a/head/v7/bg.jpg" background-repeat="repeat-x">
+	<tr style="mso-display:none;">
+		<td align="center" class="mobile" style="width:0;max-height:0;overflow:hidden;float:left;mso-display:none;">
+			<a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=326075343e&e=6b27779e22" target="_blank">
+				<img class="banner" alt="The Bouqs Co" src="https://www.thebouqs.com/en/img/cms/mail/_a/head/v7/logo-wide.gif" border="0" width="0" style="display:block;">
+			</a>
+		</td>
+	</tr>
+</table>
+
+<table bgcolor="#333333" border="0" border-color="#cccccc" cellpadding="0" cellspacing="0" class="mobileMenu" style="margin:0;padding:0;width:0;max-height:0;height:0;overflow:hidden;float:left;line-height:0;font-size:0;mso-display:none;">
+	<tbody class="mobileMenu">
+		<tr class="mobileMenu">
+			<td align="center" bgcolor="#333333" class="mobileMenuNav" style="margin:0;padding:0;width:0;max-height:0;height:0;overflow:hidden;float:left;line-height:0;font-size:0;mso-display:none;"><a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=d84a3815b6&e=6b27779e22" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:12px;text-decoration:none;color:#ffffff;" target="_blank"><span class="proxima">SHOP</span></a><img class="navspacer" src="https://www.thebouqs.com/en/img/cms/mail/_a/misc/mediumspacer.gif" alt="" border="0" style="display:none;mso-display:none;"></td>
+			<td align="center" bgcolor="#333333" class="mobileMenuNav" style="margin:0;padding:0;width:0;max-height:0;height:0;overflow:hidden;float:left;line-height:0;font-size:0;mso-display:none;"><a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=53b4117beb&e=6b27779e22" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:12px;text-decoration:none;color:#ffffff;" target="_blank"><span class="proxima">CONCIERGE</span></a></td>
+			<td align="center" bgcolor="#333333" class="mobileMenuNav" style="margin:0;padding:0;width:0;max-height:0;height:0;overflow:hidden;float:left;line-height:0;font-size:0;mso-display:none;"><img class="navspacer" src="https://www.thebouqs.com/en/img/cms/mail/_a/misc/mediumspacer.gif" alt="" border="0" style="display:none;mso-display:none;"><a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=7c52094699&e=6b27779e22" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:12px;text-decoration:none;color:#ffffff;" target="_blank"><span class="proxima">FREE BOUQS</span></a></td>
+		</tr>
+	</tbody>
+</table>
+
+</center>
+<!-- ######################################## -->
+<!-- ########## MAIN-CONTENT-START ########## -->
+<!-- ######################################## -->
+<table border="0" cellpadding="12" cellspacing="0"><tr><td height="6"><table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table></td></tr></table>
+<center>
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			
+			<table border="0" cellpadding="0" cellspacing="0" class="container">
+				<tbody>
+					<tr>
+						<td>
+							<table border="0" cellpadding="0" cellspacing="0" class="desktop">
+								<tr>
+									<td align="right" width="215"><img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/i1.jpg" vspace="20" alt="Fresh. Easy. Beautiful." border="0" style="display:block" class="desktop"></td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table border="0" cellpadding="15" cellspacing="0" align="center">
+								<tr>
+									<td align="center" style="font-family:'proxima_novaregular',Arial,sans-serif;color:#333333;font-size:17px;letter-spacing:0.4em;"><span class="proxima" style="color:#333333;">INTRODUCING</span><br>
+										<table border="0" cellpadding="5" cellspacing="0"><tr><td height="3"><table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table></td></tr></table>
+										<table border="0" cellpadding="0" cellspacing="0" height="115">
+											<tr>
+												<td class="flowerpwr" style="color:#333333;text-align:center;"><img align="center" vspace="4" src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/h1.jpg" alt="THE BOUQS" border="0" style="font-family:'flowerpower',Arial,sans-serif;font-size:30px;color:#333333;letter-spacing:0.02em;text-align:center;display:block;"></td>
+											</tr>
+											<tr>
+												<td class="flowerpwr" style="color:#333333;text-align:center;"><img align="center" vspace="4" src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/h2.jpg" alt="FLOWER APP" border="0" style="font-family:'flowerpower',Arial,sans-serif;font-size:30px;color:#333333;letter-spacing:0.02em;text-align:center;display:block;"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<table cellpadding="4" cellspacing="0" border="0" align="center">
+								<tr>
+									<td>
+										<table border="0" cellpadding="0" cellspacing="0" style="display:block;">
+											<tr><td><table border="0" cellpadding="0" cellspacing="0" height="3" align="center" bgcolor="#cccccc" style="color:#cccccc;font-size:1px;line-height:1px;margin:0;padding:0;display:block;"><tr><td height="3"><table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table></td></tr></table></td></tr>
+											<tr><td><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td height="11"></td></tr></table></td></tr>
+											
+											<tr>
+												<td align="center" style="font-family:'proxima_novasemibold',Arial,sans-serif;color:#993399;font-size:16px;letter-spacing:0.03em;"><span class="proxima" style="color:#993399;">Need flowers fast while on the go&#63;</span></td>
+											</tr>
+											<tr class="desktop">
+												<td align="center" style="font-family:'proxima_novaregular',Arial,sans-serif;color:#333333;font-size:16px;letter-spacing:0.03em;"><span class="proxima" style="color:#333333;">The Bouqs Flower App lets you<br>
+													quickly send that special someone<br>
+													something special without being<br>
+													tethered to your computer.</span>
+												</td>
+											</tr>
+											<tr><td><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td height="6"></td></tr></table></td></tr>
+											<tr><td><table border="0" cellpadding="0" cellspacing="0" height="3" align="center" bgcolor="#cccccc" style="color:#cccccc;font-size:1px;line-height:1px;margin:0;padding:0;display:block;"><tr><td height="3"><table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table></td></tr></table></td></tr>
+											
+										</table>
+									</td>
+								</tr>
+
+							</table>
+						</td>
+						<td class="desktop">
+							<table border="0" cellpadding="0" cellspacing="0" class="desktop" width="30" style="display:block;">
+                            <tr>
+                            <td>
+                            <table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table>
+                            </td></tr></table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="19" cellspacing="0"><tr><td height="3"><table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table></td></tr></table>
+
+
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td style="display:block;">
+							<table border="0" cellpadding="0" cellspacing="0" align="center">
+								<tr>
+									<td class="block">
+										<a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=ab375002de&e=6b27779e22" target="_blank" rel="external">
+											<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/s1.jpg" alt="Download on Apple" border="0" style="display:block;background-color:666666;">
+										</a>
+									</td>
+									<td class="desktop"><table border="0" cellpadding="0" cellspacing="0" width="9"><tr><td><table border="0" cellpadding="0" cellspacing="0"><tr><td></td></tr></table></td></tr></table>
+									</td><td class="block"><a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=b2ec0e13e1&e=6b27779e22" target="_blank" rel="external"><img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/s2.jpg" alt="Download on Android" border="0" style="display:block;background-color:#cccc33;"></a></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</table>
+<table border="0" bgcolor="#ffffff" cellpadding="5" cellspacing="0" width="100%"><tr><td height="10"></td></tr></table>
+
+
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;" class="gallery">
+				<tr><td><table border="0" cellpadding="0" cellspacing="0"><tr><td height="14"></td></tr></table></td></tr>
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ebebeb" width="100%">
+							<tr><td><table border="0" cellpadding="0" cellspacing="0" height="9"><tr><td height="5"></td></tr></table></td></tr>
+							<tr>
+								<td align="center" style="font-family:'proxima_novaregular',Arial,sans-serif;font-size:14px;letter-spacing:0.25em;color:#999999;">
+									<span style="color:#666666;">WHAT&#39;S NEW</span>
+								</td>
+							</tr>
+							<tr><td><table border="0" cellpadding="0" cellspacing="0" height="5"><tr><td height="6"></td></tr></table></td></tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table border="0" bgcolor="#ffffff" cellpadding="5" cellspacing="0" width="100%"><tr><td height="10"></td></tr></table>
+
+</center>
+<center>
+	
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" class="container">
+				<tr>
+					<td class="block" valign="top" width="320">
+						<span style="font-family:'flowerpower',Arial,sans-serif;color:#333333;font-size:39px;letter-spacing:0.02em;text-align:left;" class="center">QUICK ORDER</span><br>
+						<table border="0" cellpadding="0" cellspacing="0"><tr><td height="8"><table border="0" cellpadding="0" cellspacing="0"><tr><td height="8"></td></tr></table></td></tr></table>
+						<span style="font-family:Arial,sans-serif;font-size:14px;color:#333333;letter-spacing:0.02em;">
+							Send flowers in just a few clicks.<br>
+							Simply&#44; select the recipient&#44; the Bouq&#44;<br>
+							and checkout. It&#39;s never been easier to<br>
+							make that special someone happy with<br>
+							some &#35;BOUQLOVE.
+						</span>
+					</td>
+					<td class="block" valign="bottom" align="right">
+						<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/i2.jpg" alt="2 clicks to send" border="0" class="moveover" style="display:block;font-family:Arial,sans-serif;font-size:12px;color:#333333;background-color:#cccccc;text-align:center;">
+					</td>
+				</tr>
+			</table>
+			<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/border3.jpg" alt="" border="0" style="display:block;" class="shrinkage">
+		</td>
+	</tr>
+</table>
+</center>
+<br>
+<center>
+	
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" class="container">
+				<tr>
+					<td class="block" valign="top" width="320">
+						<span style="font-family:'flowerpower',Arial,sans-serif;color:#333333;font-size:39px;letter-spacing:0.02em;text-align:left;" class="center">MANAGE<br>YOUR ORDERS</span><br>
+						<table border="0" cellpadding="0" cellspacing="0"><tr><td height="8"><table border="0" cellpadding="0" cellspacing="0"><tr><td height="8"></td></tr></table></td></tr></table>
+						<span style="font-family:Arial,sans-serif;font-size:14px;color:#333333;letter-spacing:0.02em;">
+							Know the status of all your orders while<br>on the go. Check the status of all your<br>orders and update order details.
+						</span>
+					</td>
+					<td class="block" valign="bottom" align="right">
+						<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/i3.jpg" alt="2 Clicks to send" border="0" class="moveover" style="display:block;font-family:Arial,sans-serif;font-size:12px;color:#333333;background-color:#cccccc;text-align:center;">
+					</td>
+				</tr>
+			</table>
+			<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/border3.jpg" alt="" border="0" style="display:block;" class="shrinkage">
+		</td>
+	</tr>
+</table>
+</center>
+<br>
+<center>
+	
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" class="container">
+				<tr>
+					<td class="block" valign="top" width="320">
+						<span style="font-family:'flowerpower',Arial,sans-serif;color:#333333;font-size:39px;letter-spacing:0.02em;text-align:left;" class="center">SETUP<br>CONCIERGE<br>SERVICES</span><br>
+						<table border="0" cellpadding="0" cellspacing="0"><tr><td height="8"><table border="0" cellpadding="0" cellspacing="0"><tr><td height="8"></td></tr></table></td></tr></table>
+						<span style="font-family:Arial,sans-serif;font-size:14px;color:#333333;letter-spacing:0.02em;">
+							Looking for a gift that gives throughout<br>the year&#63; Easily pre&#45;schedule<br>deliveries and save up to 25&#37; on your<br>concierge orders &#8211; all managed from<br>your smartphone.
+						</span>
+					</td>
+					<td class="block" valign="bottom" align="right">
+						<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/i4.jpg" alt="Preorder and save" border="0" class="moveover" style="display:block;font-family:Arial,sans-serif;font-size:12px;color:#333333;background-color:#cccccc;text-align:center;">
+					</td>
+				</tr>
+			</table>
+			<img src="https://www.thebouqs.com/en/img/cms/mail/2014/02/app/border3.jpg" alt="" border="0" style="display:block;" class="shrinkage">
+		</td>
+	</tr>
+</table>
+</center>
+<table border="0" bgcolor="#ffffff" cellpadding="10" cellspacing="0" width="100%"><tr><td height="5"></td></tr></table>
+
+<center>
+
+<table border="0" cellpadding="14" cellspacing="0" bgcolor="#ffffff">
+	<tr class="desktop">
+		<td align="center">
+			<a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=127218ee89&e=6b27779e22" target="_blank">
+				<img alt="Featured in Forbes, Wall Street Journal, Oprah, etc.." class="press" src="https://www.thebouqs.com/en/img/cms/mail/_a/press/v2/press.jpg" border="0" style="display:block;">
+			</a>
+		</td>
+	</tr>
+
+	<tr style="mso-hide:all;">
+		<td align="center" class="mobile" style="width:0;max-height:0;overflow:hidden;float:left;mso-hide:all;">
+			<a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=ea58175bb4&e=6b27779e22" target="_blank" style="mso-hide:all;">
+				<img class="banner" alt="Featured in Forbes, Wall Street Journal, Oprah, etc.." src="https://www.thebouqs.com/en/img/cms/mail/_a/press/v2/press-small.jpg" border="0" width="0" style="mso-hide:all;">
+			</a>
+		</td>
+	</tr>
+</table>
+</center>
+<center>
+<table width="100%" bgcolor="#333333" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" bgcolor="#333333" valign="top">
+			<table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td>
+						<table border="0" cellpadding="5" cellspacing="0" width="100%"><tr><td height="5"></td></tr></table>
+					</td>
+				</tr>
+					
+				<tr>
+					<td align="justify" height="38" bgcolor="#333333" valign="top">
+						<table align="center" border="0" cellpadding="1" cellspacing="0" bgcolor="#333333">
+							<tfoot>
+								<tr>
+									<td><a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=b36abd40b3&e=6b27779e22" target="_blank"><img alt="Facebook" border="0" src="https://www.thebouqs.com/en/img/cms/mail/_a/social/v2/fb.jpg" style="display:block;font-size:7px;color:#fff;text-decoration:none;"></a></td>
+									<td><table border="0" cellpadding="0" cellspacing="0" width="6"><tr><td width="6"></td></tr></table></td>
+									<td><a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=d362b69d5b&e=6b27779e22" target="_blank"><img alt="Twitter" border="0" src="https://www.thebouqs.com/en/img/cms/mail/_a/social/v2/tw.jpg" style="display:block;font-size:7px;color:#fff;text-decoration:none;"></a></td>
+									<td><table border="0" cellpadding="0" cellspacing="0" width="6"><tr><td width="6"></td></tr></table></td>
+									<td><a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=8a801e4d38&e=6b27779e22" target="_blank"><img alt="Instagram" border="0" src="https://www.thebouqs.com/en/img/cms/mail/_a/social/v2/ig.jpg" style="display:block;font-size:7px;color:#fff;text-decoration:none;"></a></td>
+									<td><table border="0" cellpadding="0" cellspacing="0" width="6"><tr><td width="6"></td></tr></table></td>
+									<td><a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=ecc3e357d9&e=6b27779e22" target="_blank"><img alt="PInterest" border="0" src="https://www.thebouqs.com/en/img/cms/mail/_a/social/v2/pi.jpg" style="display:block;font-size:7px;color:#fff;text-decoration:none;"></a></td>
+									<td><table border="0" cellpadding="0" cellspacing="0" width="6"><tr><td width="6"></td></tr></table></td>
+									<td><a href="http://TheBouqs.us4.list-manage.com/track/click?u=e9c7499aeda15720c6e28fa94&id=f2a34dd1d5&e=6b27779e22" target="_blank"><img alt="Google+" border="0" src="https://www.thebouqs.com/en/img/cms/mail/_a/social/v2/gp.jpg" style="display:block;font-size:7px;color:#fff;text-decoration:none;"></a></td>
+								</tr>
+							</tfoot>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" bgcolor="#333333" valign="top">
+						<table align="center" border="0" cellpadding="8" cellspacing="0">
+							<tr>
+								<td align="center" width="500" style="word-break:normal;">
+									<span style="font-family:Arial,sans-serif;font-size:12px;font-weight:normal;color:#ffffff;">Fresh&#46; Easy&#46; Beautiful&#46; <a href="http://TheBouqs.us4.list-manage1.com/track/click?u=e9c7499aeda15720c6e28fa94&id=f6946b7709&e=6b27779e22" target="_blank" style="color:#ffffff;text-decoration:none;"><span class="#ffffff;">The Bouqs Company</span></a>&#58;   Bouquets&#44; Simplified&#46;</span>
+									<br>
+									<span style="font-family:Arial,sans-serif;font-size:10px;font-weight:normal;color:#ffffff;">If you&#39;d like to stop receiving emails from us&#44;</span> <a href="http://TheBouqs.us4.list-manage1.com/unsubscribe?u=e9c7499aeda15720c6e28fa94&id=217f35c4af&e=6b27779e22&c=0f733a595c" style="font-size:10px;color:#ffffff;">unsubscribe</a> <span style="font-family:Arial,sans-serif;color:#ffffff;font-weight:normal;text-decoration:none;font-size:10px;">here&#46;</span>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</center>
+<img src="http://TheBouqs.us4.list-manage.com/track/open.php?u=e9c7499aeda15720c6e28fa94&id=0f733a595c&e=6b27779e22" height="1" width="1"></body>
+</html>
+--_----------=_MCPart_433182345--

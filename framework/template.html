@@ -1,0 +1,382 @@
+<!--
+  ============================================================================
+  00-document-open.html  —  doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  This is the single most important partial. Almost every cross-client fix
+  lives here. Each block is annotated with WHY it exists and WHICH client
+  needs it, so this file doubles as a reference.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  WHY the XHTML 1.0 Transitional doctype: the Word rendering engine in classic
+  Outlook (Windows) is most predictable under this doctype. HTML5 doctype can
+  trigger extra spacing and unit bugs in Word. xmlns:v / xmlns:o expose the VML
+  and Office namespaces used by the bulletproof button and background images.
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8"><!-- utf-8: universal; prevents mojibake of smart quotes/emoji -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- mobile: render at device width, not zoomed-out desktop -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- legacy IE-engine clients (Windows Phone 7/8, old Windows Mail) use latest engine -->
+  <meta name="x-apple-disable-message-reformatting"><!-- Apple Mail: stop auto-scaling/reformatting of the layout -->
+  <meta name="color-scheme" content="light dark"><!-- declare we handle both schemes -->
+  <meta name="supported-color-schemes" content="light dark"><!-- Apple Mail / Outlook: prevents FORCED full-color inversion; we opt in deliberately -->
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no"><!-- iOS: stop turning phone numbers/dates/addresses into blue auto-links -->
+  <title>{{title}}</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <!--
+    WHY: classic Outlook on Windows renders at the system DPI (often 120/144),
+    which silently upscales images and widths by 25-50%. Pinning PixelsPerInch
+    to 96 forces 1:1 rendering. AllowPNG keeps PNG transparency from flattening.
+  -->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Word engine has no web-font support and falls back to Times New Roman.
+       Force a web-safe stack so brand type degrades to Arial, not a serif. */
+    * { font-family: Arial, Helvetica, sans-serif !important; }
+    /* mso-line-height-rule:exactly stops Word from adding leading above text. */
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    /* Kill the 1px table gaps Word inserts. */
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <style type="text/css">
+    /* ---------------------------------------------------------------------
+       1. RESETS — normalise the ~15 clients that mangle defaults
+       --------------------------------------------------------------------- */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    /* Stop iOS/Windows auto-inflating font sizes it deems "too small". */
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    /* Remove the space Outlook adds around tables; force collapse everywhere. */
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    /* Images: block-level kills the 3px "descender" gap under images in most
+       clients; bicubic keeps scaled images smooth in Outlook. */
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    /* Outlook.com / Windows Live wraps content in .ExternalClass — force full
+       width and consistent line-height so it does not add vertical padding. */
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    /* iOS auto-detects dates/addresses and re-colours them — neutralise it. */
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    /* Gmail/Android colour phone numbers & the footer address blue — reset. */
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    /* Samsung Mail sometimes adds its own link styling; scope-reset it. */
+    #MessageViewBody a { color:inherit; }
+
+    /* ---------------------------------------------------------------------
+       2. FLUID-HYBRID RESPONSIVE — works even where @media is unsupported
+          (old Android 4.x stock mail, some Samsung builds, Outlook via ghost
+          tables). Columns are inline-blocks that wrap naturally; the media
+          query below is an enhancement, not a dependency.
+       --------------------------------------------------------------------- */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* ---------------------------------------------------------------------
+       3. DARK MODE — no client agrees on this, so we handle three paths:
+          (a) prefers-color-scheme  -> Apple Mail, iOS, Outlook for Mac,
+              Samsung Mail, Thunderbird, Outlook (new/Chromium).
+          (b) [data-ogsc]/[data-ogsb] -> Outlook.com & old Outlook apps, which
+              partially invert and expose these attributes on each element.
+          (c) Gmail ignores everything above and runs its own inversion — the
+              defence for Gmail is in the markup: give every cell an explicit
+              bgcolor and avoid pure #000000/#ffffff (see footer/hero notes).
+       --------------------------------------------------------------------- */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#111114 !important; }
+      .darkmode-text, .darkmode-text * { color:#e6e6e6 !important; }
+      .darkmode-muted, .darkmode-muted * { color:#a8a8a8 !important; }
+      .darkmode-card { background-color:#1c1c20 !important; }
+      /* Swap a light logo in for dark backgrounds without a code fork. */
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#e6e6e6 !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#a8a8a8 !important; }
+    [data-ogsb] .darkmode-bg { background-color:#111114 !important; }
+    [data-ogsb] .darkmode-card { background-color:#1c1c20 !important; }
+  </style>
+</head>
+
+<!--
+  WHY id="body": the Gmail/Android link reset above (u + #body a) needs a hook.
+  WHY the inline background on <body> AND the wrapper table: some clients honour
+  only one. We set both so there is never an unstyled white gutter.
+-->
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#f4f4f7; color:#2b2b2b; font-family:Arial,Helvetica,sans-serif;">
+
+            <!--
+            ==================================================================
+            10-preheader.html  —  inbox preview text
+            ==================================================================
+            The preheader is the grey summary line shown after the subject in
+            most inboxes. If you omit it, clients scrape the first visible text
+            (often "View in browser" or a bare link), which looks broken.
+
+            - Hidden from the rendered email (display:none + zero size + opacity).
+            - The run of &zwnj;&nbsp; entities is a spacer: it PUSHES the real
+              body content out of the preview line so only your preheader shows.
+              Without it, clients append body text after your preheader.
+            - mso-hide:all hides it in Outlook too.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#f4f4f7;">
+            {{preheaderText}}
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>
+
+
+  <!--
+    role="article" + aria-* gives screen readers a proper document boundary.
+    This is a MODERN accessibility quirk that did not matter in 2014 but is now
+    expected (VoiceOver, TalkBack).
+  -->
+  <div role="article" aria-roledescription="email" aria-label="{{title}}" lang="en" style="background-color:#f4f4f7;">
+
+    <!-- Full-bleed background wrapper. role="presentation" tells screen readers
+         to ignore this layout table and not announce "table, 1 row, 1 column". -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#f4f4f7;">
+      <tr>
+        <td align="center" valign="top" style="padding:24px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <!--
+            The MSO "ghost table" above pins width to 600px in the Word engine,
+            which ignores max-width. Everywhere else, .email-container's
+            max-width:600px + width:100% makes the layout fluid.
+          -->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">
+
+            <!--
+              ================================================================
+              20-header.html  —  logo bar
+              ================================================================
+              A single centered logo on a white card. Notes:
+              - Width/height are set as ATTRIBUTES (not just CSS) because the
+                Word engine ignores CSS width on <img>.
+              - class="fluid" lets it shrink on narrow screens without upscaling.
+              - The dark-mode logo swap uses two <img>s: the light logo is hidden
+                under prefers-color-scheme:dark, the light-on-transparent logo
+                shown. Gmail (which ignores the media query) keeps the default.
+              - Always ship a real alt: it is the fallback when images are off
+                (Outlook blocks images by default) and it is read aloud.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:8px 8px 0 0;">
+              <tr>
+                <td align="center" valign="middle" style="padding:24px 24px 20px 24px;">
+                  <a href="{{logoLinkUrl}}" target="_blank" style="text-decoration:none;">
+                    <!-- Default / light-mode logo -->
+                    <img class="fluid darkmode-hide" src="{{logoUrl}}" width="{{logoWidth}}" alt="{{companyName}}" style="width:{{logoWidth}}px; max-width:60%; height:auto; display:block; border:0;">
+                    <!-- Dark-mode logo (hidden until prefers-color-scheme:dark) -->
+                    <!--[if !mso]><!-->
+                    <img class="darkmode-show" src="{{logoUrlDark}}" width="{{logoWidth}}" alt="{{companyName}}" style="display:none; width:{{logoWidth}}px; max-width:60%; height:auto; border:0;">
+                    <!--<![endif]-->
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <!--
+              ================================================================
+              30-hero.html  —  hero image + headline + intro paragraph + CTA slot
+              ================================================================
+              Design rule carried from the 2014 original: the HEADLINE that must
+              look on-brand is baked into the hero IMAGE, while the PARAGRAPH is
+              live HTML (selectable, translatable, dark-mode aware, and visible
+              when images are blocked). Never put body copy in an image.
+
+              - width="600" attribute + class="fluid" = full width on desktop,
+                shrinks to screen on mobile, never upscales in Outlook.
+              - The <td> has an explicit bgcolor so Gmail's dark-mode engine does
+                not paint its own background behind a transparent PNG.
+
+              OPTIONAL: to bake text OVER a background image (the 2014 signature
+              trick — still the only way to get a background image behind text in
+              classic Outlook), wrap the cell in a VML v:rect + v:fill(type=frame)
+              + v:textbox. The full copy-paste snippet is in the README section
+              "Text over a background image" (kept out of this comment because
+              nested HTML comments are illegal and would break the markup).
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+              <tr>
+                <td align="center" valign="top" style="padding:0;">
+                  <a href="{{heroLinkUrl}}" target="_blank" style="text-decoration:none;">
+                    <img class="fluid" src="{{heroImageUrl}}" width="600" alt="{{heroImageAlt}}" style="width:100%; max-width:600px; height:auto; display:block; border:0;">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top" class="darkmode-text pad-on-narrow" style="padding:32px 40px 8px 40px; font-family:Georgia,'Times New Roman',serif; font-size:28px; line-height:34px; color:#1b1b1b; font-weight:normal;">
+                  {{heroHeadline}}
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top" class="darkmode-text pad-on-narrow" style="padding:8px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:24px; color:#4a4a4a;">
+                  {{heroParagraph}}
+                </td>
+              </tr>
+
+                            <!--
+                ==============================================================
+                50-button.html  —  bulletproof call-to-action
+                ==============================================================
+                The single most-broken component in email. A styled <a> is not
+                enough: the classic Outlook Word engine ignores padding and
+                border-radius on links, so the clickable area collapses to the
+                text. The fix is a dual build:
+
+                (a) [if mso]  -> a VML <v:roundrect> draws a real, fully
+                    clickable, rounded rectangle in classic Outlook. arcsize is
+                    the corner radius as a % of height.
+                (b) [if !mso] -> a padded, rounded <a> for every other client.
+
+                Only one is ever shown. Keep the label text identical in both.
+                mso-padding-alt / the inner center span size the Outlook button.
+              -->
+              <tr>
+                <td align="center" valign="top" style="padding:8px 40px 8px 40px;">
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{buttonUrl}}" style="height:48px; v-text-anchor:middle; width:260px;" arcsize="12%" strokecolor="{{buttonBg}}" fillcolor="{{buttonBg}}">
+                    <w:anchorlock/>
+                    <center style="color:{{buttonColor}}; font-family:Arial,sans-serif; font-size:16px; font-weight:bold;">{{buttonText}}</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--[if !mso]><!-->
+                  <a href="{{buttonUrl}}" target="_blank" style="background-color:{{buttonBg}}; border-radius:6px; color:{{buttonColor}}; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:bold; line-height:48px; text-align:center; text-decoration:none; width:260px; -webkit-text-size-adjust:none; mso-hide:all;">{{buttonText}}</a>
+                  <!--<![endif]-->
+                </td>
+              </tr>
+
+
+              <tr><td style="height:16px; line-height:16px; font-size:0;">&nbsp;</td></tr>
+            </table>
+
+            <!--
+              ================================================================
+              40-columns.html  —  two columns that stack on mobile (fluid-hybrid)
+              ================================================================
+              The canonical responsive pattern that also works where media
+              queries do NOT (old Android stock mail, some Samsung builds):
+
+              - Each column is a .stack-column inline-block with max-width. On a
+                wide screen two sit side by side; on a narrow screen they wrap /
+                the media query forces display:block full width.
+              - The [if mso] ghost <td>s give classic Outlook (no inline-block)
+                a real two-cell table instead.
+              - font-size:0 on the wrapper cell removes the whitespace gap
+                between inline-blocks; each column restores its own font-size.
+              - Duplicate this <tr> block for more rows; use max-width:135px and
+                four columns for a 4-up grid.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+              <tr>
+                <td align="center" valign="top" style="padding:8px 24px 24px 24px; font-size:0; text-align:center;">
+
+                  <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="50%" valign="top"><![endif]-->
+                  <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr><td align="center" style="padding:12px;">
+                        <a href="{{col1Url}}" target="_blank" style="text-decoration:none;"><img class="fluid" src="{{col1ImageUrl}}" width="231" alt="{{col1Title}}" style="width:100%; max-width:231px; height:auto; display:block; border:0; border-radius:6px;"></a>
+                      </td></tr>
+                      <tr><td align="center" class="darkmode-text" style="padding:4px 12px 2px 12px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:22px; color:#1b1b1b; font-weight:bold;">{{col1Title}}</td></tr>
+                      <tr><td align="center" class="darkmode-muted" style="padding:0 12px 8px 12px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:20px; color:#6a6a6a;">{{col1Text}}</td></tr>
+                    </table>
+                  </div>
+                  <!--[if mso]></td><td width="50%" valign="top"><![endif]-->
+                  <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr><td align="center" style="padding:12px;">
+                        <a href="{{col2Url}}" target="_blank" style="text-decoration:none;"><img class="fluid" src="{{col2ImageUrl}}" width="231" alt="{{col2Title}}" style="width:100%; max-width:231px; height:auto; display:block; border:0; border-radius:6px;"></a>
+                      </td></tr>
+                      <tr><td align="center" class="darkmode-text" style="padding:4px 12px 2px 12px; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:22px; color:#1b1b1b; font-weight:bold;">{{col2Title}}</td></tr>
+                      <tr><td align="center" class="darkmode-muted" style="padding:0 12px 8px 12px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:20px; color:#6a6a6a;">{{col2Text}}</td></tr>
+                    </table>
+                  </div>
+                  <!--[if mso]></td></tr></table><![endif]-->
+
+                </td>
+              </tr>
+            </table>
+
+            <!--
+              ================================================================
+              60-footer.html  —  social, address, unsubscribe
+              ================================================================
+              - Background is #2b2b30, NOT pure #000000. Apple Mail inverts pure
+                black/white outright in dark mode; an off-black is left alone.
+                (Same reason the light text is #d8d8d8, not #ffffff.)
+              - Every cell has an explicit bgcolor so Gmail's dark engine cannot
+                paint an unset cell.
+              - The unsubscribe link is REQUIRED for CAN-SPAM / CASL / GDPR and
+                for one-click unsubscribe (RFC 8058) that Gmail & Yahoo now
+                enforce for bulk senders. Keep it real, not a placeholder.
+              - Social icons: width/height as attributes; alt text per icon.
+            -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2b2b30; border-radius:0 0 8px 8px;">
+              <tr>
+                <td align="center" valign="top" style="padding:28px 24px 12px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 6px;"><a href="{{facebookUrl}}" target="_blank"><img src="{{iconFacebook}}" width="28" height="28" alt="Facebook" style="display:block; border:0;"></a></td>
+                      <td style="padding:0 6px;"><a href="{{instagramUrl}}" target="_blank"><img src="{{iconInstagram}}" width="28" height="28" alt="Instagram" style="display:block; border:0;"></a></td>
+                      <td style="padding:0 6px;"><a href="{{twitterUrl}}" target="_blank"><img src="{{iconTwitter}}" width="28" height="28" alt="Twitter/X" style="display:block; border:0;"></a></td>
+                      <td style="padding:0 6px;"><a href="{{pinterestUrl}}" target="_blank"><img src="{{iconPinterest}}" width="28" height="28" alt="Pinterest" style="display:block; border:0;"></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top" style="padding:8px 40px 6px 40px; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#d8d8d8;">
+                  <strong>{{companyName}}</strong><br>
+                  {{companyAddress}}
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top" style="padding:6px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#9a9aa2;">
+                  <a href="{{viewInBrowserUrl}}" target="_blank" style="color:#9a9aa2; text-decoration:underline;">View in browser</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="{{preferencesUrl}}" target="_blank" style="color:#9a9aa2; text-decoration:underline;">Update preferences</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="{{unsubscribeUrl}}" target="_blank" style="color:#9a9aa2; text-decoration:underline;">Unsubscribe</a>
+                  <br><br>
+                  {{legalText}}
+                </td>
+              </tr>
+            </table>
+
+          </div><!-- /.email-container -->
+          <!--[if mso]>
+          </td></tr></table>
+          <![endif]--><!-- /ghost table -->
+
+        </td>
+      </tr>
+    </table><!-- /background wrapper -->
+  </div><!-- /role=article -->
+</body>
+</html>
+
