@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>html-email — cross-client HTML email framework</title>
+  <meta name="description" content="A hand-authored, zero-dependency HTML email framework built to never drop support for the oldest clients. Live renders and preview screenshots.">
+  <style>
+    :root {
+      --cream: #F5F1E8;
+      --forest: #1F4E3D;
+      --terracotta: #C46B4A;
+      --charcoal: #2A2A28;
+      --warm-gray: #5F5E5A;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    header {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 64px 0 56px;
+    }
+    header .wrap { display: block; }
+    h1 { margin: 0 0 8px; font-size: 34px; letter-spacing: -0.01em; }
+    header p { margin: 0; color: #cfcbc2; font-size: 18px; max-width: 620px; }
+    .tag { display: inline-block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--terracotta); font-weight: 600; margin-bottom: 14px; }
+    main { padding: 48px 0 64px; }
+    h2 { font-size: 22px; margin: 40px 0 14px; color: var(--forest); }
+    section:first-of-type h2 { margin-top: 0; }
+    p.lead { color: var(--warm-gray); margin-top: 0; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    .card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e5e0d5;
+      border-radius: 10px;
+      padding: 20px 22px;
+      text-decoration: none;
+      color: var(--charcoal);
+      transition: border-color .15s, transform .15s;
+    }
+    .card:hover { border-color: var(--forest); transform: translateY(-2px); }
+    .card strong { display: block; font-size: 17px; margin-bottom: 4px; color: var(--forest); }
+    .card span { font-size: 14px; color: var(--warm-gray); }
+    .previews { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 20px 0; }
+    .previews figure { margin: 0; }
+    .previews img {
+      width: 100%; height: auto; display: block;
+      border: 1px solid #e5e0d5; border-radius: 8px; background: #fff;
+    }
+    .previews figcaption { font-size: 13px; color: var(--warm-gray); text-align: center; padding-top: 8px; }
+    .btn {
+      display: inline-block; background: var(--forest); color: #fff; text-decoration: none;
+      font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+    }
+    .btn:hover { background: #163a2d; }
+    footer { border-top: 1px solid #e5e0d5; padding: 28px 0 48px; color: var(--warm-gray); font-size: 14px; }
+    footer a { color: var(--forest); }
+    code { background: #ece7db; padding: 1px 6px; border-radius: 4px; font-size: 90%; }
+    @media (max-width: 640px) {
+      .cards, .previews { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="tag">Cross-client HTML email</span>
+      <h1>html-email</h1>
+      <p>A hand-authored, zero-dependency framework built on one principle: never drop support for the oldest clients. Every conditional comment, MSO hack, and VML fallback is documented and linted.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>See it render</h2>
+      <p class="lead">Open the actual email HTML in your browser. Both preserve the full cross-client compatibility engineering.</p>
+      <div class="cards">
+        <a class="card" href="framework/dist/email.html">
+          <strong>Framework build &rarr;</strong>
+          <span>The assembled output from <code>framework/</code> partials, populated with the Northwind Botanicals winter-arrivals campaign.</span>
+        </a>
+        <a class="card" href="examples/northwind-botanicals/campaign.html">
+          <strong>2014 reference campaign &rarr;</strong>
+          <span>A production template from 2014, content-scrubbed to a fictitious brand, compatibility engineering byte-preserved.</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Previews</h2>
+      <p class="lead">Rendered from the framework build via headless Chrome.</p>
+      <div class="previews">
+        <figure>
+          <img src="docs/preview/desktop-light.png" alt="Desktop, light mode">
+          <figcaption>Desktop &middot; light</figcaption>
+        </figure>
+        <figure>
+          <img src="docs/preview/desktop-dark.png" alt="Desktop, dark mode">
+          <figcaption>Desktop &middot; dark</figcaption>
+        </figure>
+        <figure>
+          <img src="docs/preview/mobile.png" alt="Mobile, single column">
+          <figcaption>Mobile &middot; stacked</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Build it yourself</h2>
+      <p class="lead">Zero dependencies. Assemble the partials and lint the output:</p>
+      <p><code>cd framework/build &amp;&amp; node build.mjs &amp;&amp; node lint.mjs ../dist/email.html</code></p>
+      <a class="btn" href="https://github.com/dcondrey/html-email">View on GitHub</a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Northwind Botanicals is a fictitious brand used as sample content. Full documentation is in the
+    <a href="https://github.com/dcondrey/html-email#readme">README</a>.
+  </footer>
+</body>
+</html>
