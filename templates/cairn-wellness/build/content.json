@@ -5,6 +5,7 @@
   "companyName": "Cairn Wellness",
   "logoLinkUrl": "https://cairnwellness.example",
   "logoUrl": "../assets/cw-logo.png",
+  "logoDarkUrl": "../assets/cw-logo-dark.png",
 
   "headerDate": "Jul 31, 2026",
   "viewInBrowserUrl": "#",

@@ -102,11 +102,13 @@ const GIFT = scene(280, 260, `
   <circle cx="140" cy="112" r="6" fill="#d79f52"/>`);
 
 // ---- logo + social ----------------------------------------------------------
-const LOGO = `<!doctype html><html><head><meta charset="utf-8">
+// Two variants: deep green for the white light card; a light sage for the dark
+// card so the wordmark + stones stay legible. Swapped via .darkmode-hide/show.
+const logo = (color) => `<!doctype html><html><head><meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet"><style>html,body{margin:0;padding:0;background:transparent}
   .row{display:flex;align-items:center;height:30px}svg{margin-right:8px}
-  .wm{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:20px;color:${DGREEN};letter-spacing:.5px}</style></head>
-  <body><div class="row"><svg width="26" height="30" viewBox="0 0 26 30"><g fill="${DGREEN}">
+  .wm{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:20px;color:${color};letter-spacing:.5px}</style></head>
+  <body><div class="row"><svg width="26" height="30" viewBox="0 0 26 30"><g fill="${color}">
   <ellipse cx="13" cy="26" rx="12" ry="4"/><ellipse cx="13" cy="18.5" rx="9" ry="3.4"/><ellipse cx="13" cy="11.5" rx="6.5" ry="3"/><ellipse cx="13" cy="5.5" rx="4" ry="2.4"/></g></svg>
   <span class="wm">cairn</span></div></body></html>`;
 
@@ -122,7 +124,8 @@ const JOBS = [
   { file: 'cw-statues.jpg', w: 280, h: 260, jpeg: true, html: STATUE },
   { file: 'cw-corner.jpg', w: 280, h: 260, jpeg: true, html: CUP },
   { file: 'cw-gifts.jpg', w: 280, h: 260, jpeg: true, html: GIFT },
-  { file: 'cw-logo.png', w: 150, h: 30, html: LOGO },
+  { file: 'cw-logo.png', w: 150, h: 30, html: logo(DGREEN) },
+  { file: 'cw-logo-dark.png', w: 150, h: 30, html: logo('#c3d3b2') },
   { file: 'cw-social-facebook.png', w: 28, h: 28, html: social('f') },
   { file: 'cw-social-twitter.png', w: 28, h: 28, html: social('t') },
   { file: 'cw-social-instagram.png', w: 28, h: 28, html: social('i') },
