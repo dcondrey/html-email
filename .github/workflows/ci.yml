@@ -30,7 +30,7 @@ jobs:
       - name: Build framework (preview + production)
         run: |
           node framework/build/build.mjs
-          node framework/build/build.mjs --production --out framework/dist/email.min.html
+          node framework/build/build.mjs --production --out ../dist/email.min.html
 
       - name: Build templates
         run: node scripts/build-template.mjs templates/cairn-wellness

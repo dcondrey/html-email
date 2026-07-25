@@ -1,24 +1,37 @@
 {
   "name": "html-email",
   "version": "1.0.0",
-  "description": "A hand-authored HTML email template and reference built on one principle:",
-  "main": "index.js",
+  "description": "A hand-authored, zero-dependency cross-client HTML email framework that never drops support for the oldest clients.",
+  "type": "module",
   "directories": {
     "doc": "docs",
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "previews": "node scripts/generate-previews.mjs"
+    "build": "node framework/build/build.mjs && node framework/build/build.mjs --production --out ../dist/email.min.html && node scripts/build-template.mjs templates/cairn-wellness",
+    "lint": "node framework/build/lint.mjs framework/dist/email.html && node framework/build/lint.mjs templates/cairn-wellness/dist/email.html",
+    "verify": "npm run build && npm run lint",
+    "previews": "node scripts/generate-previews.mjs",
+    "assets": "node scripts/generate-cairn-assets.mjs",
+    "test": "npm run verify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dcondrey/html-email.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "keywords": [
+    "html-email",
+    "email",
+    "newsletter",
+    "cross-client",
+    "outlook",
+    "dark-mode",
+    "mjml-alternative",
+    "responsive-email",
+    "zero-dependency"
+  ],
+  "author": "David Condrey",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dcondrey/html-email/issues"
   },
