@@ -41,10 +41,11 @@ const assert = (cond, msg) => {
 
 console.log('\nlint.mjs self-test\n');
 
-// --- good fixture: must pass cleanly -----------------------------------------
+// --- good fixture: must pass cleanly (the gold-standard, 0 fail AND 0 warn) ---
 const good = runLint(GOOD);
 assert(good.code === 0, 'good.html exits 0');
 assert(/0 fail/.test(good.out), 'good.html reports 0 fail');
+assert(/0 fail, 0 warn/.test(good.out), 'good.html reports 0 warn (fully conformant)');
 
 // --- bad fixture: must fail, and name each planted defect ---------------------
 const bad = runLint(BAD);
@@ -54,6 +55,10 @@ assert(/without a width attribute/.test(bad.out), 'bad.html: missing-width rule 
 assert(/Unbalanced \{ \} in a <style> block/.test(bad.out), 'bad.html: unbalanced-brace rule fires');
 assert(/MSO conditional mismatch/.test(bad.out), 'bad.html: MSO-conditional rule fires');
 assert(/No unsubscribe link found/.test(bad.out), 'bad.html: missing-unsubscribe rule fires');
+// house-conformance rules (bad.html declares none of them)
+assert(/color-scheme.*meta/.test(bad.out), 'bad.html: dark-mode-declaration rule fires');
+assert(/PixelsPerInch/.test(bad.out), 'bad.html: Outlook-DPI rule fires');
+assert(/prefers-color-scheme: dark\) block/.test(bad.out), 'bad.html: dark-mode-CSS rule fires');
 
 console.log(`\n${failures ? '\x1b[31m' : '\x1b[32m'}${failures} assertion${failures === 1 ? '' : 's'} failed\x1b[0m\n`);
 process.exit(failures ? 1 : 0);

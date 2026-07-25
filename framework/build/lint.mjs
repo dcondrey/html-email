@@ -119,5 +119,32 @@ presRoles >= tables
   ? PASS(`viewport + charset meta present.`)
   : WARN(`Missing viewport or charset meta.`);
 
+// --- House-conformance: the load-bearing techniques this framework is built on.
+//     These are the invariants a new template must not silently drop. The three
+//     that change how the email RENDERS across clients are failures; the
+//     preheader (an inbox-presentation nicety) is a warning.
+
+// 10. Dark-mode opt-in: both metas, so Apple Mail/Outlook stop force-inverting.
+/name=["']color-scheme["']/i.test(html) && /name=["']supported-color-schemes["']/i.test(html)
+  ? PASS(`color-scheme + supported-color-schemes meta present (deliberate dark-mode opt-in).`)
+  : FAIL(`Missing color-scheme/supported-color-schemes meta — clients will force-invert colours in dark mode.`);
+
+// 11. Outlook DPI pinning: PixelsPerInch 96 stops Word upscaling at high system DPI.
+/<o:PixelsPerInch>\s*96\s*<\/o:PixelsPerInch>/i.test(html)
+  ? PASS(`MSO PixelsPerInch pinned to 96 (Outlook renders images/widths 1:1).`)
+  : FAIL(`No <o:PixelsPerInch>96 — classic Outlook upscales images and widths 25-50% at high system DPI.`);
+
+// 12. Dark-mode CSS present (the prefers-color-scheme path; the framework also
+//     carries [data-ogsc]/[data-ogsb] for Outlook.com).
+/@media\s*\(prefers-color-scheme:\s*dark\)/i.test(html)
+  ? PASS(`Dark-mode CSS present (prefers-color-scheme block).`)
+  : FAIL(`No @media (prefers-color-scheme: dark) block — the template opts into dark mode but never styles it.`);
+
+// 13. Hidden preheader: a display:none element that also zeroes its box, so the
+//     inbox preview line is controlled instead of leaking body copy.
+/display:\s*none[^>]*max-height:\s*0/i.test(html)
+  ? PASS(`Hidden preheader present (controls the inbox preview line).`)
+  : WARN(`No hidden preheader detected — the inbox preview will leak whatever body text comes first.`);
+
 console.log(`\n${fails ? '\x1b[31m' : '\x1b[32m'}${fails} fail, ${warns} warn\x1b[0m\n`);
 process.exit(fails ? 1 : 0);
