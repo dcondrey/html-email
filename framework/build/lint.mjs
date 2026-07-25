@@ -65,6 +65,16 @@ noAlt.length
   ? FAIL(`${noAlt.length} <img> without an alt attribute (blocked-image fallback + screen readers). First: ${noAlt[0].slice(0,80)}…`)
   : PASS(`All ${imgs.length} <img> tags have an alt attribute.`);
 
+// 3b. Every <img> needs a width ATTRIBUTE, not just CSS. Classic Outlook's Word
+//     engine ignores CSS width/max-width and draws images at their natural pixel
+//     size; a source image wider than the 600px container then blows the layout
+//     open (a real 2358px hero overflow is what prompted this rule). The
+//     attribute must be present even when style also sets a width.
+const noWidth = imgs.filter((t) => !/\bwidth\s*=/.test(t));
+noWidth.length
+  ? FAIL(`${noWidth.length} <img> without a width attribute — Outlook (Word) draws these at natural size, so any oversized source image overflows the 600px layout. First: ${noWidth[0].slice(0,80)}…`)
+  : PASS(`All ${imgs.length} <img> tags carry a width attribute (Outlook ignores CSS width and draws at natural size otherwise).`);
+
 // 4. Bulletproof button present (VML) — dead click area in Outlook otherwise.
 /v:roundrect/i.test(html)
   ? PASS(`VML <v:roundrect> button present (clickable in classic Outlook).`)
@@ -91,7 +101,9 @@ if (pureColors && !hasColorScheme) {
 }
 
 // 7. A real unsubscribe link (compliance + Gmail/Yahoo one-click requirement).
-/unsubscrib/i.test(html)
+//    Test the comment-stripped markup so the word "unsubscribe" in a code
+//    comment cannot masquerade as an actual link.
+/unsubscrib/i.test(structural)
   ? PASS(`Unsubscribe link present.`)
   : FAIL(`No unsubscribe link found — required for CAN-SPAM/CASL/GDPR and Gmail/Yahoo bulk sending.`);
 

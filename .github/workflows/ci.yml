@@ -49,5 +49,8 @@ jobs:
           node framework/build/lint.mjs templates/voltline/dist/email.html
           node framework/build/lint.mjs templates/meridian-advisory/dist/email.html
 
+      - name: Self-test the linter (fixtures must pass/fail as expected)
+        run: node framework/build/lint.test.mjs
+
       - name: Assert build output is committed (no drift)
         run: git diff --exit-code -- framework/dist templates/*/dist

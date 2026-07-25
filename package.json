@@ -13,7 +13,8 @@
     "verify": "npm run build && npm run lint",
     "previews": "node scripts/generate-previews.mjs",
     "assets": "node scripts/generate-cairn-assets.mjs && node scripts/generate-ferry-assets.mjs && node scripts/generate-lantern-assets.mjs && node scripts/generate-voltline-assets.mjs && node scripts/generate-meridian-assets.mjs",
-    "test": "npm run verify"
+    "test:lint": "node framework/build/lint.test.mjs",
+    "test": "npm run verify && npm run test:lint"
   },
   "repository": {
     "type": "git",

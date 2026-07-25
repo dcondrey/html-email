@@ -1,0 +1,35 @@
+<!--
+  lint fixture: BAD — deliberately trips several lint FAIL rules at once:
+    - an <img> with no alt attribute            (rule 3)
+    - an <img> with no width attribute          (rule 3b)
+    - an unbalanced <style> brace               (rule 2)
+    - an unbalanced MSO conditional comment      (rule 5)
+    - no unsubscribe link                        (rule 7)
+  lint.test.mjs asserts the linter reports these and exits non-zero. If the
+  linter stops catching one of them, this fixture stops failing and the test
+  breaks — which is the point.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    /* unbalanced: this brace is never closed */
+    body { color:#000000
+    a { color:#ffffff; }
+  </style>
+</head>
+<body>
+  <table role="presentation" width="100%">
+    <tr>
+      <td>
+        <!-- no alt AND no width — the two img rules -->
+        <img src="huge.jpg" style="display:block;">
+        <!--[if mso]>
+        <table><tr><td>dangling conditional with no matching endif</td></tr></table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
