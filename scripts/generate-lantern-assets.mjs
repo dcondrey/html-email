@@ -94,8 +94,8 @@ const HERO = scene(600, 360, `
 // ---- STORY-less: team avatars + product covers -----------------------------
 const LOGO = (word) => `<!doctype html><html><head><meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet"><style>html,body{margin:0;padding:0;background:transparent}
-  .row{display:flex;align-items:center;height:36px}svg{margin-right:10px}
-  .wm{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:22px;color:${word};letter-spacing:.3px}
+  .row{display:inline-flex;align-items:center;height:36px}svg{margin-right:10px;flex:none}
+  .wm{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:22px;color:${word};letter-spacing:.3px;white-space:nowrap}
   .wm b{color:${CORAL};font-weight:700}</style></head>
   <body><div class="row"><svg width="26" height="36" viewBox="0 0 26 36"><defs>
   <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9e3a8"/><stop offset="1" stop-color="#f2b544"/></linearGradient></defs>
@@ -118,8 +118,8 @@ const JOBS = [
   { file: 'lq-team-3.jpg', w: 110, h: 110, jpeg: true, html: avatar('t3', YELLOW, '#e6a98c') },
   { file: 'lq-book-1.jpg', w: 243, h: 150, jpeg: true, html: cover('b1', TEAL, '#357e70', YELLOW) },
   { file: 'lq-book-2.jpg', w: 243, h: 150, jpeg: true, html: cover('b2', PLUM, '#5f5185', CORAL) },
-  { file: 'lq-logo.png', w: 184, h: 36, html: LOGO(INK) },
-  { file: 'lq-logo-dark.png', w: 184, h: 36, html: LOGO('#efe9f2') },
+  { file: 'lq-logo.png', w: 420, h: 36, fit: true, html: LOGO(INK) },
+  { file: 'lq-logo-dark.png', w: 420, h: 36, fit: true, html: LOGO('#efe9f2') },
   { file: 'lq-social-facebook.png', w: 28, h: 28, html: social('f') },
   { file: 'lq-social-twitter.png', w: 28, h: 28, html: social('t') },
   { file: 'lq-social-instagram.png', w: 28, h: 28, html: social('i') },
@@ -134,10 +134,15 @@ try {
     await page.setContent(j.html, { waitUntil: 'load' });
     try { await page.evaluate(() => document.fonts.ready); } catch { /* fonts optional */ }
     await new Promise((r) => setTimeout(r, 250));
-    const opts = { path: resolve(OUT, j.file), clip: { x: 0, y: 0, width: j.w, height: j.h } };
+    // fit:true clips exactly to the .row content width so the wordmark is never
+    // truncated regardless of brand length. The measured width is printed so the
+    // partial's <img width>/<height> can match the aspect.
+    let clipW = j.w;
+    if (j.fit) clipW = Math.ceil(await page.evaluate(() => document.querySelector('.row').getBoundingClientRect().width));
+    const opts = { path: resolve(OUT, j.file), clip: { x: 0, y: 0, width: clipW, height: j.h } };
     if (j.jpeg) { opts.type = 'jpeg'; opts.quality = 92; } else { opts.omitBackground = true; }
     await page.screenshot(opts);
-    console.log(`wrote ${j.file} (${j.w}x${j.h})`);
+    console.log(`wrote ${j.file} (${clipW}x${j.h})`);
     await page.close();
   }
 } finally { await browser.close(); }

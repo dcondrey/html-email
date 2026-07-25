@@ -89,8 +89,8 @@ const ANALYSIS = scene(240, 200, `
 // ---- logo + social ----------------------------------------------------------
 const logo = (word) => `<!doctype html><html><head><meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:600,700&display=swap" rel="stylesheet"><style>html,body{margin:0;padding:0;background:transparent}
-  .row{display:flex;align-items:center;height:32px}svg{margin-right:9px}
-  .wm{font-family:'IBM Plex Sans',Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:1px;color:${word};text-transform:uppercase}
+  .row{display:inline-flex;align-items:center;height:32px}svg{margin-right:9px;flex:none}
+  .wm{font-family:'IBM Plex Sans',Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:1px;color:${word};text-transform:uppercase;white-space:nowrap}
   .wm b{color:${CORAL};font-weight:600}</style></head>
   <body><div class="row"><svg width="30" height="28" viewBox="0 0 30 28">
   <path d="M3 22 Q15 2 27 22" fill="none" stroke="${word}" stroke-width="2.5"/>
@@ -107,8 +107,8 @@ const JOBS = [
   { file: 'mer-hero.jpg', w: 600, h: 340, jpeg: true, html: HERO },
   { file: 'mer-service-1.jpg', w: 240, h: 200, jpeg: true, html: STRATEGY },
   { file: 'mer-service-2.jpg', w: 240, h: 200, jpeg: true, html: ANALYSIS },
-  { file: 'mer-logo.png', w: 180, h: 32, html: logo(CHARCOAL) },
-  { file: 'mer-logo-dark.png', w: 180, h: 32, html: logo('#e8e9ec') },
+  { file: 'mer-logo.png', w: 420, h: 32, fit: true, html: logo(CHARCOAL) },
+  { file: 'mer-logo-dark.png', w: 420, h: 32, fit: true, html: logo('#e8e9ec') },
   { file: 'mer-social-linkedin.png', w: 28, h: 28, html: social('in', 11) },
   { file: 'mer-social-twitter.png', w: 28, h: 28, html: social('t') },
   { file: 'mer-social-facebook.png', w: 28, h: 28, html: social('f') },
@@ -123,10 +123,15 @@ try {
     await page.setContent(j.html, { waitUntil: 'load' });
     try { await page.evaluate(() => document.fonts.ready); } catch { /* fonts optional */ }
     await new Promise((r) => setTimeout(r, 250));
-    const opts = { path: resolve(OUT, j.file), clip: { x: 0, y: 0, width: j.w, height: j.h } };
+    // fit:true clips exactly to the .row content width so the wordmark is never
+    // truncated regardless of brand length. The measured width is printed so the
+    // partial's <img width>/<height> can match the aspect.
+    let clipW = j.w;
+    if (j.fit) clipW = Math.ceil(await page.evaluate(() => document.querySelector('.row').getBoundingClientRect().width));
+    const opts = { path: resolve(OUT, j.file), clip: { x: 0, y: 0, width: clipW, height: j.h } };
     if (j.jpeg) { opts.type = 'jpeg'; opts.quality = 92; } else { opts.omitBackground = true; }
     await page.screenshot(opts);
-    console.log(`wrote ${j.file} (${j.w}x${j.h})`);
+    console.log(`wrote ${j.file} (${clipW}x${j.h})`);
     await page.close();
   }
 } finally { await browser.close(); }
