@@ -1,0 +1,14 @@
+name: "html-email CodeQL config"
+
+# security-extended keeps the deeper query set the workflow used before this file.
+queries:
+  - uses: security-extended
+
+# legacy/ is a preserved, unmodified 2014 artifact (bundled jQuery + a dead
+# Google-Sheets checklist), kept for historical reference and explicitly NOT
+# maintained — see legacy/README.md. Its findings (old jQuery prototype
+# pollution / unsafe HTML expansion, http:// CDN scripts) are not actionable
+# without rewriting the artifact, which would defeat the point of preserving it.
+# The maintained replacement is tools/email-checklist/ (vanilla JS, no CDN).
+paths-ignore:
+  - 'legacy/**'
