@@ -36,6 +36,7 @@ jobs:
           node scripts/build-template.mjs templates/cairn-wellness
           node scripts/build-template.mjs templates/ferry-street-brewing
           node scripts/build-template.mjs templates/lantern-and-quill
+          node scripts/build-template.mjs templates/voltline
 
       - name: Lint
         run: |
@@ -43,6 +44,7 @@ jobs:
           node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
           node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html
           node framework/build/lint.mjs templates/lantern-and-quill/dist/email.html
+          node framework/build/lint.mjs templates/voltline/dist/email.html
 
       - name: Package release archive
         run: |

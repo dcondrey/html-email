@@ -1,0 +1,34 @@
+          {{>gap}}
+          <!-- Featured product: image + a compact spec list, side by side,
+               stacking on narrow. Image column first = left in the ghost table. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24; border-radius:8px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="260" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:260px; vertical-align:top;">
+                  <img src="{{productImageUrl}}" width="260" height="280" alt="{{productImageAlt}}" class="fluid" style="width:100%; max-width:260px; height:auto; display:block; border:0; border-radius:8px 0 0 8px;">
+                </div>
+                <!--[if mso]></td><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:320px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:34px 36px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#0d0d12; background-color:#35e0c8; display:inline-block; padding:4px 10px; border-radius:4px; margin-bottom:14px;">{{productBadge}}</div>
+                        <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:23px; line-height:28px; color:#ffffff; padding-bottom:12px;">{{productName}}</div>
+                        <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:14px; line-height:24px; color:#9a9ab0; padding-bottom:18px;">{{productText}}</div>
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px;">
+                          <tr><td style="padding:6px 0; color:#7c7c92; border-bottom:1px solid #2e2e3c;">{{spec1Label}}</td><td align="right" style="padding:6px 0; color:#eef0f6; border-bottom:1px solid #2e2e3c;">{{spec1Value}}</td></tr>
+                          <tr><td style="padding:6px 0; color:#7c7c92; border-bottom:1px solid #2e2e3c;">{{spec2Label}}</td><td align="right" style="padding:6px 0; color:#eef0f6; border-bottom:1px solid #2e2e3c;">{{spec2Value}}</td></tr>
+                          <tr><td style="padding:6px 0; color:#7c7c92; border-bottom:1px solid #2e2e3c;">{{spec3Label}}</td><td align="right" style="padding:6px 0; color:#eef0f6; border-bottom:1px solid #2e2e3c;">{{spec3Value}}</td></tr>
+                          <tr><td style="padding:6px 0; color:#7c7c92;">{{spec4Label}}</td><td align="right" style="padding:6px 0; color:#eef0f6;">{{spec4Value}}</td></tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

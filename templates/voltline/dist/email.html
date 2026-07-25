@@ -1,0 +1,410 @@
+<!--
+  ============================================================================
+  00-document-open.html — doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  House conventions (see framework/partials for the annotated reference):
+  XHTML Transitional doctype, MSO OfficeDocumentSettings, resets, fluid-hybrid
+  responsive, three-path dark mode, role="presentation" wrappers, MSO ghost
+  table pinned to the content width. Brand: fictitious Voltline — a consumer-
+  electronics sale blast. This one is DARK-FIRST: near-black cards with hot-pink
+  accents, Space Grotesk type. color-scheme is declared so light-mode clients
+  keep the intended dark look (no forced inversion); dark mode just deepens it.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="dark light">
+  <meta name="supported-color-schemes" content="dark light">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+  <title>Voltline: the summer sale drops June 24</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Word has no web-font support: force Voltline's Space Grotesk to fall back
+       to a web-safe stack, not Times. Kill Word's extra leading and table gaps. */
+    * { font-family: 'Space Grotesk', Arial, Helvetica, sans-serif !important; }
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Space+Grotesk:400,500,700&display=swap" rel="stylesheet">
+  <!--<![endif]-->
+
+  <style type="text/css">
+    /* 1. RESETS */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    #MessageViewBody a { color:inherit; }
+
+    /* 2. FLUID-HYBRID RESPONSIVE (media query is an enhancement, not a dependency) */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* 3. DARK MODE — this template is dark-first, so the classes DEEPEN the dark
+          rather than invert. Text stays light in every mode. */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#07070b !important; }
+      .darkmode-text, .darkmode-text * { color:#eef0f6 !important; }
+      .darkmode-muted, .darkmode-muted * { color:#9a9ab0 !important; }
+      .darkmode-card { background-color:#15151d !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#eef0f6 !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#9a9ab0 !important; }
+    [data-ogsb] .darkmode-bg { background-color:#07070b !important; }
+    [data-ogsb] .darkmode-card { background-color:#15151d !important; }
+  </style>
+</head>
+
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#0d0d12; color:#eef0f6; font-family:'Space Grotesk',Arial,Helvetica,sans-serif;">
+
+            <!--
+            Hidden preheader: the inbox preview line. display:none + zero-size +
+            the &zwnj;&nbsp; run pushes body text out of the preview so only this
+            shows. mso-hide:all covers Outlook.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#0d0d12;">
+            Four days of price drops on phones, audio, and wearables. Mark the calendar and pick your storage tier.
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>
+
+
+  <div role="article" aria-roledescription="email" aria-label="Voltline: the summer sale drops June 24" lang="en" style="background-color:#0d0d12;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#0d0d12;">
+      <tr>
+        <td align="center" valign="top" style="padding:40px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">
+
+          <!-- Header bar: view-online + store link, rounded top, elevated dark -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#22222e; border-radius:8px 8px 0 0;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:15px 30px; font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#9a9ab0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="left" class="darkmode-muted" style="color:#9a9ab0; font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#9a9ab0; text-decoration:none;">View online</a></td>
+                    <td align="right" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ff3d7f; text-decoration:none;">Go to the store &rarr;</a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Logo + nav. Two fluid-hybrid columns: logo left, nav right; they
+               stack centered on narrow screens (ghost tables keep Outlook a real
+               two-cell row). Dark card, so one logo works in every mode. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24;">
+            <tr>
+              <td align="center" valign="middle" class="pad-on-narrow" style="padding:22px 30px; font-size:0; text-align:center;">
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="180" valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:180px; vertical-align:middle; text-align:left;">
+                  <a href="https://voltline.example" target="_blank" style="text-decoration:none;"><img src="../assets/vl-logo.png" width="150" height="30" alt="Voltline" style="display:block; border:0;" class="center-on-narrow"></a>
+                </div>
+                <!--[if mso]></td><td valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:390px; vertical-align:middle;">
+                  <div class="center-on-narrow" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:13px; line-height:26px; letter-spacing:1px; text-transform:uppercase; color:#cdcdda; text-align:right;">
+                    <a href="#" target="_blank" style="color:#cdcdda; text-decoration:none;">Phones</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#cdcdda; text-decoration:none;">Audio</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#cdcdda; text-decoration:none;">Wearables</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#cdcdda; text-decoration:none;">Support</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#ff3d7f; text-decoration:none;">Deals</a>
+                  </div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </table>
+
+          <!-- Hero: full-width device image + card (pink eyebrow + big headline
+               + intro + pink bulletproof button) on an elevated dark panel. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; line-height:0;">
+                <a href="#" target="_blank" style="text-decoration:none;"><img src="../assets/vl-hero.jpg" width="600" height="360" alt="A phone glowing on a dark stage under pink and cyan light" class="fluid" style="width:100%; max-width:600px; height:auto; display:block; border:0;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:38px 44px 42px 44px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:16px; letter-spacing:4px; text-transform:uppercase; color:#ff3d7f; padding-bottom:14px;">Four days only</div>
+                <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:36px; line-height:42px; color:#ffffff; padding-bottom:16px;">The summer sale drops June 24</div>
+                <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:15px; line-height:26px; color:#9a9ab0; padding-bottom:28px;">The biggest price cuts of the year land at midnight on the 24th. Phones, audio, wearables, all marked down. Set a reminder now so you do not miss the first-hour doorbusters.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:48px;v-text-anchor:middle;width:190px;" arcsize="14%" strokecolor="#ff3d7f" fillcolor="#ff3d7f">
+                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Set a reminder</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#ff3d7f; border-radius:7px; color:#ffffff; display:inline-block; font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; line-height:48px; text-align:center; text-decoration:none; padding:0 36px; mso-hide:all;">Set a reminder</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the near-black page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Date-list (the signature calendar): a titled section, then event
+               rows. Each row is a two-cell presentation table — a fixed 64px
+               pink date badge + a flexible text cell — so it holds its shape
+               even on a 320px screen without stacking. Hairline dividers between. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24; border-radius:8px;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:38px 40px 8px 40px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:16px; letter-spacing:4px; text-transform:uppercase; color:#ff3d7f; padding-bottom:8px;">Sale calendar</div>
+                <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:26px; line-height:32px; color:#ffffff;">Four days, four drops</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:20px 40px 12px 40px;">
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #2e2e3c;">
+                  <tr>
+                    <td width="64" valign="top" style="padding:0 18px 22px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;"><tr><td align="center" style="padding:10px 0; width:64px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:24px; line-height:24px; color:#ffffff;">24</div>
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#ffd9e7;">Jun</div>
+                      </td></tr></table>
+                    </td>
+                    <td valign="top" style="padding:0 0 22px 0;">
+                      <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:22px; color:#eef0f6; padding-bottom:6px;">Doorbusters open at midnight</div>
+                      <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:8px;">The deepest cuts, limited stock. First hour only, one per customer.</div>
+                      <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ff3d7f; text-decoration:none;">Learn more &rarr;</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #2e2e3c;">
+                  <tr>
+                    <td width="64" valign="top" style="padding:22px 18px 22px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;"><tr><td align="center" style="padding:10px 0; width:64px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:24px; line-height:24px; color:#ffffff;">26</div>
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#ffd9e7;">Jun</div>
+                      </td></tr></table>
+                    </td>
+                    <td valign="top" style="padding:22px 0;">
+                      <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:22px; color:#eef0f6; padding-bottom:6px;">Audio day</div>
+                      <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:8px;">Headphones, earbuds, and speakers up to forty percent off.</div>
+                      <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ff3d7f; text-decoration:none;">Learn more &rarr;</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="64" valign="top" style="padding:22px 18px 6px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;"><tr><td align="center" style="padding:10px 0; width:64px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:24px; line-height:24px; color:#ffffff;">28</div>
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#ffd9e7;">Jun</div>
+                      </td></tr></table>
+                    </td>
+                    <td valign="top" style="padding:22px 0 6px 0;">
+                      <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:22px; color:#eef0f6; padding-bottom:6px;">Last call clearance</div>
+                      <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:8px;">Final markdowns on last-season models before they are gone.</div>
+                      <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ff3d7f; text-decoration:none;">Learn more &rarr;</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the near-black page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Featured product: image + a compact spec list, side by side,
+               stacking on narrow. Image column first = left in the ghost table. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24; border-radius:8px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="260" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:260px; vertical-align:top;">
+                  <img src="../assets/vl-product.jpg" width="260" height="280" alt="The Voltline Pulse music player, front view" class="fluid" style="width:100%; max-width:260px; height:auto; display:block; border:0; border-radius:8px 0 0 8px;">
+                </div>
+                <!--[if mso]></td><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:320px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:34px 36px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#0d0d12; background-color:#35e0c8; display:inline-block; padding:4px 10px; border-radius:4px; margin-bottom:14px;">New</div>
+                        <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:23px; line-height:28px; color:#ffffff; padding-bottom:12px;">Voltline Pulse player</div>
+                        <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:14px; line-height:24px; color:#9a9ab0; padding-bottom:18px;">A pocket player built for the long walk. Twelve-hour battery, lossless audio, and a display you can read in full sun.</div>
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px;">
+                          <tr><td style="padding:6px 0; color:#7c7c92; border-bottom:1px solid #2e2e3c;">Height</td><td align="right" style="padding:6px 0; color:#eef0f6; border-bottom:1px solid #2e2e3c;">4.86 in (123.4 mm)</td></tr>
+                          <tr><td style="padding:6px 0; color:#7c7c92; border-bottom:1px solid #2e2e3c;">Width</td><td align="right" style="padding:6px 0; color:#eef0f6; border-bottom:1px solid #2e2e3c;">2.31 in (58.6 mm)</td></tr>
+                          <tr><td style="padding:6px 0; color:#7c7c92; border-bottom:1px solid #2e2e3c;">Depth</td><td align="right" style="padding:6px 0; color:#eef0f6; border-bottom:1px solid #2e2e3c;">0.24 in (6.1 mm)</td></tr>
+                          <tr><td style="padding:6px 0; color:#7c7c92;">Weight</td><td align="right" style="padding:6px 0; color:#eef0f6;">3.10 oz (88 g)</td></tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the near-black page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Pricing table (the signature): a titled section, then storage tiers
+               as presentation-table rows (size | price | action). The best-value
+               tier gets a pink-tinted row, a pink hairline, and a BEST VALUE tag. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24; border-radius:8px;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:38px 40px 6px 40px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:16px; letter-spacing:4px; text-transform:uppercase; color:#ff3d7f; padding-bottom:8px;">Pricing</div>
+                <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:26px; line-height:32px; color:#ffffff;">Pick your size</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:22px 40px 40px 40px;">
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; border:1px solid #2e2e3c; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#eef0f6;">16 GB<span style="font-weight:400; font-size:12px; color:#7c7c92;">&nbsp;&nbsp;Everyday carry</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#eef0f6;">$199 <a href="#" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr></table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; border:1px solid #2e2e3c; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#eef0f6;">32 GB<span style="font-weight:400; font-size:12px; color:#7c7c92;">&nbsp;&nbsp;Room to grow</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#eef0f6;">$249 <a href="#" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr></table>
+
+                <!-- best-value tier: pink-tinted row + pink border + tag -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; background-color:#241820; border:1px solid #ff3d7f; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#ffffff;">64 GB<span style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#0d0d12; background-color:#ff3d7f; border-radius:4px; padding:3px 7px; margin-left:8px;">Best value</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#ffffff;">$299 <a href="#" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr></table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; border:1px solid #2e2e3c; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#eef0f6;">128 GB<span style="font-weight:400; font-size:12px; color:#7c7c92;">&nbsp;&nbsp;The whole library</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#eef0f6;">$399 <a href="#" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the near-black page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- CTA band: centered, hot pink, bulletproof (VML) dark pill button -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:48px 40px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:30px; line-height:36px; color:#ffffff; text-align:center; padding-bottom:14px;">Beat the rush</div>
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:15px; line-height:26px; color:#ffe1ec; text-align:center; padding-bottom:28px;">Sale prices go live to list members one hour early. Join now and get the first-hour link straight to your inbox.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:48px;v-text-anchor:middle;width:200px;" arcsize="14%" strokecolor="#0d0d12" fillcolor="#0d0d12">
+                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Get early access</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#0d0d12; border-radius:7px; color:#ffffff; display:inline-block; font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; line-height:48px; text-align:center; text-decoration:none; padding:0 34px; mso-hide:all;">Get early access</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the near-black page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Footer: social + name + address + unsubscribe. Elevated dark card
+               (not pure black), so it reads as intentional in every mode. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#22222e; border-radius:8px 8px 0 0;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/vl-social-facebook.png" width="28" height="28" alt="Voltline on Facebook" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/vl-social-twitter.png" width="28" height="28" alt="Voltline on Twitter" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/vl-social-instagram.png" width="28" height="28" alt="Voltline on Instagram" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/vl-social-youtube.png" width="28" height="28" alt="Voltline on YouTube" style="display:block; border:0;"></a></td>
+                  </tr>
+                </table>
+                <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:17px; line-height:22px; letter-spacing:1px; color:#ffffff; padding-bottom:8px;">Voltline</div>
+                <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:16px;">500 Circuit Ave, Suite 12, Fremont, CA 94538</div>
+                <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:18px; color:#7c7c92; padding-bottom:16px;"><a href="*|UNSUB|*" target="_blank" style="color:#7c7c92; text-decoration:underline;">Unsubscribe</a> from these deal alerts.</div>
+                <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:11px; line-height:16px; color:#61617a;">Voltline is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details.</div>
+              </td>
+            </tr>
+          </table>
+
+          </div><!-- /.email-container -->
+          <!--[if mso]>
+          </td></tr></table>
+          <![endif]--><!-- /ghost table -->
+
+        </td>
+      </tr>
+    </table><!-- /background wrapper -->
+  </div><!-- /role=article -->
+</body>
+</html>
+

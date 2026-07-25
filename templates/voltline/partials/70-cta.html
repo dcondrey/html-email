@@ -1,0 +1,18 @@
+          {{>gap}}
+          <!-- CTA band: centered, hot pink, bulletproof (VML) dark pill button -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:48px 40px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:30px; line-height:36px; color:#ffffff; text-align:center; padding-bottom:14px;">{{ctaHeadline}}</div>
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:15px; line-height:26px; color:#ffe1ec; text-align:center; padding-bottom:28px;">{{ctaText}}</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ctaUrl}}" style="height:48px;v-text-anchor:middle;width:200px;" arcsize="14%" strokecolor="#0d0d12" fillcolor="#0d0d12">
+                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">{{ctaButton}}</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="{{ctaUrl}}" target="_blank" style="background:#0d0d12; border-radius:7px; color:#ffffff; display:inline-block; font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; line-height:48px; text-align:center; text-decoration:none; padding:0 34px; mso-hide:all;">{{ctaButton}}</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>

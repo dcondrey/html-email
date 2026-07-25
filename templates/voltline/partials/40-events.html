@@ -1,0 +1,66 @@
+          {{>gap}}
+          <!-- Date-list (the signature calendar): a titled section, then event
+               rows. Each row is a two-cell presentation table — a fixed 64px
+               pink date badge + a flexible text cell — so it holds its shape
+               even on a 320px screen without stacking. Hairline dividers between. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24; border-radius:8px;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:38px 40px 8px 40px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:16px; letter-spacing:4px; text-transform:uppercase; color:#ff3d7f; padding-bottom:8px;">{{eventsEyebrow}}</div>
+                <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:26px; line-height:32px; color:#ffffff;">{{eventsTitle}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:20px 40px 12px 40px;">
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #2e2e3c;">
+                  <tr>
+                    <td width="64" valign="top" style="padding:0 18px 22px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;"><tr><td align="center" style="padding:10px 0; width:64px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:24px; line-height:24px; color:#ffffff;">{{event1Day}}</div>
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#ffd9e7;">{{event1Month}}</div>
+                      </td></tr></table>
+                    </td>
+                    <td valign="top" style="padding:0 0 22px 0;">
+                      <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:22px; color:#eef0f6; padding-bottom:6px;">{{event1Title}}</div>
+                      <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:8px;">{{event1Text}}</div>
+                      <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="{{event1Url}}" target="_blank" style="color:#ff3d7f; text-decoration:none;">Learn more &rarr;</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #2e2e3c;">
+                  <tr>
+                    <td width="64" valign="top" style="padding:22px 18px 22px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;"><tr><td align="center" style="padding:10px 0; width:64px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:24px; line-height:24px; color:#ffffff;">{{event2Day}}</div>
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#ffd9e7;">{{event2Month}}</div>
+                      </td></tr></table>
+                    </td>
+                    <td valign="top" style="padding:22px 0;">
+                      <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:22px; color:#eef0f6; padding-bottom:6px;">{{event2Title}}</div>
+                      <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:8px;">{{event2Text}}</div>
+                      <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="{{event2Url}}" target="_blank" style="color:#ff3d7f; text-decoration:none;">Learn more &rarr;</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="64" valign="top" style="padding:22px 18px 6px 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff3d7f; border-radius:8px;"><tr><td align="center" style="padding:10px 0; width:64px;">
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:24px; line-height:24px; color:#ffffff;">{{event3Day}}</div>
+                        <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:11px; line-height:14px; letter-spacing:2px; text-transform:uppercase; color:#ffd9e7;">{{event3Month}}</div>
+                      </td></tr></table>
+                    </td>
+                    <td valign="top" style="padding:22px 0 6px 0;">
+                      <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:22px; color:#eef0f6; padding-bottom:6px;">{{event3Title}}</div>
+                      <div class="darkmode-muted" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#9a9ab0; padding-bottom:8px;">{{event3Text}}</div>
+                      <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="{{event3Url}}" target="_blank" style="color:#ff3d7f; text-decoration:none;">Learn more &rarr;</a></div>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>

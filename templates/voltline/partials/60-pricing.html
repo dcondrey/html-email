@@ -1,0 +1,65 @@
+          {{>gap}}
+          <!-- Pricing table (the signature): a titled section, then storage tiers
+               as presentation-table rows (size | price | action). The best-value
+               tier gets a pink-tinted row, a pink hairline, and a BEST VALUE tag. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#1a1a24; border-radius:8px;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:38px 40px 6px 40px;">
+                <div style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:16px; letter-spacing:4px; text-transform:uppercase; color:#ff3d7f; padding-bottom:8px;">{{pricingEyebrow}}</div>
+                <div class="darkmode-text" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:26px; line-height:32px; color:#ffffff;">{{pricingTitle}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:22px 40px 40px 40px;">
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; border:1px solid #2e2e3c; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#eef0f6;">{{tier1Size}}<span style="font-weight:400; font-size:12px; color:#7c7c92;">&nbsp;&nbsp;{{tier1Note}}</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#eef0f6;">{{tier1Price}} <a href="{{tier1Url}}" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr></table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; border:1px solid #2e2e3c; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#eef0f6;">{{tier2Size}}<span style="font-weight:400; font-size:12px; color:#7c7c92;">&nbsp;&nbsp;{{tier2Note}}</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#eef0f6;">{{tier2Price}} <a href="{{tier2Url}}" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr></table>
+
+                <!-- best-value tier: pink-tinted row + pink border + tag -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; background-color:#241820; border:1px solid #ff3d7f; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#ffffff;">{{tier3Size}}<span style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#0d0d12; background-color:#ff3d7f; border-radius:4px; padding:3px 7px; margin-left:8px;">{{tier3Tag}}</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#ffffff;">{{tier3Price}} <a href="{{tier3Url}}" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr></table>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td valign="middle" style="padding:16px 18px; border:1px solid #2e2e3c; border-radius:8px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                        <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:18px; color:#eef0f6;">{{tier4Size}}<span style="font-weight:400; font-size:12px; color:#7c7c92;">&nbsp;&nbsp;{{tier4Note}}</span></td>
+                        <td align="right" valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#eef0f6;">{{tier4Price}} <a href="{{tier4Url}}" target="_blank" style="font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:#ff3d7f; text-decoration:none;">&nbsp;Choose</a></td>
+                      </tr></table>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
