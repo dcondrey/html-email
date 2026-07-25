@@ -109,6 +109,12 @@ node scripts/build-template.mjs templates/cairn-wellness
 node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
 ```
 
+**Two layers of checks.** `lint.mjs` validates the HTML (Gmail size, dark-mode metas,
+bulletproof buttons, image widths, …). `npm run smoke` validates the *render*: it loads every
+built email in headless Chrome (light and dark) and fails on a broken image, horizontal overflow,
+or a page error — the class of bug lint cannot see. `npm test` runs the build + lint + the linter's
+own self-test; CI additionally runs the smoke-test.
+
 ## Templates
 
 | Template | Design | Status |

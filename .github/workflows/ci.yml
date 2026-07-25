@@ -54,3 +54,27 @@ jobs:
 
       - name: Assert build output is committed (no drift)
         run: git diff --exit-code -- framework/dist templates/*/dist
+
+  # Render smoke-test runs separately: it needs a browser (the build job above is
+  # deliberately Chrome-free). ubuntu-latest ships google-chrome-stable, which
+  # puppeteer picks up via channel:'chrome'.
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Build framework + templates
+        run: npm run build
+
+      - name: Render smoke-test (broken images, overflow, page errors)
+        run: npm run smoke
