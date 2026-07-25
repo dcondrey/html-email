@@ -67,13 +67,18 @@ html-email/
 │   └── assets/                sample images
 │
 ├── templates/                 distinct branded designs, house conventions
-│   └── cairn-wellness/         partials + manifest + content.json + assets + dist
+│   ├── cairn-wellness/         partials + manifest + content.json + assets + dist
+│   ├── ferry-street-brewing/   brewery — 3-col tasting + gallery
+│   ├── lantern-and-quill/      bookshop — team + product cards
+│   ├── voltline/               electronics, dark-first — date-list + pricing table
+│   └── meridian-advisory/      consulting — quote block
 │
 ├── examples/
 │   ├── northwind-botanicals/  the framework filled out as a real campaign
 │   └── campaigns-2014/        original 2014 campaigns, kept as references
 │
 ├── scripts/                   build-template.mjs, preview + asset generators
+├── tools/                     email-checklist/ — self-contained pre-send checklist
 ├── docs/                      quirks reference, client matrix, testing, previews
 └── legacy/                    the preserved, unmodified 2014 artifact
 ```
@@ -137,6 +142,7 @@ Security policy and private reporting: [SECURITY.md](./SECURITY.md).
 - [Quirks reference](./docs/quirks.md) — the 28 cross-client behaviours the framework defends against, explained
 - [Platform support](./docs/clients.md) — the client matrix and market data
 - [Testing & ESP integration](./docs/testing.md) — linting, real-client verification, merge tags, one-click unsubscribe
+- [Pre-send checklist](./tools/email-checklist/index.html) — a self-contained, zero-dependency checklist that walks setup → design → build → test → send (progress saves in your browser)
 - [Contributing](./CONTRIBUTING.md) · [Security](./SECURITY.md) · [Changelog](./CHANGELOG.md)
 
 ## License

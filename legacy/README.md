@@ -35,11 +35,15 @@ It was also a demo of using a published Google Spreadsheet as a lightweight
 database: `main.js` fetched rows from the Google Sheets **`gsx$` list feed** and
 rendered them into three tabbed sections.
 
-> **Note:** Google shut down the Sheets API v3 `gsx$` feeds in 2021, so the
-> checklist no longer loads its data live. It is preserved here for historical
-> interest — the interaction pattern and the checklist content in the original
-> spreadsheet were the point. Rebuilding it on a static JSON data source would
-> be a small, self-contained project; it is intentionally left untouched.
+> **Note:** Google shut down the Sheets API v3 `gsx$` feeds in 2021, so this
+> original no longer loads its data live. It is preserved here, unmodified, for
+> historical interest — the interaction pattern and the checklist content were
+> the point.
+>
+> **Rebuilt:** a modern, zero-dependency replacement now lives at
+> [`tools/email-checklist/`](../tools/email-checklist/index.html) — vanilla JS,
+> no external requests, content embedded directly, and progress saved in
+> `localStorage`. It is linked from the main README.
 
 ## Why keep it?
 
