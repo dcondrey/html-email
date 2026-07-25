@@ -67,8 +67,23 @@ let html = resolveIncludes(MANIFEST.map((f) => readFileSync(join(PARTIALS, f), '
 // ---- inject content --------------------------------------------------------
 if (!SKELETON) {
   const content = JSON.parse(readFileSync(resolve(__dirname, 'content.json'), 'utf8'));
-  // Replace {{field}} with content[field]. Missing fields are left visible as
-  // {{field}} so it is obvious what still needs filling in.
+  // Validate before injecting: every {{field}} the template references must
+  // exist in content.json, and (informationally) flag content keys no partial
+  // uses — those are typos or dead keys. A missing field is a hard failure: it
+  // would otherwise ship as a literal {{field}} in the inbox.
+  const referenced = new Set([...html.matchAll(/{{\s*([\w-]+)\s*}}/g)].map((m) => m[1]));
+  // Unused is judged against EVERY partial, not just the assembled ones: a key
+  // used only by an optional off-manifest partial (e.g. the background-image
+  // hero) is legitimate, not a dead key.
+  const anyPartialText = Object.values(byShortName).join('\n');
+  const referencedAnywhere = new Set([...anyPartialText.matchAll(/{{\s*([\w-]+)\s*}}/g)].map((m) => m[1]));
+  const missing = [...referenced].filter((k) => !(k in content));
+  const unused = Object.keys(content).filter((k) => !referencedAnywhere.has(k));
+  if (unused.length) console.log(`  ⚠ content.json keys never used by a partial: ${unused.join(', ')}`);
+  if (missing.length) {
+    console.error(`  ✗ ${missing.length} {{field}} missing from content.json: ${missing.join(', ')}`);
+    process.exit(1);
+  }
   html = html.replace(/{{\s*([\w-]+)\s*}}/g, (m, key) => (key in content ? content[key] : m));
 }
 

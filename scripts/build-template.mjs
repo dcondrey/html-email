@@ -62,13 +62,24 @@ const manifest = JSON.parse(readFileSync(MANIFEST_FILE, 'utf8'));
 let html = resolveIncludes(manifest.map((f) => readFileSync(join(PARTIALS, f), 'utf8')).join('\n'));
 
 // ---- inject content --------------------------------------------------------
+// Validate before injecting: every {{field}} the partials reference must exist
+// in content.json (a miss is fatal — it would ship as a literal {{field}}), and
+// content keys no partial uses are flagged as likely typos or dead keys.
 const content = JSON.parse(readFileSync(CONTENT_FILE, 'utf8'));
-const missing = new Set();
-html = html.replace(/{{\s*([\w-]+)\s*}}/g, (m, key) => {
-  if (key in content) return content[key];
-  missing.add(key);
-  return m; // leave visible so gaps are obvious
-});
+const referenced = new Set([...html.matchAll(/{{\s*([\w-]+)\s*}}/g)].map((m) => m[1]));
+// Unused is judged against EVERY partial (byShortName), not just the assembled
+// output, so a key used only by an optional off-manifest partial is not a
+// false "dead key".
+const anyPartialText = Object.values(byShortName).join('\n');
+const referencedAnywhere = new Set([...anyPartialText.matchAll(/{{\s*([\w-]+)\s*}}/g)].map((m) => m[1]));
+const missing = [...referenced].filter((k) => !(k in content));
+const unused = Object.keys(content).filter((k) => !referencedAnywhere.has(k));
+if (unused.length) console.log(`  ⚠ content.json keys never used by a partial: ${unused.join(', ')}`);
+if (missing.length) {
+  console.error(`  ✗ ${missing.length} {{field}} missing from ${basename(TEMPLATE)}/build/content.json: ${missing.join(', ')}`);
+  process.exit(1);
+}
+html = html.replace(/{{\s*([\w-]+)\s*}}/g, (m, key) => content[key]);
 
 // ---- production minify (keep MSO conditional comments!) ---------------------
 if (PRODUCTION) {
@@ -85,4 +96,3 @@ writeFileSync(OUT, html.trimStart() + '\n', 'utf8');
 const kb = (Buffer.byteLength(html, 'utf8') / 1024).toFixed(1);
 const clip = Buffer.byteLength(html, 'utf8') > 102000 ? '  ⚠ over Gmail 102KB clip threshold' : '';
 console.log(`built ${basename(TEMPLATE)} -> ${OUT}  (${kb} KB${clip})${PRODUCTION ? '  [production]' : ''}`);
-if (missing.size) console.log(`  ⚠ unresolved fields left visible: ${[...missing].join(', ')}`);
