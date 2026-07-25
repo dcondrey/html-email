@@ -1,0 +1,56 @@
+name: Bug report
+description: A template renders wrong, the build breaks, or a lint rule misfires.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing. Cross-client email bugs are often client-specific, so the client
+        and how you viewed it matter as much as the markup.
+  - type: input
+    id: what
+    attributes:
+      label: What happened
+      description: One line. What rendered or built wrong?
+      placeholder: "The hero button has a dead click area in classic Outlook."
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - framework (partials / build.mjs / lint.mjs)
+        - a template under templates/
+        - an example under examples/
+        - scripts (previews / asset generation)
+        - docs / README
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Email client(s)
+      description: Which client(s) reproduce it, and desktop/web/mobile + OS.
+      placeholder: "Outlook 2019 (Windows), Gmail web, Apple Mail (iOS 17)"
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Build command, template, and what you did to view it.
+      placeholder: |
+        1. node scripts/build-template.mjs templates/cairn-wellness
+        2. Sent dist/email.html to <client>
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+  - type: textarea
+    id: lint
+    attributes:
+      label: Lint output (if relevant)
+      description: Paste `node framework/build/lint.mjs <file>` output.
+      render: text

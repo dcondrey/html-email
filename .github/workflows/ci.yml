@@ -1,0 +1,44 @@
+# CI: build the framework + templates and lint every email output on push and PR.
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 22
+          cache: npm
+
+      # Nothing here needs the bundled Chromium (that is only for screenshots).
+      - name: Install
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Build framework (preview + production)
+        run: |
+          node framework/build/build.mjs
+          node framework/build/build.mjs --production --out framework/dist/email.min.html
+
+      - name: Build templates
+        run: node scripts/build-template.mjs templates/cairn-wellness
+
+      - name: Lint email output (fails the build, not the inbox)
+        run: |
+          node framework/build/lint.mjs framework/dist/email.html
+          node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
+
+      - name: Assert build output is committed (no drift)
+        run: git diff --exit-code -- framework/dist templates/*/dist

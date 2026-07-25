@@ -1,0 +1,28 @@
+name: Feature request
+description: A new partial, template, lint rule, or client workaround.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is missing
+      description: The gap or the client behavior you want handled.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: A partial, a lint check, a template, a doc. Sketch the shape.
+  - type: input
+    id: clients
+    attributes:
+      label: Clients it matters for
+      placeholder: "classic Outlook, Gmail (Android), Samsung Mail"
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Constraints understood
+      options:
+        - label: This preserves the never-drop-support rule (no fix that breaks an older client to help a newer one).
+        - label: It stays zero-dependency (no MJML / build framework).

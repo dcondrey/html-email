@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/dcondrey/html-email/security/advisories/new
+    about: Report a vulnerability privately. Do not open a public issue.
+  - name: Question / discussion
+    url: https://github.com/dcondrey/html-email/discussions
+    about: Usage questions and template ideas.

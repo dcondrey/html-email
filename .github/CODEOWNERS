@@ -1,0 +1,11 @@
+# Default owner for everything
+* @dcondrey
+
+# The build + lint engine and shared partials are the load-bearing pieces.
+/framework/build/ @dcondrey
+/framework/partials/ @dcondrey
+/scripts/ @dcondrey
+
+# CI/CD and security policy
+/.github/ @dcondrey
+/SECURITY.md @dcondrey
