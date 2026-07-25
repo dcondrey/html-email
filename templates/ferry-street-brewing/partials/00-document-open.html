@@ -1,0 +1,106 @@
+<!--
+  ============================================================================
+  00-document-open.html — doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  House conventions (see framework/partials for the annotated reference):
+  XHTML Transitional doctype, MSO OfficeDocumentSettings, resets, fluid-hybrid
+  responsive, three-path dark mode, role="presentation" wrappers, MSO ghost
+  table pinned to the content width. Brand: fictitious Ferry Street Brewing —
+  an amber/brown brewery palette on a dark-roast page, condensed Oswald type.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+  <title>{{title}}</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Word has no web-font support: force Ferry Street's Oswald to fall back to
+       a web-safe stack, not Times. Kill Word's extra leading and table gaps. */
+    * { font-family: 'Oswald', Arial, Helvetica, sans-serif !important; }
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
+  <!--<![endif]-->
+
+  <style type="text/css">
+    /* 1. RESETS */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    #MessageViewBody a { color:inherit; }
+
+    /* 2. FLUID-HYBRID RESPONSIVE (media query is an enhancement, not a dependency) */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+    /* Thirds: three columns that collapse to full width on narrow screens. */
+    .stack-third { display:inline-block; width:100%; max-width:186px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center, .stack-third { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* 3. DARK MODE — prefers-color-scheme + Outlook.com [data-ogsc]/[data-ogsb] */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#160d06 !important; }
+      .darkmode-text, .darkmode-text * { color:#f0e7da !important; }
+      .darkmode-muted, .darkmode-muted * { color:#b6a68f !important; }
+      .darkmode-card { background-color:#241811 !important; }
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#f0e7da !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#b6a68f !important; }
+    [data-ogsb] .darkmode-bg { background-color:#160d06 !important; }
+    [data-ogsb] .darkmode-card { background-color:#241811 !important; }
+  </style>
+</head>
+
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#2a1a10; color:#3a2417; font-family:'Oswald',Arial,Helvetica,sans-serif;">
+
+  <!-- {{>preheader}} -->
+
+  <div role="article" aria-roledescription="email" aria-label="{{title}}" lang="en" style="background-color:#2a1a10;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2a1a10;">
+      <tr>
+        <td align="center" valign="top" style="padding:40px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">

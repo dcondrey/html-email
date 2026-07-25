@@ -1,0 +1,36 @@
+          {{>gap}}
+          <!-- Story: text + image, side by side (image right this time), stacking
+               on narrow. Text column first in source = left in the ghost table. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:6px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:300px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:38px 36px 38px 40px;">
+                        <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#c8811f; padding-bottom:10px;">{{storyEyebrow}}</div>
+                        <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:24px; line-height:30px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; padding-bottom:16px;">{{storyTitle}}</div>
+                        <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:15px; line-height:26px; color:#6b5847; padding-bottom:24px;">{{storyText}}</div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{storyUrl}}" style="height:44px;v-text-anchor:middle;width:170px;" arcsize="14%" strokecolor="#c8811f" fillcolor="#c8811f">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">{{storyButton}}</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="{{storyUrl}}" target="_blank" style="background:#c8811f; border-radius:6px; color:#ffffff; display:inline-block; font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; line-height:44px; text-align:center; text-decoration:none; padding:0 30px; mso-hide:all;">{{storyButton}}</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="280" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:280px; vertical-align:top;">
+                  <img src="{{storyImageUrl}}" width="280" height="260" alt="{{storyImageAlt}}" class="fluid" style="width:100%; max-width:280px; height:auto; display:block; border:0; border-radius:0 6px 6px 0;">
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

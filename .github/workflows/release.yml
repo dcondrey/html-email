@@ -34,11 +34,13 @@ jobs:
           node framework/build/build.mjs
           node framework/build/build.mjs --production --out ../dist/email.min.html
           node scripts/build-template.mjs templates/cairn-wellness
+          node scripts/build-template.mjs templates/ferry-street-brewing
 
       - name: Lint
         run: |
           node framework/build/lint.mjs framework/dist/email.html
           node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
+          node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html
 
       - name: Package release archive
         run: |

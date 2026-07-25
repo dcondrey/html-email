@@ -1,0 +1,38 @@
+          {{>gap}}
+          <!-- Tasting flight: a titled section, then THREE fluid-hybrid columns
+               (the signature 3-col row). Each column is a .stack-third inline-
+               block; the ghost table gives Outlook a real three-cell row. They
+               collapse to full width on narrow screens. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:6px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:40px 30px 8px 30px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#c8811f; text-align:center; padding-bottom:10px;">{{tastingEyebrow}}</div>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:26px; line-height:32px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center;">{{tastingTitle}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:22px 24px 40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 4px;">
+                  <img src="{{tap1ImageUrl}}" width="120" height="120" alt="{{tap1Title}}" style="width:120px; max-width:120px; height:auto; display:block; margin:0 auto 16px auto; border:0;">
+                  <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:18px; line-height:24px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:8px;">{{tap1Title}}</div>
+                  <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:14px; line-height:22px; color:#6b5847; text-align:center;">{{tap1Text}}</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 4px;">
+                  <img src="{{tap2ImageUrl}}" width="120" height="120" alt="{{tap2Title}}" style="width:120px; max-width:120px; height:auto; display:block; margin:0 auto 16px auto; border:0;">
+                  <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:18px; line-height:24px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:8px;">{{tap2Title}}</div>
+                  <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:14px; line-height:22px; color:#6b5847; text-align:center;">{{tap2Text}}</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 4px;">
+                  <img src="{{tap3ImageUrl}}" width="120" height="120" alt="{{tap3Title}}" style="width:120px; max-width:120px; height:auto; display:block; margin:0 auto 16px auto; border:0;">
+                  <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:18px; line-height:24px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:8px;">{{tap3Title}}</div>
+                  <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:14px; line-height:22px; color:#6b5847; text-align:center;">{{tap3Text}}</div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

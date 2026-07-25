@@ -1,0 +1,35 @@
+          {{>gap}}
+          <!-- Gallery: a 3-up image row (the signature gallery). Three fluid-
+               hybrid columns, each an image + caption; ghost tables give Outlook
+               a real three-cell row. Full-bleed images collapse to a stack on
+               narrow screens. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#3a2417; border-radius:6px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:40px 30px 6px 30px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#e0a044; text-align:center; padding-bottom:10px;">{{galleryEyebrow}}</div>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:26px; line-height:32px; text-transform:uppercase; letter-spacing:1px; color:#f4ece0; text-align:center;">{{galleryTitle}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:22px 22px 40px 22px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top" style="padding:0 3px;"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:176px; vertical-align:top; padding:6px 3px;">
+                  <img src="{{gal1ImageUrl}}" width="170" height="136" alt="{{gal1Alt}}" class="fluid" style="width:100%; max-width:170px; height:auto; display:block; margin:0 auto 10px auto; border:0; border-radius:5px;">
+                  <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#e0a044; text-align:center;">{{gal1Caption}}</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top" style="padding:0 3px;"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:176px; vertical-align:top; padding:6px 3px;">
+                  <img src="{{gal2ImageUrl}}" width="170" height="136" alt="{{gal2Alt}}" class="fluid" style="width:100%; max-width:170px; height:auto; display:block; margin:0 auto 10px auto; border:0; border-radius:5px;">
+                  <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#e0a044; text-align:center;">{{gal2Caption}}</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top" style="padding:0 3px;"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:176px; vertical-align:top; padding:6px 3px;">
+                  <img src="{{gal3ImageUrl}}" width="170" height="136" alt="{{gal3Alt}}" class="fluid" style="width:100%; max-width:170px; height:auto; display:block; margin:0 auto 10px auto; border:0; border-radius:5px;">
+                  <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#e0a044; text-align:center;">{{gal3Caption}}</div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

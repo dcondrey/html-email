@@ -1,0 +1,366 @@
+<!--
+  ============================================================================
+  00-document-open.html — doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  House conventions (see framework/partials for the annotated reference):
+  XHTML Transitional doctype, MSO OfficeDocumentSettings, resets, fluid-hybrid
+  responsive, three-path dark mode, role="presentation" wrappers, MSO ghost
+  table pinned to the content width. Brand: fictitious Ferry Street Brewing —
+  an amber/brown brewery palette on a dark-roast page, condensed Oswald type.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+  <title>Ferry Street Brewing: the autumn tap list is live</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Word has no web-font support: force Ferry Street's Oswald to fall back to
+       a web-safe stack, not Times. Kill Word's extra leading and table gaps. */
+    * { font-family: 'Oswald', Arial, Helvetica, sans-serif !important; }
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
+  <!--<![endif]-->
+
+  <style type="text/css">
+    /* 1. RESETS */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    #MessageViewBody a { color:inherit; }
+
+    /* 2. FLUID-HYBRID RESPONSIVE (media query is an enhancement, not a dependency) */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+    /* Thirds: three columns that collapse to full width on narrow screens. */
+    .stack-third { display:inline-block; width:100%; max-width:186px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center, .stack-third { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* 3. DARK MODE — prefers-color-scheme + Outlook.com [data-ogsc]/[data-ogsb] */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#160d06 !important; }
+      .darkmode-text, .darkmode-text * { color:#f0e7da !important; }
+      .darkmode-muted, .darkmode-muted * { color:#b6a68f !important; }
+      .darkmode-card { background-color:#241811 !important; }
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#f0e7da !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#b6a68f !important; }
+    [data-ogsb] .darkmode-bg { background-color:#160d06 !important; }
+    [data-ogsb] .darkmode-card { background-color:#241811 !important; }
+  </style>
+</head>
+
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#2a1a10; color:#3a2417; font-family:'Oswald',Arial,Helvetica,sans-serif;">
+
+            <!--
+            Hidden preheader: the inbox preview line. display:none + zero-size +
+            the &zwnj;&nbsp; run pushes body text out of the preview so only this
+            shows. mso-hide:all covers Outlook.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#2a1a10;">
+            Five new pours on Ferry Street. Small-batch ales brewed by the river, poured fresh in the taproom this week.
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>
+
+
+  <div role="article" aria-roledescription="email" aria-label="Ferry Street Brewing: the autumn tap list is live" lang="en" style="background-color:#2a1a10;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2a1a10;">
+      <tr>
+        <td align="center" valign="top" style="padding:40px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">
+
+          <!-- Header bar: date + view-online, rounded top, roasted-brown band -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#7a4a23; border-radius:6px 6px 0 0;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:14px 30px; font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#f4ece0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="left" class="darkmode-text" style="color:#f4ece0; font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;">Oct 2, 2026</td>
+                    <td align="right" class="darkmode-text" style="color:#f4ece0; font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#f4ece0; text-decoration:none;">View online</a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Logo + nav. Two fluid-hybrid columns: logo left, nav right;
+               they stack centered on narrow screens (ghost tables keep Outlook
+               a real two-cell row). -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+            <tr>
+              <td align="center" valign="middle" class="pad-on-narrow" style="padding:22px 30px; font-size:0; text-align:center;">
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="190" valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:190px; vertical-align:middle; text-align:left;">
+                  <!-- Logo swap: brown wordmark on the white light card; the
+                       darkmode-show variant (cream wordmark) replaces it where
+                       prefers-color-scheme:dark is honoured, so it stays legible
+                       on the inverted card. -->
+                  <a href="https://ferrystreetbrewing.example" target="_blank" class="darkmode-hide" style="text-decoration:none;"><img src="../assets/fsb-logo.png" width="164" height="34" alt="Ferry Street Brewing" style="display:block; border:0;" class="center-on-narrow"></a>
+                  <a href="https://ferrystreetbrewing.example" target="_blank" class="darkmode-show center-on-narrow" style="display:none; text-decoration:none;"><img src="../assets/fsb-logo-dark.png" width="164" height="34" alt="Ferry Street Brewing" style="display:block; border:0;" class="center-on-narrow"></a>
+                </div>
+                <!--[if mso]></td><td valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:380px; vertical-align:middle;">
+                  <div class="darkmode-text center-on-narrow" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:26px; letter-spacing:1px; text-transform:uppercase; color:#3a2417; text-align:right;">
+                    <a href="#" target="_blank" style="color:#3a2417; text-decoration:none;">Beers</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a2417; text-decoration:none;">Taproom</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a2417; text-decoration:none;">Tours</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a2417; text-decoration:none;">Story</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a2417; text-decoration:none;">Visit</a>
+                  </div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </table>
+
+          <!-- Hero: full-width image + card (eyebrow + headline + intro) -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; line-height:0;">
+                <a href="#" target="_blank" style="text-decoration:none;"><img src="../assets/fsb-hero.jpg" width="600" height="360" alt="A full pour of amber ale on the taproom bar beside the taps" class="fluid" style="width:100%; max-width:600px; height:auto; display:block; border:0;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:36px 40px 40px 40px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#c8811f; padding-bottom:10px;">Brewed by the river</div>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:34px; line-height:38px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; padding-bottom:14px;">The autumn list is on</div>
+                <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:16px; line-height:28px; color:#6b5847;">Five new pours came off the line this week. Small batches, brewed slow in copper by the water, and poured the same day at the bar on Ferry Street.</div>
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the dark-roast page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Lead band: a single dark-roast statement, amber rule + eyebrow.
+               Centered, no button — a beat between the hero and the tasting row. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#3a2417; border-radius:6px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 44px 46px 44px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#e0a044; text-align:center; padding-bottom:14px;">Since the old mill</div>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:24px; line-height:34px; color:#f4ece0; text-align:center; padding-bottom:18px;">We brew in small runs, pour it fresh, and never ship a beer we would not drink at the bar ourselves.</div>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td style="width:56px; height:3px; font-size:0; line-height:0; background-color:#c8811f;">&nbsp;</td></tr></table>
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the dark-roast page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Tasting flight: a titled section, then THREE fluid-hybrid columns
+               (the signature 3-col row). Each column is a .stack-third inline-
+               block; the ghost table gives Outlook a real three-cell row. They
+               collapse to full width on narrow screens. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:6px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:40px 30px 8px 30px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#c8811f; text-align:center; padding-bottom:10px;">Pull a flight</div>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:26px; line-height:32px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center;">Find your pour</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:22px 24px 40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 4px;">
+                  <img src="../assets/fsb-tap-crisp.jpg" width="120" height="120" alt="Crisp & clean" style="width:120px; max-width:120px; height:auto; display:block; margin:0 auto 16px auto; border:0;">
+                  <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:18px; line-height:24px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:8px;">Crisp & clean</div>
+                  <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:14px; line-height:22px; color:#6b5847; text-align:center;">Bright, dry pilsners and pale ales. Cold-conditioned for a snappy finish.</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 4px;">
+                  <img src="../assets/fsb-tap-malt.jpg" width="120" height="120" alt="Malt & sweet" style="width:120px; max-width:120px; height:auto; display:block; margin:0 auto 16px auto; border:0;">
+                  <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:18px; line-height:24px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:8px;">Malt & sweet</div>
+                  <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:14px; line-height:22px; color:#6b5847; text-align:center;">Ambers, browns, and bocks. Toasted grain, caramel, a soft round body.</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 4px;">
+                  <img src="../assets/fsb-tap-dark.jpg" width="120" height="120" alt="Dark & roasty" style="width:120px; max-width:120px; height:auto; display:block; margin:0 auto 16px auto; border:0;">
+                  <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:500; font-size:18px; line-height:24px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:8px;">Dark & roasty</div>
+                  <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:14px; line-height:22px; color:#6b5847; text-align:center;">Stouts and porters. Coffee, cocoa, and a long roasted finish.</div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the dark-roast page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Gallery: a 3-up image row (the signature gallery). Three fluid-
+               hybrid columns, each an image + caption; ghost tables give Outlook
+               a real three-cell row. Full-bleed images collapse to a stack on
+               narrow screens. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#3a2417; border-radius:6px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:40px 30px 6px 30px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#e0a044; text-align:center; padding-bottom:10px;">This week on tap</div>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:26px; line-height:32px; text-transform:uppercase; letter-spacing:1px; color:#f4ece0; text-align:center;">Fresh off the line</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:22px 22px 40px 22px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top" style="padding:0 3px;"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:176px; vertical-align:top; padding:6px 3px;">
+                  <img src="../assets/fsb-gal-1.jpg" width="170" height="136" alt="A pale golden ale in a tasting glass" class="fluid" style="width:100%; max-width:170px; height:auto; display:block; margin:0 auto 10px auto; border:0; border-radius:5px;">
+                  <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#e0a044; text-align:center;">River Pale Ale</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top" style="padding:0 3px;"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:176px; vertical-align:top; padding:6px 3px;">
+                  <img src="../assets/fsb-gal-2.jpg" width="170" height="136" alt="A deep amber lager in a tasting glass" class="fluid" style="width:100%; max-width:170px; height:auto; display:block; margin:0 auto 10px auto; border:0; border-radius:5px;">
+                  <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#e0a044; text-align:center;">Mill Street Amber</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top" style="padding:0 3px;"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:176px; vertical-align:top; padding:6px 3px;">
+                  <img src="../assets/fsb-gal-3.jpg" width="170" height="136" alt="A dark roasted stout in a tasting glass" class="fluid" style="width:100%; max-width:170px; height:auto; display:block; margin:0 auto 10px auto; border:0; border-radius:5px;">
+                  <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#e0a044; text-align:center;">Ferry Dock Stout</div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the dark-roast page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- CTA band: centered, amber, bulletproof (VML) cream pill button -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#c8811f; border-radius:6px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:48px 40px;">
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:28px; line-height:34px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; text-align:center; padding-bottom:14px;">Come pull up a stool</div>
+                <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:16px; line-height:26px; color:#3a2417; text-align:center; padding-bottom:28px;">The taproom is open Thursday through Sunday. First pour is on us when you show this email at the bar.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:48px;v-text-anchor:middle;width:220px;" arcsize="12%" strokecolor="#3a2417" fillcolor="#3a2417">
+                  <w:anchorlock/><center style="color:#f4ece0;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Plan your visit</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#3a2417; border-radius:6px; color:#f4ece0; display:inline-block; font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; line-height:48px; text-align:center; text-decoration:none; padding:0 36px; mso-hide:all;">Plan your visit</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the dark-roast page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Story: text + image, side by side (image right this time), stacking
+               on narrow. Text column first in source = left in the ghost table. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:6px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:300px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:38px 36px 38px 40px;">
+                        <div style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; letter-spacing:3px; text-transform:uppercase; color:#c8811f; padding-bottom:10px;">Following the old traditions</div>
+                        <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:24px; line-height:30px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; padding-bottom:16px;">Copper, grain, and time</div>
+                        <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:15px; line-height:26px; color:#6b5847; padding-bottom:24px;">We brew the way the mill crew did a century back. Open the mash by hand, watch the boil, let it condition until it is ready. No shortcuts, no filler, no rush.</div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:44px;v-text-anchor:middle;width:170px;" arcsize="14%" strokecolor="#c8811f" fillcolor="#c8811f">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Read our story</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="#" target="_blank" style="background:#c8811f; border-radius:6px; color:#ffffff; display:inline-block; font-family:'Oswald',Arial,Helvetica,sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; line-height:44px; text-align:center; text-decoration:none; padding:0 30px; mso-hide:all;">Read our story</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="280" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:280px; vertical-align:top;">
+                  <img src="../assets/fsb-story.jpg" width="280" height="260" alt="Rows of oak conditioning barrels in the brewhouse" class="fluid" style="width:100%; max-width:280px; height:auto; display:block; border:0; border-radius:0 6px 6px 0;">
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the dark-roast page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Footer: social + name + address + unsubscribe. Cream card, not pure
+               black/white, so dark-mode inversion stays graceful. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#f4ece0; border-radius:6px 6px 0 0;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/fsb-social-facebook.png" width="28" height="28" alt="Ferry Street Brewing on Facebook" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/fsb-social-twitter.png" width="28" height="28" alt="Ferry Street Brewing on Twitter" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/fsb-social-instagram.png" width="28" height="28" alt="Ferry Street Brewing on Instagram" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/fsb-social-untappd.png" width="28" height="28" alt="Ferry Street Brewing on Untappd" style="display:block; border:0;"></a></td>
+                  </tr>
+                </table>
+                <div class="darkmode-text" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:600; font-size:17px; line-height:22px; text-transform:uppercase; letter-spacing:1px; color:#3a2417; padding-bottom:8px;">Ferry Street Brewing</div>
+                <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:13px; line-height:20px; color:#6b5847; padding-bottom:16px;">14 Ferry Street, Millbrook Landing, VT 05401</div>
+                <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:12px; line-height:18px; color:#8a7863; padding-bottom:16px;"><a href="*|UNSUB|*" target="_blank" style="color:#8a7863; text-decoration:underline;">Unsubscribe</a> from this mailing list. You must be of legal drinking age.</div>
+                <div class="darkmode-muted" style="font-family:'Oswald',Arial,Helvetica,sans-serif; font-weight:300; font-size:11px; line-height:16px; color:#a3927c;">Ferry Street Brewing is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details.</div>
+              </td>
+            </tr>
+          </table>
+
+          </div><!-- /.email-container -->
+          <!--[if mso]>
+          </td></tr></table>
+          <![endif]--><!-- /ghost table -->
+
+        </td>
+      </tr>
+    </table><!-- /background wrapper -->
+  </div><!-- /role=article -->
+</body>
+</html>
+

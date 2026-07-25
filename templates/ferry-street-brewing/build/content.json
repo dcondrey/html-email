@@ -1,0 +1,78 @@
+{
+  "title": "Ferry Street Brewing: the autumn tap list is live",
+  "preheaderText": "Five new pours on Ferry Street. Small-batch ales brewed by the river, poured fresh in the taproom this week.",
+
+  "companyName": "Ferry Street Brewing",
+  "logoLinkUrl": "https://ferrystreetbrewing.example",
+  "logoUrl": "../assets/fsb-logo.png",
+  "logoDarkUrl": "../assets/fsb-logo-dark.png",
+
+  "headerDate": "Oct 2, 2026",
+  "viewInBrowserUrl": "#",
+
+  "nav1": "Beers",
+  "nav2": "Taproom",
+  "nav3": "Tours",
+  "nav4": "Story",
+  "nav5": "Visit",
+
+  "heroLinkUrl": "#",
+  "heroImageUrl": "../assets/fsb-hero.jpg",
+  "heroImageAlt": "A full pour of amber ale on the taproom bar beside the taps",
+  "heroEyebrow": "Brewed by the river",
+  "heroHeadline": "The autumn list is on",
+  "heroText": "Five new pours came off the line this week. Small batches, brewed slow in copper by the water, and poured the same day at the bar on Ferry Street.",
+
+  "leadEyebrow": "Since the old mill",
+  "leadHeadline": "We brew in small runs, pour it fresh, and never ship a beer we would not drink at the bar ourselves.",
+
+  "tastingEyebrow": "Pull a flight",
+  "tastingTitle": "Find your pour",
+  "tap1ImageUrl": "../assets/fsb-tap-crisp.jpg",
+  "tap1Title": "Crisp & clean",
+  "tap1Text": "Bright, dry pilsners and pale ales. Cold-conditioned for a snappy finish.",
+  "tap2ImageUrl": "../assets/fsb-tap-malt.jpg",
+  "tap2Title": "Malt & sweet",
+  "tap2Text": "Ambers, browns, and bocks. Toasted grain, caramel, a soft round body.",
+  "tap3ImageUrl": "../assets/fsb-tap-dark.jpg",
+  "tap3Title": "Dark & roasty",
+  "tap3Text": "Stouts and porters. Coffee, cocoa, and a long roasted finish.",
+
+  "galleryEyebrow": "This week on tap",
+  "galleryTitle": "Fresh off the line",
+  "gal1ImageUrl": "../assets/fsb-gal-1.jpg",
+  "gal1Alt": "A pale golden ale in a tasting glass",
+  "gal1Caption": "River Pale Ale",
+  "gal2ImageUrl": "../assets/fsb-gal-2.jpg",
+  "gal2Alt": "A deep amber lager in a tasting glass",
+  "gal2Caption": "Mill Street Amber",
+  "gal3ImageUrl": "../assets/fsb-gal-3.jpg",
+  "gal3Alt": "A dark roasted stout in a tasting glass",
+  "gal3Caption": "Ferry Dock Stout",
+
+  "ctaHeadline": "Come pull up a stool",
+  "ctaText": "The taproom is open Thursday through Sunday. First pour is on us when you show this email at the bar.",
+  "ctaButton": "Plan your visit",
+  "ctaUrl": "#",
+
+  "storyEyebrow": "Following the old traditions",
+  "storyTitle": "Copper, grain, and time",
+  "storyText": "We brew the way the mill crew did a century back. Open the mash by hand, watch the boil, let it condition until it is ready. No shortcuts, no filler, no rush.",
+  "storyButton": "Read our story",
+  "storyUrl": "#",
+  "storyImageUrl": "../assets/fsb-story.jpg",
+  "storyImageAlt": "Rows of oak conditioning barrels in the brewhouse",
+
+  "facebookUrl": "#",
+  "twitterUrl": "#",
+  "instagramUrl": "#",
+  "pinterestUrl": "#",
+  "iconFacebook": "../assets/fsb-social-facebook.png",
+  "iconTwitter": "../assets/fsb-social-twitter.png",
+  "iconInstagram": "../assets/fsb-social-instagram.png",
+  "iconPinterest": "../assets/fsb-social-untappd.png",
+
+  "companyAddress": "14 Ferry Street, Millbrook Landing, VT 05401",
+  "unsubscribeUrl": "*|UNSUB|*",
+  "legalText": "Ferry Street Brewing is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details."
+}
