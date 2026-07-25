@@ -56,6 +56,17 @@
       border: 1px solid #e5e0d5; border-radius: 8px; background: #fff;
     }
     .previews figcaption { font-size: 13px; color: var(--warm-gray); text-align: center; padding-top: 8px; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+    .gallery a {
+      display: block; text-decoration: none; color: var(--charcoal);
+      background: #fff; border: 1px solid #e5e0d5; border-radius: 10px; overflow: hidden;
+      transition: border-color .15s, transform .15s;
+    }
+    .gallery a:hover { border-color: var(--forest); transform: translateY(-2px); }
+    .gallery .thumb { width: 100%; height: 190px; object-fit: cover; object-position: top center; display: block; border-bottom: 1px solid #e5e0d5; }
+    .gallery .meta { padding: 12px 15px; }
+    .gallery strong { display: block; font-size: 15px; color: var(--forest); margin-bottom: 2px; }
+    .gallery span { font-size: 13px; color: var(--warm-gray); }
     .btn {
       display: inline-block; background: var(--forest); color: #fff; text-decoration: none;
       font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
@@ -65,7 +76,7 @@
     footer a { color: var(--forest); }
     code { background: #ece7db; padding: 1px 6px; border-radius: 4px; font-size: 90%; }
     @media (max-width: 640px) {
-      .cards, .previews { grid-template-columns: 1fr; }
+      .cards, .previews, .gallery { grid-template-columns: 1fr; }
       h1 { font-size: 28px; }
     }
   </style>
@@ -96,6 +107,33 @@
     </section>
 
     <section>
+      <h2>Branded templates</h2>
+      <p class="lead">Five distinct designs, each rebuilt in the house conventions with a fictitious brand and self-authored generated art. Click any one to open its built email.</p>
+      <div class="gallery">
+        <a href="templates/cairn-wellness/dist/email.html">
+          <img class="thumb" src="docs/preview/cairn-wellness.png" alt="Cairn Wellness template preview">
+          <div class="meta"><strong>Cairn Wellness</strong><span>Wellness shop &middot; green/cream/amber, Poppins</span></div>
+        </a>
+        <a href="templates/ferry-street-brewing/dist/email.html">
+          <img class="thumb" src="docs/preview/ferry-street-brewing.png" alt="Ferry Street Brewing template preview">
+          <div class="meta"><strong>Ferry Street Brewing</strong><span>Brewery &middot; amber/brown, Oswald &middot; tasting + gallery</span></div>
+        </a>
+        <a href="templates/lantern-and-quill/dist/email.html">
+          <img class="thumb" src="docs/preview/lantern-and-quill.png" alt="Lantern &amp; Quill template preview">
+          <div class="meta"><strong>Lantern &amp; Quill</strong><span>Bookshop &middot; coral/yellow, Playfair &middot; team + products</span></div>
+        </a>
+        <a href="templates/voltline/dist/email.html">
+          <img class="thumb" src="docs/preview/voltline.png" alt="Voltline template preview">
+          <div class="meta"><strong>Voltline</strong><span>Electronics, dark-first &middot; pink, Space Grotesk &middot; pricing</span></div>
+        </a>
+        <a href="templates/meridian-advisory/dist/email.html">
+          <img class="thumb" src="docs/preview/meridian-advisory.png" alt="Meridian Advisory template preview">
+          <div class="meta"><strong>Meridian Advisory</strong><span>Consulting &middot; charcoal/coral, IBM Plex &middot; quote block</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section>
       <h2>Previews</h2>
       <p class="lead">Rendered from the framework build via headless Chrome.</p>
       <div class="previews">
@@ -119,6 +157,7 @@
       <p class="lead">Zero dependencies. Assemble the partials and lint the output:</p>
       <p><code>cd framework/build &amp;&amp; node build.mjs &amp;&amp; node lint.mjs ../dist/email.html</code></p>
       <a class="btn" href="https://github.com/dcondrey/html-email">View on GitHub</a>
+      <a class="btn" href="tools/email-checklist/index.html" style="background:var(--terracotta);">Pre-send checklist &rarr;</a>
     </section>
   </main>
 
