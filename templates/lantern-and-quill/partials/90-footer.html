@@ -1,0 +1,21 @@
+          {{>gap}}
+          <!-- Footer: social + name + address + unsubscribe. Cream card, not pure
+               black/white, so dark-mode inversion stays graceful. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#fbf5ec; border-radius:8px 8px 0 0;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0 5px;"><a href="{{facebookUrl}}" target="_blank"><img src="{{iconFacebook}}" width="28" height="28" alt="{{companyName}} on Facebook" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="{{twitterUrl}}" target="_blank"><img src="{{iconTwitter}}" width="28" height="28" alt="{{companyName}} on Twitter" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="{{instagramUrl}}" target="_blank"><img src="{{iconInstagram}}" width="28" height="28" alt="{{companyName}} on Instagram" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="{{pinterestUrl}}" target="_blank"><img src="{{iconPinterest}}" width="28" height="28" alt="{{companyName}} on Goodreads" style="display:block; border:0;"></a></td>
+                  </tr>
+                </table>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:18px; line-height:24px; color:#3a3550; padding-bottom:8px;">{{companyName}}</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#7a7385; padding-bottom:16px;">{{companyAddress}}</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#9a93a6; padding-bottom:16px;"><a href="{{unsubscribeUrl}}" target="_blank" style="color:#9a93a6; text-decoration:underline;">Unsubscribe</a> from this mailing list.</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; color:#b0a9bc;">{{legalText}}</div>
+              </td>
+            </tr>
+          </table>

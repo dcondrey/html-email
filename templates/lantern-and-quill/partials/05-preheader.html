@@ -1,0 +1,9 @@
+          <!--
+            Hidden preheader: the inbox preview line. display:none + zero-size +
+            the &zwnj;&nbsp; run pushes body text out of the preview so only this
+            shows. mso-hide:all covers Outlook.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#2b2733;">
+            {{preheaderText}}
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>

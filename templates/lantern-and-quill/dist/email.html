@@ -1,0 +1,364 @@
+<!--
+  ============================================================================
+  00-document-open.html — doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  House conventions (see framework/partials for the annotated reference):
+  XHTML Transitional doctype, MSO OfficeDocumentSettings, resets, fluid-hybrid
+  responsive, three-path dark mode, role="presentation" wrappers, MSO ghost
+  table pinned to the content width. Brand: fictitious Lantern & Quill — a
+  bookshop/education house in coral + yellow on a deep plum-ink page, with a
+  Playfair Display serif for headings (Georgia is the Outlook fallback).
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+  <title>Lantern & Quill: autumn courses and a shelf of new arrivals</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Unlike the single-family templates, Lantern & Quill mixes a serif display
+       with a sans body, so we do NOT force one font here — each element's inline
+       stack drives the fallback. Word DOES support Georgia/Times, so the serif
+       headings degrade to Georgia, not Arial. Keep Word's leading/table fixes. */
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:600,700&display=swap" rel="stylesheet">
+  <!--<![endif]-->
+
+  <style type="text/css">
+    /* 1. RESETS */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    #MessageViewBody a { color:inherit; }
+
+    /* 2. FLUID-HYBRID RESPONSIVE (media query is an enhancement, not a dependency) */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+    /* Thirds: three columns that collapse to full width on narrow screens. */
+    .stack-third { display:inline-block; width:100%; max-width:186px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center, .stack-third { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* 3. DARK MODE — prefers-color-scheme + Outlook.com [data-ogsc]/[data-ogsb] */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#141019 !important; }
+      .darkmode-text, .darkmode-text * { color:#efe9f2 !important; }
+      .darkmode-muted, .darkmode-muted * { color:#a89fb5 !important; }
+      .darkmode-card { background-color:#221e2b !important; }
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#efe9f2 !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#a89fb5 !important; }
+    [data-ogsb] .darkmode-bg { background-color:#141019 !important; }
+    [data-ogsb] .darkmode-card { background-color:#221e2b !important; }
+  </style>
+</head>
+
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#2b2733; color:#3a3550; font-family:Arial,Helvetica,sans-serif;">
+
+            <!--
+            Hidden preheader: the inbox preview line. display:none + zero-size +
+            the &zwnj;&nbsp; run pushes body text out of the preview so only this
+            shows. mso-hide:all covers Outlook.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#2b2733;">
+            New evening courses, three fresh titles on the shelf, and the people who pick them. Come read with us this season.
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>
+
+
+  <div role="article" aria-roledescription="email" aria-label="Lantern & Quill: autumn courses and a shelf of new arrivals" lang="en" style="background-color:#2b2733;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2b2733;">
+      <tr>
+        <td align="center" valign="top" style="padding:40px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">
+
+          <!-- Header bar: view-online + forward, rounded top, coral band -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#e5674f; border-radius:8px 8px 0 0;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:15px 30px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#fff2ec;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="left" class="darkmode-text" style="color:#fff2ec; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#fff2ec; text-decoration:none;">View online</a></td>
+                    <td align="right" class="darkmode-text" style="color:#fff2ec; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#fff2ec; text-decoration:none;">Forward &rarr;</a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Logo + nav. Two fluid-hybrid columns: logo left, nav right;
+               they stack centered on narrow screens (ghost tables keep Outlook
+               a real two-cell row). Logo swaps light/dark variant. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+            <tr>
+              <td align="center" valign="middle" class="pad-on-narrow" style="padding:22px 30px; font-size:0; text-align:center;">
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="200" valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:200px; vertical-align:middle; text-align:left;">
+                  <a href="https://lanternandquill.example" target="_blank" class="darkmode-hide" style="text-decoration:none;"><img src="../assets/lq-logo.png" width="184" height="36" alt="Lantern & Quill" style="display:block; border:0;" class="center-on-narrow"></a>
+                  <a href="https://lanternandquill.example" target="_blank" class="darkmode-show center-on-narrow" style="display:none; text-decoration:none;"><img src="../assets/lq-logo-dark.png" width="184" height="36" alt="Lantern & Quill" style="display:block; border:0;" class="center-on-narrow"></a>
+                </div>
+                <!--[if mso]></td><td valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:370px; vertical-align:middle;">
+                  <div class="darkmode-text center-on-narrow" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:26px; letter-spacing:1px; text-transform:uppercase; color:#3a3550; text-align:right;">
+                    <a href="#" target="_blank" style="color:#3a3550; text-decoration:none;">Books</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3550; text-decoration:none;">Courses</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3550; text-decoration:none;">Journal</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3550; text-decoration:none;">Events</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3550; text-decoration:none;">Shop</a>
+                  </div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </table>
+
+          <!-- Hero: full-width image + card (eyebrow + serif headline + intro +
+               coral bulletproof button). Serif headings fall back to Georgia. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; line-height:0;">
+                <a href="#" target="_blank" style="text-decoration:none;"><img src="../assets/lq-hero.jpg" width="600" height="360" alt="A lit reading lamp over a stack of coloured books and a quill" class="fluid" style="width:100%; max-width:600px; height:auto; display:block; border:0;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:38px 44px 42px 44px;">
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:3px; text-transform:uppercase; color:#f2b544; padding-bottom:14px;">Autumn term is open</div>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:32px; line-height:40px; color:#3a3550; padding-bottom:16px;">An open mind, one page at a time</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:26px; color:#7a7385; padding-bottom:28px;">New evening courses just went up, and the shelves are heavy with autumn arrivals. Pull up a chair by the lamp; there is a lot to get into this season.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:46px;v-text-anchor:middle;width:180px;" arcsize="50%" strokecolor="#e5674f" fillcolor="#e5674f">
+                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Browse courses</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#e5674f; border-radius:23px; color:#ffffff; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; letter-spacing:1px; text-transform:uppercase; line-height:46px; text-align:center; text-decoration:none; padding:0 34px; mso-hide:all;">Browse courses</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the deep plum-ink page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Quote band: a single serif line on warm yellow, a big coral quote
+               mark above it. A literary beat between the hero and the team. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f2b544; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 44px 48px 44px;">
+                <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:52px; line-height:30px; color:#e5674f; text-align:center; padding-bottom:8px;">&ldquo;</div>
+                <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:24px; line-height:34px; font-style:italic; color:#3a3550; text-align:center;">The purpose of an education is to replace an empty mind with an open one.</div>
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:2px; text-transform:uppercase; color:#8a6a1f; text-align:center; padding-top:18px;">The Lantern & Quill reading room</div>
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the deep plum-ink page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Team: a titled section, then THREE fluid-hybrid member cards (the
+               signature team row). Each is a .stack-third inline-block with a
+               round portrait, name, role, and a profile link; the ghost table
+               gives Outlook a real three-cell row. Collapses to a stack. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:42px 30px 6px 30px;">
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:3px; text-transform:uppercase; color:#f2b544; text-align:center; padding-bottom:10px;">Our team</div>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:26px; line-height:32px; color:#3a3550; text-align:center;">The people behind the shelves</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:26px 24px 40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 6px 20px 6px;">
+                  <img src="../assets/lq-team-1.jpg" width="110" height="110" alt="Mara Ellison" style="width:110px; max-width:110px; height:auto; display:block; margin:0 auto 14px auto; border:0; border-radius:55px;">
+                  <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:18px; line-height:24px; color:#3a3550; text-align:center; padding-bottom:4px;">Mara Ellison</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#e5674f; text-align:center; padding-bottom:10px;">Head of courses</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; text-align:center;"><a href="#" target="_blank" style="color:#7a7385; text-decoration:underline;">View profile</a></div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 6px 20px 6px;">
+                  <img src="../assets/lq-team-2.jpg" width="110" height="110" alt="Theo Park" style="width:110px; max-width:110px; height:auto; display:block; margin:0 auto 14px auto; border:0; border-radius:55px;">
+                  <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:18px; line-height:24px; color:#3a3550; text-align:center; padding-bottom:4px;">Theo Park</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#e5674f; text-align:center; padding-bottom:10px;">Rare books buyer</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; text-align:center;"><a href="#" target="_blank" style="color:#7a7385; text-decoration:underline;">View profile</a></div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 6px 20px 6px;">
+                  <img src="../assets/lq-team-3.jpg" width="110" height="110" alt="Priya Nair" style="width:110px; max-width:110px; height:auto; display:block; margin:0 auto 14px auto; border:0; border-radius:55px;">
+                  <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:18px; line-height:24px; color:#3a3550; text-align:center; padding-bottom:4px;">Priya Nair</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#e5674f; text-align:center; padding-bottom:10px;">Workshop lead</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; text-align:center;"><a href="#" target="_blank" style="color:#7a7385; text-decoration:underline;">View profile</a></div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the deep plum-ink page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Products: a titled section, then TWO fluid-hybrid product cards
+               (the signature product row). Each card is a .stack-column with a
+               cover image, title, sale price, and a coral bulletproof (VML)
+               pill button; ghost tables give Outlook a real two-cell row. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#3a3550; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:40px 30px 4px 30px;">
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:3px; text-transform:uppercase; color:#f2b544; text-align:center; padding-bottom:10px;">Online store</div>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:26px; line-height:32px; color:#ffffff; text-align:center;">New on the shelf</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:24px 24px 40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="50%" valign="top" style="padding-right:6px;"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top; padding:0 6px 12px 6px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fbf5ec; border-radius:8px;">
+                    <tr><td style="font-size:0; line-height:0;"><img src="../assets/lq-book-1.jpg" width="243" height="150" alt="The Long Field Notes" class="fluid" style="width:100%; max-width:243px; height:auto; display:block; border:0; border-radius:8px 8px 0 0;"></td></tr>
+                    <tr>
+                      <td style="padding:22px 22px 26px 22px;">
+                        <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:19px; line-height:24px; color:#3a3550; padding-bottom:8px;">The Long Field Notes</div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#7a7385; padding-bottom:14px;">A season of nature writing, bound in cloth. Signed first printing.</div>
+                        <div style="padding-bottom:18px;"><span style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#a49db0; text-decoration:line-through;">$24.00</span> &nbsp;<span style="font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:20px; color:#e5674f;">$18.50</span></div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:42px;v-text-anchor:middle;width:150px;" arcsize="50%" strokecolor="#e5674f" fillcolor="#e5674f">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;">Add to cart</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="#" target="_blank" style="background:#e5674f; border-radius:21px; color:#ffffff; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px; text-transform:uppercase; line-height:42px; text-align:center; text-decoration:none; padding:0 26px; mso-hide:all;">Add to cart</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="50%" valign="top" style="padding-left:6px;"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top; padding:0 6px 12px 6px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fbf5ec; border-radius:8px;">
+                    <tr><td style="font-size:0; line-height:0;"><img src="../assets/lq-book-2.jpg" width="243" height="150" alt="Letters from the Coast" class="fluid" style="width:100%; max-width:243px; height:auto; display:block; border:0; border-radius:8px 8px 0 0;"></td></tr>
+                    <tr>
+                      <td style="padding:22px 22px 26px 22px;">
+                        <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:19px; line-height:24px; color:#3a3550; padding-bottom:8px;">Letters from the Coast</div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#7a7385; padding-bottom:14px;">Collected correspondence, newly translated. Paperback edition.</div>
+                        <div style="padding-bottom:18px;"><span style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#a49db0; text-decoration:line-through;">$19.99</span> &nbsp;<span style="font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:20px; color:#e5674f;">$15.69</span></div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:42px;v-text-anchor:middle;width:150px;" arcsize="50%" strokecolor="#e5674f" fillcolor="#e5674f">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;">Add to cart</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="#" target="_blank" style="background:#e5674f; border-radius:21px; color:#ffffff; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px; text-transform:uppercase; line-height:42px; text-align:center; text-decoration:none; padding:0 26px; mso-hide:all;">Add to cart</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the deep plum-ink page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- CTA band: centered, coral, bulletproof (VML) white pill button -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#e5674f; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:48px 40px;">
+                <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:28px; line-height:36px; color:#ffffff; text-align:center; padding-bottom:14px;">Read with us this autumn</div>
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:26px; color:#ffe4dc; text-align:center; padding-bottom:28px;">One short letter a week: a new title, a course opening, and a page worth marking. No noise, unsubscribe any time.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:46px;v-text-anchor:middle;width:210px;" arcsize="50%" strokecolor="#ffffff" fillcolor="#ffffff">
+                  <w:anchorlock/><center style="color:#e5674f;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Join the list</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#ffffff; border-radius:23px; color:#e5674f; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; letter-spacing:1px; text-transform:uppercase; line-height:46px; text-align:center; text-decoration:none; padding:0 32px; mso-hide:all;">Join the list</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the deep plum-ink page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Footer: social + name + address + unsubscribe. Cream card, not pure
+               black/white, so dark-mode inversion stays graceful. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#fbf5ec; border-radius:8px 8px 0 0;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/lq-social-facebook.png" width="28" height="28" alt="Lantern & Quill on Facebook" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/lq-social-twitter.png" width="28" height="28" alt="Lantern & Quill on Twitter" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/lq-social-instagram.png" width="28" height="28" alt="Lantern & Quill on Instagram" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/lq-social-goodreads.png" width="28" height="28" alt="Lantern & Quill on Goodreads" style="display:block; border:0;"></a></td>
+                  </tr>
+                </table>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:18px; line-height:24px; color:#3a3550; padding-bottom:8px;">Lantern & Quill</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#7a7385; padding-bottom:16px;">8 Lamplight Lane, Old Harbor, ME 04101</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#9a93a6; padding-bottom:16px;"><a href="*|UNSUB|*" target="_blank" style="color:#9a93a6; text-decoration:underline;">Unsubscribe</a> from this mailing list.</div>
+                <div class="darkmode-muted" style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; color:#b0a9bc;">Lantern & Quill is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details.</div>
+              </td>
+            </tr>
+          </table>
+
+          </div><!-- /.email-container -->
+          <!--[if mso]>
+          </td></tr></table>
+          <![endif]--><!-- /ghost table -->
+
+        </td>
+      </tr>
+    </table><!-- /background wrapper -->
+  </div><!-- /role=article -->
+</body>
+</html>
+

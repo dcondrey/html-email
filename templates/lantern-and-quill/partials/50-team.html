@@ -1,0 +1,41 @@
+          {{>gap}}
+          <!-- Team: a titled section, then THREE fluid-hybrid member cards (the
+               signature team row). Each is a .stack-third inline-block with a
+               round portrait, name, role, and a profile link; the ghost table
+               gives Outlook a real three-cell row. Collapses to a stack. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:42px 30px 6px 30px;">
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:3px; text-transform:uppercase; color:#f2b544; text-align:center; padding-bottom:10px;">{{teamEyebrow}}</div>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:26px; line-height:32px; color:#3a3550; text-align:center;">{{teamTitle}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:26px 24px 40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 6px 20px 6px;">
+                  <img src="{{member1ImageUrl}}" width="110" height="110" alt="{{member1Name}}" style="width:110px; max-width:110px; height:auto; display:block; margin:0 auto 14px auto; border:0; border-radius:55px;">
+                  <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:18px; line-height:24px; color:#3a3550; text-align:center; padding-bottom:4px;">{{member1Name}}</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#e5674f; text-align:center; padding-bottom:10px;">{{member1Role}}</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; text-align:center;"><a href="{{member1Url}}" target="_blank" style="color:#7a7385; text-decoration:underline;">View profile</a></div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 6px 20px 6px;">
+                  <img src="{{member2ImageUrl}}" width="110" height="110" alt="{{member2Name}}" style="width:110px; max-width:110px; height:auto; display:block; margin:0 auto 14px auto; border:0; border-radius:55px;">
+                  <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:18px; line-height:24px; color:#3a3550; text-align:center; padding-bottom:4px;">{{member2Name}}</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#e5674f; text-align:center; padding-bottom:10px;">{{member2Role}}</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; text-align:center;"><a href="{{member2Url}}" target="_blank" style="color:#7a7385; text-decoration:underline;">View profile</a></div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:172px; vertical-align:top; padding:0 6px 20px 6px;">
+                  <img src="{{member3ImageUrl}}" width="110" height="110" alt="{{member3Name}}" style="width:110px; max-width:110px; height:auto; display:block; margin:0 auto 14px auto; border:0; border-radius:55px;">
+                  <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:18px; line-height:24px; color:#3a3550; text-align:center; padding-bottom:4px;">{{member3Name}}</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:11px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#e5674f; text-align:center; padding-bottom:10px;">{{member3Role}}</div>
+                  <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; text-align:center;"><a href="{{member3Url}}" target="_blank" style="color:#7a7385; text-decoration:underline;">View profile</a></div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

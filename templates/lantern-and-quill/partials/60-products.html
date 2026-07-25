@@ -1,0 +1,62 @@
+          {{>gap}}
+          <!-- Products: a titled section, then TWO fluid-hybrid product cards
+               (the signature product row). Each card is a .stack-column with a
+               cover image, title, sale price, and a coral bulletproof (VML)
+               pill button; ghost tables give Outlook a real two-cell row. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#3a3550; border-radius:8px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:40px 30px 4px 30px;">
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:3px; text-transform:uppercase; color:#f2b544; text-align:center; padding-bottom:10px;">{{shopEyebrow}}</div>
+                <div class="darkmode-text" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:700; font-size:26px; line-height:32px; color:#ffffff; text-align:center;">{{shopTitle}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:24px 24px 40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="50%" valign="top" style="padding-right:6px;"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top; padding:0 6px 12px 6px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fbf5ec; border-radius:8px;">
+                    <tr><td style="font-size:0; line-height:0;"><img src="{{product1ImageUrl}}" width="243" height="150" alt="{{product1Title}}" class="fluid" style="width:100%; max-width:243px; height:auto; display:block; border:0; border-radius:8px 8px 0 0;"></td></tr>
+                    <tr>
+                      <td style="padding:22px 22px 26px 22px;">
+                        <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:19px; line-height:24px; color:#3a3550; padding-bottom:8px;">{{product1Title}}</div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#7a7385; padding-bottom:14px;">{{product1Text}}</div>
+                        <div style="padding-bottom:18px;"><span style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#a49db0; text-decoration:line-through;">{{product1WasPrice}}</span> &nbsp;<span style="font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:20px; color:#e5674f;">{{product1NowPrice}}</span></div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{product1Url}}" style="height:42px;v-text-anchor:middle;width:150px;" arcsize="50%" strokecolor="#e5674f" fillcolor="#e5674f">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;">{{product1Button}}</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="{{product1Url}}" target="_blank" style="background:#e5674f; border-radius:21px; color:#ffffff; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px; text-transform:uppercase; line-height:42px; text-align:center; text-decoration:none; padding:0 26px; mso-hide:all;">{{product1Button}}</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="50%" valign="top" style="padding-left:6px;"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:255px; vertical-align:top; padding:0 6px 12px 6px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fbf5ec; border-radius:8px;">
+                    <tr><td style="font-size:0; line-height:0;"><img src="{{product2ImageUrl}}" width="243" height="150" alt="{{product2Title}}" class="fluid" style="width:100%; max-width:243px; height:auto; display:block; border:0; border-radius:8px 8px 0 0;"></td></tr>
+                    <tr>
+                      <td style="padding:22px 22px 26px 22px;">
+                        <div style="font-family:'Playfair Display',Georgia,'Times New Roman',serif; font-weight:600; font-size:19px; line-height:24px; color:#3a3550; padding-bottom:8px;">{{product2Title}}</div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#7a7385; padding-bottom:14px;">{{product2Text}}</div>
+                        <div style="padding-bottom:18px;"><span style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#a49db0; text-decoration:line-through;">{{product2WasPrice}}</span> &nbsp;<span style="font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:20px; color:#e5674f;">{{product2NowPrice}}</span></div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{product2Url}}" style="height:42px;v-text-anchor:middle;width:150px;" arcsize="50%" strokecolor="#e5674f" fillcolor="#e5674f">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;">{{product2Button}}</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="{{product2Url}}" target="_blank" style="background:#e5674f; border-radius:21px; color:#ffffff; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px; text-transform:uppercase; line-height:42px; text-align:center; text-decoration:none; padding:0 26px; mso-hide:all;">{{product2Button}}</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

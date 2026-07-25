@@ -8,11 +8,11 @@
     "example": "examples"
   },
   "scripts": {
-    "build": "node framework/build/build.mjs && node framework/build/build.mjs --production --out ../dist/email.min.html && node scripts/build-template.mjs templates/cairn-wellness && node scripts/build-template.mjs templates/ferry-street-brewing",
-    "lint": "node framework/build/lint.mjs framework/dist/email.html && node framework/build/lint.mjs templates/cairn-wellness/dist/email.html && node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html",
+    "build": "node framework/build/build.mjs && node framework/build/build.mjs --production --out ../dist/email.min.html && node scripts/build-template.mjs templates/cairn-wellness && node scripts/build-template.mjs templates/ferry-street-brewing && node scripts/build-template.mjs templates/lantern-and-quill",
+    "lint": "node framework/build/lint.mjs framework/dist/email.html && node framework/build/lint.mjs templates/cairn-wellness/dist/email.html && node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html && node framework/build/lint.mjs templates/lantern-and-quill/dist/email.html",
     "verify": "npm run build && npm run lint",
     "previews": "node scripts/generate-previews.mjs",
-    "assets": "node scripts/generate-cairn-assets.mjs && node scripts/generate-ferry-assets.mjs",
+    "assets": "node scripts/generate-cairn-assets.mjs && node scripts/generate-ferry-assets.mjs && node scripts/generate-lantern-assets.mjs",
     "test": "npm run verify"
   },
   "repository": {
