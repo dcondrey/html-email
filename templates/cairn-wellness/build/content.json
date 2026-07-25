@@ -1,0 +1,75 @@
+{
+  "title": "Cairn Wellness: slow rituals for the season",
+  "preheaderText": "New teas, river stones, and hand-poured candles. Small rituals for slower mornings, shipped from the coast.",
+
+  "companyName": "Cairn Wellness",
+  "logoLinkUrl": "https://cairnwellness.example",
+  "logoUrl": "../assets/cw-logo.png",
+
+  "headerDate": "Jul 31, 2026",
+  "viewInBrowserUrl": "#",
+
+  "nav1": "Teas",
+  "nav2": "Stones",
+  "nav3": "Candles",
+  "nav4": "Statues",
+  "nav5": "More",
+
+  "heroLinkUrl": "#",
+  "heroImageUrl": "../assets/cw-hero.jpg",
+  "heroImageAlt": "Stacked river stones on a linen cloth",
+  "heroHeadline": "Set the day down.",
+  "heroText": "Small rituals for slower mornings. Loose teas, hand-poured candles, and river stones, shipped from the coast.",
+
+  "col1Title": "Loose-leaf teas",
+  "col1Text": "Single-origin leaves, cut for slow steeping. Sixteen blends, none of them in a hurry.",
+  "col1Button": "See teas",
+  "col1Url": "#",
+
+  "col2Title": "River stones",
+  "col2Text": "Smoothed granite and basalt, sorted by weight. Balance them on a shelf or hold one in your hand.",
+  "col2Button": "See stones",
+  "col2Url": "#",
+
+  "artAImageUrl": "../assets/cw-candles.jpg",
+  "artATitle": "Hand-poured candles",
+  "artAText": "Beeswax and cedar, burned clean for forty hours. Poured in small runs, never rushed.",
+  "artAButton": "See candles",
+  "artAUrl": "#",
+
+  "ctaHeadline": "Nothing is due today.",
+  "ctaText": "Take the slow route. Twenty percent off your first order, this week only.",
+  "ctaButton": "Shop the collection",
+  "ctaUrl": "#",
+
+  "artBImageUrl": "../assets/cw-statues.jpg",
+  "artBTitle": "Carved statues",
+  "artBText": "Soapstone figures, each one a little different. Sized for a windowsill.",
+  "artBButton": "See statues",
+  "artBUrl": "#",
+
+  "artCImageUrl": "../assets/cw-corner.jpg",
+  "artCTitle": "The reading corner",
+  "artCText": "Wool throws and low light. Everything you need to sit still for an hour.",
+  "artCButton": "See more",
+  "artCUrl": "#",
+
+  "artDImageUrl": "../assets/cw-gifts.jpg",
+  "artDTitle": "Gift sets",
+  "artDText": "A tea, a candle, and a stone, boxed in kraft paper. Ready to send.",
+  "artDButton": "See gifts",
+  "artDUrl": "#",
+
+  "facebookUrl": "#",
+  "twitterUrl": "#",
+  "instagramUrl": "#",
+  "pinterestUrl": "#",
+  "iconFacebook": "../assets/cw-social-facebook.png",
+  "iconTwitter": "../assets/cw-social-twitter.png",
+  "iconInstagram": "../assets/cw-social-instagram.png",
+  "iconPinterest": "../assets/cw-social-pinterest.png",
+
+  "companyAddress": "1 Tideline Road, Astoria, OR 97103",
+  "unsubscribeUrl": "*|UNSUB|*",
+  "legalText": "Cairn Wellness is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details."
+}

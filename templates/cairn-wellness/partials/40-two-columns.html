@@ -1,0 +1,51 @@
+          {{>gap}}
+          <!-- Two cream cards. Fluid-hybrid: two .stack-column inline-blocks;
+               ghost tables give Outlook a real two-cell row. Each card has a
+               bulletproof (VML) amber pill button. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="50%" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:295px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#f6efe7; border-radius:10px;">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:30px;">
+                        <div class="darkmode-text" style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:22px; line-height:30px; color:#445942; padding-bottom:18px;">{{col1Title}}</div>
+                        <div class="darkmode-muted" style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:15px; line-height:28px; color:#777777; padding-bottom:24px;">{{col1Text}}</div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{col1Url}}" style="height:44px;v-text-anchor:middle;width:160px;" arcsize="50%" strokecolor="#ebb67d" fillcolor="#ebb67d">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">{{col1Button}}</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="{{col1Url}}" target="_blank" style="background:#ebb67d; border-radius:22px; color:#ffffff; display:inline-block; font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; line-height:44px; text-align:center; text-decoration:none; padding:0 30px; mso-hide:all;">{{col1Button}}</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="50%" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:295px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#f6efe7; border-radius:10px;">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:30px;">
+                        <div class="darkmode-text" style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:22px; line-height:30px; color:#445942; padding-bottom:18px;">{{col2Title}}</div>
+                        <div class="darkmode-muted" style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:15px; line-height:28px; color:#777777; padding-bottom:24px;">{{col2Text}}</div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{col2Url}}" style="height:44px;v-text-anchor:middle;width:160px;" arcsize="50%" strokecolor="#ebb67d" fillcolor="#ebb67d">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">{{col2Button}}</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="{{col2Url}}" target="_blank" style="background:#ebb67d; border-radius:22px; color:#ffffff; display:inline-block; font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; line-height:44px; text-align:center; text-decoration:none; padding:0 30px; mso-hide:all;">{{col2Button}}</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>

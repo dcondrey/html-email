@@ -1,0 +1,34 @@
+          {{>gap}}
+          <!-- Article D: text + image (image on the right), stacking on narrow. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:10px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:300px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:36px 40px;">
+                        <div class="darkmode-text" style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:22px; line-height:30px; color:#445942; padding-bottom:16px;">{{artDTitle}}</div>
+                        <div class="darkmode-muted" style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:14px; line-height:26px; color:#777777; padding-bottom:22px;">{{artDText}}</div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{artDUrl}}" style="height:44px;v-text-anchor:middle;width:170px;" arcsize="50%" strokecolor="#ebb67d" fillcolor="#ebb67d">
+                          <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">{{artDButton}}</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="{{artDUrl}}" target="_blank" style="background:#ebb67d; border-radius:22px; color:#ffffff; display:inline-block; font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; line-height:44px; text-align:center; text-decoration:none; padding:0 30px; mso-hide:all;">{{artDButton}}</a>
+                        <!--<![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="280" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:280px; vertical-align:top;">
+                  <img src="{{artDImageUrl}}" width="280" alt="{{artDTitle}}" class="fluid" style="width:100%; max-width:280px; height:auto; display:block; border:0; border-radius:0 10px 10px 0;">
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
