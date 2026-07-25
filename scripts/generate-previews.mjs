@@ -18,7 +18,7 @@
  * Usage:  node scripts/generate-previews.mjs
  */
 import puppeteer from 'puppeteer';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -33,8 +33,24 @@ const SHOTS = [
   { file: 'mobile.png',        width: 375, height: 812,  scheme: 'light', mobile: true  },
 ];
 
+// Each branded template also gets one desktop-light showcase shot at
+// docs/preview/<name>.png (the same convention cairn-wellness.png follows).
+const TEMPLATES_DIR = resolve(ROOT, 'templates');
+const TEMPLATE_SHOTS = readdirSync(TEMPLATES_DIR, { withFileTypes: true })
+  .filter((d) => d.isDirectory() && existsSync(resolve(TEMPLATES_DIR, d.name, 'dist', 'email.html')))
+  .map((d) => ({
+    file: `${d.name}.png`,
+    email: resolve(TEMPLATES_DIR, d.name, 'dist', 'email.html'),
+    width: 800, height: 1200, scheme: 'light', mobile: false,
+  }));
+
 mkdirSync(OUT_DIR, { recursive: true });
-const emailUrl = pathToFileURL(EMAIL).href;
+
+// Framework shots render EMAIL; template shots carry their own email path.
+const ALL_SHOTS = [
+  ...SHOTS.map((s) => ({ ...s, email: EMAIL })),
+  ...TEMPLATE_SHOTS,
+];
 
 const browser = await puppeteer.launch({
   channel: 'chrome',
@@ -43,7 +59,7 @@ const browser = await puppeteer.launch({
 });
 
 try {
-  for (const shot of SHOTS) {
+  for (const shot of ALL_SHOTS) {
     const page = await browser.newPage();
 
     // Abort external (non-file) requests: deterministic, offline-safe render.
@@ -63,7 +79,7 @@ try {
       hasTouch: shot.mobile,
     });
 
-    await page.goto(emailUrl, { waitUntil: 'load', timeout: 30000 });
+    await page.goto(pathToFileURL(shot.email).href, { waitUntil: 'load', timeout: 30000 });
     // Settle: let inline-image decode and any layout finish.
     await new Promise((r) => setTimeout(r, 400));
 
