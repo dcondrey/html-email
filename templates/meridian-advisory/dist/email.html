@@ -1,0 +1,351 @@
+<!--
+  ============================================================================
+  00-document-open.html — doctype, <head>, resets, dark mode, wrapper open
+  ============================================================================
+  House conventions (see framework/partials for the annotated reference):
+  XHTML Transitional doctype, MSO OfficeDocumentSettings, resets, fluid-hybrid
+  responsive, three-path dark mode, role="presentation" wrappers, MSO ghost
+  table pinned to the content width. Brand: fictitious Meridian Advisory — a
+  corporate/consulting house. Restrained charcoal + coral on a cool light-grey
+  page, IBM Plex Sans type; the quote block is the dark centerpiece.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+  <title>Meridian Advisory: the Q3 outlook and where boards are moving</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <!--[if mso]>
+  <style type="text/css">
+    /* Word has no web-font support: force Meridian's IBM Plex Sans to fall back
+       to a web-safe stack, not Times. Kill Word's extra leading and table gaps. */
+    * { font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif !important; }
+    td, th, div, p, a, span, li { mso-line-height-rule: exactly; }
+    table { border-collapse: collapse; }
+  </style>
+  <![endif]-->
+
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&display=swap" rel="stylesheet">
+  <!--<![endif]-->
+
+  <style type="text/css">
+    /* 1. RESETS */
+    html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    table { border-collapse:collapse !important; border-spacing:0; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display:block; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+    u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; }
+    #MessageViewBody a { color:inherit; }
+
+    /* 2. FLUID-HYBRID RESPONSIVE (media query is an enhancement, not a dependency) */
+    .email-container { width:100%; max-width:600px; margin:0 auto; }
+    .fluid { max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    .stack-column { display:inline-block; width:100%; max-width:300px; vertical-align:top; box-sizing:border-box; }
+    .stack-third { display:inline-block; width:100%; max-width:186px; vertical-align:top; box-sizing:border-box; }
+
+    @media screen and (max-width:600px) {
+      .email-container { width:100% !important; margin:auto !important; }
+      .fluid { width:100% !important; max-width:100% !important; height:auto !important; }
+      .stack-column, .stack-column-center, .stack-third { display:block !important; width:100% !important; max-width:100% !important; }
+      .center-on-narrow { text-align:center !important; }
+      .pad-on-narrow { padding-left:20px !important; padding-right:20px !important; }
+      .hide-on-narrow { display:none !important; max-height:0 !important; overflow:hidden !important; mso-hide:all !important; }
+    }
+
+    /* 3. DARK MODE — prefers-color-scheme + Outlook.com [data-ogsc]/[data-ogsb] */
+    @media (prefers-color-scheme: dark) {
+      .darkmode-bg { background-color:#101116 !important; }
+      .darkmode-text, .darkmode-text * { color:#e8e9ec !important; }
+      .darkmode-muted, .darkmode-muted * { color:#9aa0ab !important; }
+      .darkmode-card { background-color:#1e2027 !important; }
+      .darkmode-hide { display:none !important; }
+      .darkmode-show { display:block !important; max-height:none !important; overflow:visible !important; }
+    }
+    [data-ogsc] .darkmode-text, [data-ogsc] .darkmode-text * { color:#e8e9ec !important; }
+    [data-ogsc] .darkmode-muted, [data-ogsc] .darkmode-muted * { color:#9aa0ab !important; }
+    [data-ogsb] .darkmode-bg { background-color:#101116 !important; }
+    [data-ogsb] .darkmode-card { background-color:#1e2027 !important; }
+  </style>
+</head>
+
+<body id="body" style="margin:0 !important; padding:0 !important; mso-line-height-rule:exactly; background-color:#dfe1e6; color:#3a3d45; font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif;">
+
+            <!--
+            Hidden preheader: the inbox preview line. display:none + zero-size +
+            the &zwnj;&nbsp; run pushes body text out of the preview so only this
+            shows. mso-hide:all covers Outlook.
+          -->
+          <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:#dfe1e6;">
+            Our read on the quarter ahead: three shifts on the board agenda, and how the teams getting ahead are responding.
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+          </div>
+
+
+  <div role="article" aria-roledescription="email" aria-label="Meridian Advisory: the Q3 outlook and where boards are moving" lang="en" style="background-color:#dfe1e6;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#dfe1e6;">
+      <tr>
+        <td align="center" valign="top" style="padding:40px 12px;">
+
+          <!--[if mso]>
+          <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+          <![endif]-->
+          <div class="email-container" style="max-width:600px; margin:0 auto;">
+
+          <!-- Header bar: view-online + forward, rounded top, charcoal band -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#2c2f36; border-radius:4px 4px 0 0;">
+            <tr>
+              <td class="pad-on-narrow" style="padding:14px 30px; font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase; color:#aeb2bc;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="left" class="darkmode-muted" style="color:#aeb2bc; font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#aeb2bc; text-decoration:none;">View online</a></td>
+                    <td align="right" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ee6c4d; text-decoration:none;">Forward &rarr;</a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Logo + nav. Two fluid-hybrid columns: logo left, nav right; they
+               stack centered on narrow screens (ghost tables keep Outlook a real
+               two-cell row). Logo swaps light/dark variant for the inverted card. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+            <tr>
+              <td align="center" valign="middle" class="pad-on-narrow" style="padding:22px 30px; font-size:0; text-align:center;">
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="196" valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:196px; vertical-align:middle; text-align:left;">
+                  <a href="https://meridianadvisory.example" target="_blank" class="darkmode-hide" style="text-decoration:none;"><img src="../assets/mer-logo.png" width="180" height="32" alt="Meridian Advisory" style="display:block; border:0;" class="center-on-narrow"></a>
+                  <a href="https://meridianadvisory.example" target="_blank" class="darkmode-show center-on-narrow" style="display:none; text-decoration:none;"><img src="../assets/mer-logo-dark.png" width="180" height="32" alt="Meridian Advisory" style="display:block; border:0;" class="center-on-narrow"></a>
+                </div>
+                <!--[if mso]></td><td valign="middle"><![endif]-->
+                <div class="stack-column center-on-narrow" style="display:inline-block; width:100%; max-width:374px; vertical-align:middle;">
+                  <div class="darkmode-text center-on-narrow" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-size:12px; line-height:26px; letter-spacing:1px; text-transform:uppercase; color:#3a3d45; text-align:right;">
+                    <a href="#" target="_blank" style="color:#3a3d45; text-decoration:none;">Services</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3d45; text-decoration:none;">Insights</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3d45; text-decoration:none;">Team</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#3a3d45; text-decoration:none;">Cases</a> &nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#ee6c4d; text-decoration:none;">Contact</a>
+                  </div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </table>
+
+          <!-- Hero: full-width image + card (eyebrow + headline + intro + coral
+               bulletproof button). Restrained corporate layout. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; line-height:0;">
+                <a href="#" target="_blank" style="text-decoration:none;"><img src="../assets/mer-hero.jpg" width="600" height="340" alt="An abstract ascending chart cresting a horizon line" class="fluid" style="width:100%; max-width:600px; height:auto; display:block; border:0;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="pad-on-narrow" style="padding:40px 44px 44px 44px;">
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:12px; line-height:16px; letter-spacing:3px; text-transform:uppercase; color:#ee6c4d; padding-bottom:14px;">Q3 outlook</div>
+                <div class="darkmode-text" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:32px; line-height:40px; color:#2c2f36; padding-bottom:16px;">Clarity for the decision in front of you</div>
+                <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:15px; line-height:26px; color:#7a7e88; padding-bottom:28px;">Every quarter we distill what we are seeing across the desk into a short brief. This one covers three shifts moving up the board agenda, and the practical moves the teams ahead of them are already making.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:46px;v-text-anchor:middle;width:190px;" arcsize="10%" strokecolor="#ee6c4d" fillcolor="#ee6c4d">
+                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Read the brief</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#ee6c4d; border-radius:5px; color:#ffffff; display:inline-block; font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; line-height:46px; text-align:center; text-decoration:none; padding:0 34px; mso-hide:all;">Read the brief</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the cool light-grey page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Service A: image left + text, side by side, stacking on narrow. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:4px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="240" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:240px; vertical-align:top;">
+                  <img src="../assets/mer-service-1.jpg" width="240" height="200" alt="Set the direction, then defend it" class="fluid" style="width:100%; max-width:240px; height:auto; display:block; border:0; border-radius:4px 0 0 4px;">
+                </div>
+                <!--[if mso]></td><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:340px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:34px 36px;">
+                        <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:12px; line-height:16px; letter-spacing:2px; text-transform:uppercase; color:#ee6c4d; padding-bottom:10px;">Strategy</div>
+                        <div class="darkmode-text" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:22px; line-height:28px; color:#2c2f36; padding-bottom:12px;">Set the direction, then defend it</div>
+                        <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:14px; line-height:24px; color:#7a7e88; padding-bottom:16px;">We help leadership teams pick a defensible position and build the operating plan that holds it under pressure. Fewer initiatives, sequenced properly, owned clearly.</div>
+                        <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ee6c4d; text-decoration:none;">See how we work &rarr;</a></div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the cool light-grey page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Service B: text + image right, side by side, stacking on narrow.
+               Text column first in source = left in the ghost table. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:4px;">
+            <tr>
+              <td align="center" valign="top" style="font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:340px; vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="pad-on-narrow" style="padding:34px 36px;">
+                        <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:12px; line-height:16px; letter-spacing:2px; text-transform:uppercase; color:#ee6c4d; padding-bottom:10px;">Analysis</div>
+                        <div class="darkmode-text" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:22px; line-height:28px; color:#2c2f36; padding-bottom:12px;">Decisions grounded in the numbers</div>
+                        <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:14px; line-height:24px; color:#7a7e88; padding-bottom:16px;">Our analysts pressure-test the model behind the plan so the board sees the real range of outcomes, not a single optimistic line. Assumptions surfaced, risks priced, evidence attached.</div>
+                        <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:13px; line-height:18px; letter-spacing:1px; text-transform:uppercase;"><a href="#" target="_blank" style="color:#ee6c4d; text-decoration:none;">Explore the practice &rarr;</a></div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--[if mso]></td><td width="240" valign="top"><![endif]-->
+                <div class="stack-column" style="display:inline-block; width:100%; max-width:240px; vertical-align:top;">
+                  <img src="../assets/mer-service-2.jpg" width="240" height="200" alt="Decisions grounded in the numbers" class="fluid" style="width:100%; max-width:240px; height:auto; display:block; border:0; border-radius:0 4px 4px 0;">
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the cool light-grey page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Stats band: three fluid-hybrid metrics; ghost tables give Outlook a
+               real three-cell row. Big coral figures over charcoal labels. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:4px;">
+            <tr>
+              <td align="center" valign="top" class="pad-on-narrow" style="padding:40px 24px; font-size:0; text-align:center;">
+
+                <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:180px; vertical-align:top; padding:8px 6px;">
+                  <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:700; font-size:38px; line-height:44px; color:#ee6c4d; text-align:center;">18</div>
+                  <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#7a7e88; text-align:center; padding-top:6px;">Years advising boards</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:180px; vertical-align:top; padding:8px 6px;">
+                  <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:700; font-size:38px; line-height:44px; color:#ee6c4d; text-align:center;">240+</div>
+                  <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#7a7e88; text-align:center; padding-top:6px;">Engagements delivered</div>
+                </div>
+                <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+                <div class="stack-third" style="display:inline-block; width:100%; max-width:180px; vertical-align:top; padding:8px 6px;">
+                  <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:700; font-size:38px; line-height:44px; color:#ee6c4d; text-align:center;">96%</div>
+                  <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:500; font-size:12px; line-height:18px; letter-spacing:1px; text-transform:uppercase; color:#7a7e88; text-align:center; padding-top:6px;">Client retention</div>
+                </div>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the cool light-grey page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Quote block (the signature): a charcoal, full-bleed testimonial —
+               the dark centerpiece. Fixed dark background in every mode (NOT a
+               darkmode-card), a big coral quote mark, the quote, and attribution. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#2c2f36; border-radius:4px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:50px 48px 46px 48px;">
+                <div style="font-family:Georgia,'Times New Roman',serif; font-weight:700; font-size:64px; line-height:40px; color:#ee6c4d; text-align:center; padding-bottom:14px;">&ldquo;</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:22px; line-height:34px; color:#f2f3f5; text-align:center; padding-bottom:26px;">Meridian gave our board the one thing a deck never could: a clear read on the trade-offs, and the confidence to actually decide.</div>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td style="width:40px; height:2px; font-size:0; line-height:0; background-color:#ee6c4d;">&nbsp;</td></tr></table>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:15px; line-height:20px; color:#ffffff; text-align:center; padding-top:20px;">Helena Ross</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:18px; color:#9aa0ab; text-align:center; padding-top:4px;">Chair of the Board, Northarbor Group</div>
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the cool light-grey page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- CTA: restrained white card, charcoal headline, coral bulletproof
+               (VML) button. Corporate tone — no loud colour band here. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-card" style="background-color:#ffffff; border-radius:4px;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:48px 44px;">
+                <div class="darkmode-text" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:26px; line-height:34px; color:#2c2f36; text-align:center; padding-bottom:12px;">Bring us the decision that is keeping you up</div>
+                <div class="darkmode-muted" style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:15px; line-height:26px; color:#7a7e88; text-align:center; padding-bottom:28px;">A first conversation is thirty minutes and costs nothing. We will tell you plainly whether we can help and how we would start.</div>
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:46px;v-text-anchor:middle;width:220px;" arcsize="10%" strokecolor="#ee6c4d" fillcolor="#ee6c4d">
+                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:1px;">Book a consultation</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="#" target="_blank" style="background:#ee6c4d; border-radius:5px; color:#ffffff; display:inline-block; font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; line-height:46px; text-align:center; text-decoration:none; padding:0 34px; mso-hide:all;">Book a consultation</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+
+                    <!-- 10px gap: the cool light-grey page shows through between cards -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0; line-height:0; height:10px;">&nbsp;</td></tr></table>
+
+          <!-- Footer: charcoal (fixed in every mode, not a darkmode-card) with
+               social + name + contact + unsubscribe. Coral social chips. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#2c2f36; border-radius:4px 4px 0 0;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/mer-social-linkedin.png" width="28" height="28" alt="Meridian Advisory on LinkedIn" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/mer-social-twitter.png" width="28" height="28" alt="Meridian Advisory on Twitter" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/mer-social-facebook.png" width="28" height="28" alt="Meridian Advisory on Facebook" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="#" target="_blank"><img src="../assets/mer-social-web.png" width="28" height="28" alt="Meridian Advisory website" style="display:block; border:0;"></a></td>
+                  </tr>
+                </table>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:16px; line-height:22px; letter-spacing:1px; color:#ffffff; padding-bottom:8px;">Meridian Advisory</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#aeb2bc; padding-bottom:6px;">1200 Meridian Tower, 22nd Floor, Chicago, IL 60601</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#aeb2bc; padding-bottom:16px;">hello@meridianadvisory.example  ·  +1 (312) 555-0180</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:18px; color:#8a8f9a; padding-bottom:16px;"><a href="*|UNSUB|*" target="_blank" style="color:#8a8f9a; text-decoration:underline;">Unsubscribe</a> from Meridian briefings.</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:11px; line-height:16px; color:#6b7079;">Meridian Advisory is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details.</div>
+              </td>
+            </tr>
+          </table>
+
+          </div><!-- /.email-container -->
+          <!--[if mso]>
+          </td></tr></table>
+          <![endif]--><!-- /ghost table -->
+
+        </td>
+      </tr>
+    </table><!-- /background wrapper -->
+  </div><!-- /role=article -->
+</body>
+</html>
+

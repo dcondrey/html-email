@@ -1,0 +1,71 @@
+{
+  "title": "Meridian Advisory: the Q3 outlook and where boards are moving",
+  "preheaderText": "Our read on the quarter ahead: three shifts on the board agenda, and how the teams getting ahead are responding.",
+
+  "companyName": "Meridian Advisory",
+  "logoLinkUrl": "https://meridianadvisory.example",
+  "logoUrl": "../assets/mer-logo.png",
+  "logoDarkUrl": "../assets/mer-logo-dark.png",
+
+  "viewInBrowserUrl": "#",
+  "forwardUrl": "#",
+
+  "nav1": "Services",
+  "nav2": "Insights",
+  "nav3": "Team",
+  "nav4": "Cases",
+  "nav5": "Contact",
+
+  "heroLinkUrl": "#",
+  "heroImageUrl": "../assets/mer-hero.jpg",
+  "heroImageAlt": "An abstract ascending chart cresting a horizon line",
+  "heroEyebrow": "Q3 outlook",
+  "heroHeadline": "Clarity for the decision in front of you",
+  "heroText": "Every quarter we distill what we are seeing across the desk into a short brief. This one covers three shifts moving up the board agenda, and the practical moves the teams ahead of them are already making.",
+  "heroButton": "Read the brief",
+  "heroUrl": "#",
+
+  "serviceAImageUrl": "../assets/mer-service-1.jpg",
+  "serviceAEyebrow": "Strategy",
+  "serviceATitle": "Set the direction, then defend it",
+  "serviceAText": "We help leadership teams pick a defensible position and build the operating plan that holds it under pressure. Fewer initiatives, sequenced properly, owned clearly.",
+  "serviceALink": "See how we work",
+  "serviceAUrl": "#",
+
+  "serviceBImageUrl": "../assets/mer-service-2.jpg",
+  "serviceBEyebrow": "Analysis",
+  "serviceBTitle": "Decisions grounded in the numbers",
+  "serviceBText": "Our analysts pressure-test the model behind the plan so the board sees the real range of outcomes, not a single optimistic line. Assumptions surfaced, risks priced, evidence attached.",
+  "serviceBLink": "Explore the practice",
+  "serviceBUrl": "#",
+
+  "stat1Number": "18",
+  "stat1Label": "Years advising boards",
+  "stat2Number": "240+",
+  "stat2Label": "Engagements delivered",
+  "stat3Number": "96%",
+  "stat3Label": "Client retention",
+
+  "quoteText": "Meridian gave our board the one thing a deck never could: a clear read on the trade-offs, and the confidence to actually decide.",
+  "quoteName": "Helena Ross",
+  "quoteRole": "Chair of the Board, Northarbor Group",
+
+  "ctaHeadline": "Bring us the decision that is keeping you up",
+  "ctaText": "A first conversation is thirty minutes and costs nothing. We will tell you plainly whether we can help and how we would start.",
+  "ctaButton": "Book a consultation",
+  "ctaUrl": "#",
+
+  "linkedinUrl": "#",
+  "twitterUrl": "#",
+  "facebookUrl": "#",
+  "websiteUrl": "#",
+  "iconLinkedin": "../assets/mer-social-linkedin.png",
+  "iconTwitter": "../assets/mer-social-twitter.png",
+  "iconFacebook": "../assets/mer-social-facebook.png",
+  "iconWebsite": "../assets/mer-social-web.png",
+
+  "companyAddress": "1200 Meridian Tower, 22nd Floor, Chicago, IL 60601",
+  "companyContact": "hello@meridianadvisory.example  ·  +1 (312) 555-0180",
+  "unsubscribeUrl": "*|UNSUB|*",
+  "legalText": "Meridian Advisory is a fictitious brand used as sample content in an open-source HTML email compatibility framework. See github.com/dcondrey/html-email for details."
+}

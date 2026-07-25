@@ -1,0 +1,22 @@
+          {{>gap}}
+          <!-- Footer: charcoal (fixed in every mode, not a darkmode-card) with
+               social + name + contact + unsubscribe. Coral social chips. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#2c2f36; border-radius:4px 4px 0 0;">
+            <tr>
+              <td align="center" class="pad-on-narrow" style="padding:44px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0 5px;"><a href="{{linkedinUrl}}" target="_blank"><img src="{{iconLinkedin}}" width="28" height="28" alt="{{companyName}} on LinkedIn" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="{{twitterUrl}}" target="_blank"><img src="{{iconTwitter}}" width="28" height="28" alt="{{companyName}} on Twitter" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="{{facebookUrl}}" target="_blank"><img src="{{iconFacebook}}" width="28" height="28" alt="{{companyName}} on Facebook" style="display:block; border:0;"></a></td>
+                    <td style="padding:0 5px;"><a href="{{websiteUrl}}" target="_blank"><img src="{{iconWebsite}}" width="28" height="28" alt="{{companyName}} website" style="display:block; border:0;"></a></td>
+                  </tr>
+                </table>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:600; font-size:16px; line-height:22px; letter-spacing:1px; color:#ffffff; padding-bottom:8px;">{{companyName}}</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#aeb2bc; padding-bottom:6px;">{{companyAddress}}</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:13px; line-height:20px; color:#aeb2bc; padding-bottom:16px;">{{companyContact}}</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:18px; color:#8a8f9a; padding-bottom:16px;"><a href="{{unsubscribeUrl}}" target="_blank" style="color:#8a8f9a; text-decoration:underline;">Unsubscribe</a> from Meridian briefings.</div>
+                <div style="font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif; font-weight:400; font-size:11px; line-height:16px; color:#6b7079;">{{legalText}}</div>
+              </td>
+            </tr>
+          </table>

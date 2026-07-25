@@ -38,6 +38,7 @@ jobs:
           node scripts/build-template.mjs templates/ferry-street-brewing
           node scripts/build-template.mjs templates/lantern-and-quill
           node scripts/build-template.mjs templates/voltline
+          node scripts/build-template.mjs templates/meridian-advisory
 
       - name: Lint email output (fails the build, not the inbox)
         run: |
@@ -46,6 +47,7 @@ jobs:
           node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html
           node framework/build/lint.mjs templates/lantern-and-quill/dist/email.html
           node framework/build/lint.mjs templates/voltline/dist/email.html
+          node framework/build/lint.mjs templates/meridian-advisory/dist/email.html
 
       - name: Assert build output is committed (no drift)
         run: git diff --exit-code -- framework/dist templates/*/dist
