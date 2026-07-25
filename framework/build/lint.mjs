@@ -140,11 +140,35 @@ presRoles >= tables
   ? PASS(`Dark-mode CSS present (prefers-color-scheme block).`)
   : FAIL(`No @media (prefers-color-scheme: dark) block — the template opts into dark mode but never styles it.`);
 
-// 13. Hidden preheader: a display:none element that also zeroes its box, so the
-//     inbox preview line is controlled instead of leaking body copy.
-/display:\s*none[^>]*max-height:\s*0/i.test(html)
+// 13. Hidden preheader: a <div> whose inline style is display:none AND zeroes
+//     its box, so the inbox preview line is controlled instead of leaking body
+//     copy. Anchored to the element's style attribute so the .hide-on-narrow CSS
+//     rule (which shares those properties) is not mistaken for the preheader.
+const preheaderMatch = html.match(/<div\b[^>]*style=["'][^"'>]*display:\s*none[^"'>]*max-height:\s*0[^"'>]*["'][^>]*>([\s\S]*?)<\/div>/i);
+preheaderMatch
   ? PASS(`Hidden preheader present (controls the inbox preview line).`)
   : WARN(`No hidden preheader detected — the inbox preview will leak whatever body text comes first.`);
+
+// 14. Preheader length: the visible text (spacers stripped) should stay short —
+//     most clients show ~90-140 chars, and anything past that is wasted or,
+//     worse, pulls in body copy the preheader was meant to suppress.
+if (preheaderMatch) {
+  const preheaderText = preheaderMatch[1]
+    .replace(/&zwnj;|&nbsp;|&#8203;|&#x200c;|&#xfeff;/gi, '')  // strip zero-width/nbsp spacers
+    .replace(/<[^>]+>/g, '')                                 // strip any tags
+    .replace(/\s+/g, ' ').trim();
+  preheaderText.length > 140
+    ? WARN(`Preheader is ${preheaderText.length} chars — clients truncate around 90-140, so the tail is wasted.`)
+    : PASS(`Preheader length ${preheaderText.length} chars (within the ~140 clients show).`);
+}
+
+// 15. Placeholder links: href="#" / empty href are dead clicks in a real send.
+//     Informational — sample templates use them on purpose; a production build
+//     should resolve them.
+const placeholderHrefs = (structural.match(/href=["'](?:#|)["']/gi) || []).length;
+placeholderHrefs
+  ? INFO(`${placeholderHrefs} placeholder href="#"/empty links — fine for samples, resolve before a real send.`)
+  : PASS(`No placeholder href="#"/empty links.`);
 
 console.log(`\n${fails ? '\x1b[31m' : '\x1b[32m'}${fails} fail, ${warns} warn\x1b[0m\n`);
 process.exit(fails ? 1 : 0);

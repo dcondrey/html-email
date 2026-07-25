@@ -46,6 +46,8 @@ const good = runLint(GOOD);
 assert(good.code === 0, 'good.html exits 0');
 assert(/0 fail/.test(good.out), 'good.html reports 0 fail');
 assert(/0 fail, 0 warn/.test(good.out), 'good.html reports 0 warn (fully conformant)');
+assert(/Preheader length \d+ chars/.test(good.out), 'good.html: preheader-length check runs');
+assert(/placeholder href/.test(good.out), 'good.html: placeholder-href check runs');
 
 // --- bad fixture: must fail, and name each planted defect ---------------------
 const bad = runLint(BAD);
