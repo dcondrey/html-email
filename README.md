@@ -36,15 +36,19 @@ in translation on the oldest clients.
   a newer one. [28 documented quirks](./docs/quirks.md), each defended in the markup.
 - **Zero dependencies.** A ~120-line `build.mjs` concatenates partials and injects `content.json`.
   No framework, no MJML, no fidelity loss. (Puppeteer is a *dev*-only dependency for screenshots.)
-- **A linter, not just a template.** `lint.mjs` turns the load-bearing quirks into a build gate —
-  Gmail's 102 KB clip and 8 KB `<style>` limit, bulletproof buttons, balanced MSO comments, `alt`
-  text, a real unsubscribe link, `role="presentation"`.
+- **Verified two ways, not just authored.** `lint.mjs` gates the HTML — Gmail's 102 KB clip and 8 KB
+  `<style>` limit, bulletproof buttons, balanced MSO comments, `alt` text and image widths, dark-mode
+  metas + Outlook DPI pinning, a real unsubscribe link, `role="presentation"` — and ships with [its
+  own self-test](./framework/build/lint.test.mjs). Then `npm run smoke` renders every build in
+  headless Chrome (light + dark) and fails on a broken image, horizontal overflow, or page error —
+  the class of bug a HTML linter can't see.
 - **Three ways to use it.** Copy the single-file master, assemble the documented partials, or run the
   build. All three produce identical markup.
 - **Dark mode, three ways.** `prefers-color-scheme`, Outlook.com `[data-ogsc]`/`[data-ogsb]`, and
   Gmail-safe explicit `bgcolor` on every cell.
-- **Branded templates.** A growing set of distinct designs (see below), each rebuilt in the house
-  conventions and passing the linter clean.
+- **Five branded templates, and a scaffolder.** Distinct designs (see below), each rebuilt in the
+  house conventions with self-authored generated art and passing both gates clean. Start a new one
+  with `node scripts/new-template.mjs <name> "Brand"` — a complete, conformant template out of the box.
 
 ## Preview
 
