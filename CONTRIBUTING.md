@@ -30,28 +30,62 @@ node scripts/build-template.mjs templates/cairn-wellness
 node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
 ```
 
-Screenshots and placeholder assets need the dev dependency:
+Screenshots, placeholder assets, and the render smoke-test need the dev dependency:
 
 ```sh
 npm ci
-node scripts/generate-previews.mjs
+npm run build      # framework + every template
+npm run lint       # lint every built output
+npm test           # build + lint + the linter's own self-test
+npm run smoke      # render each email in headless Chrome (light + dark)
+npm run previews   # regenerate docs/preview/*.png
 ```
+
+There are **two layers of checks**: `lint.mjs` validates the *HTML* (Gmail size, dark-mode metas,
+bulletproof buttons, image widths, house-conformance invariants); `smoke.mjs` validates the *render*
+(broken images, horizontal overflow, page errors — what lint cannot see).
 
 ## Before you open a PR
 
 1. Rebuild any output you changed and **commit the built `dist/`** (CI asserts there is no drift).
-2. `lint.mjs` passes with **0 fail** on every affected output.
-3. Verify in a real client or attach a rendered screenshot — say which client. Include light + dark
+2. `npm run lint` passes with **0 fail / 0 warn** on every affected output.
+3. `npm run smoke` passes (no broken images, no overflow) if you touched markup or assets.
+4. Verify in a real client or attach a rendered screenshot — say which client. Include light + dark
    if you touched color.
-4. Fill in the PR checklist.
+5. Fill in the PR checklist.
 
 ## Adding a template
 
 Each design lives under `templates/<name>/` with its own `partials/`, `build/manifest.json`,
-`build/content.json`, `assets/`, and `dist/`. Author sections in the house conventions (see
-`framework/partials/` for the annotated reference): XHTML Transitional doctype, `role="presentation"`
-tables, fluid-hybrid `stack-column` divs wrapped in `[if mso]` ghost tables, bulletproof VML buttons,
-the hidden-preheader technique, and `color-scheme` + dark-mode classes. Aim for `lint.mjs` **0 warn**.
+`build/content.json`, `assets/`, and `dist/`. Don't hand-copy an existing one — scaffold it:
+
+```sh
+node scripts/new-template.mjs acme-widgets "Acme Widgets"
+node scripts/build-template.mjs templates/acme-widgets     # builds 0 fail / 0 warn out of the box
+```
+
+The scaffold is a complete, conformant starter (8 partials, manifest, `content.json`, and a
+`scripts/generate-acme-widgets-assets.mjs` stub). From there:
+
+1. **Retheme.** Edit the palette and any web font in `partials/00-document-open.html`, then the
+   section partials. Keep the house conventions (see `framework/partials/` for the annotated
+   reference): XHTML Transitional doctype, `role="presentation"` tables, fluid-hybrid `stack-column`
+   divs in `[if mso]` ghost tables, bulletproof VML buttons, the hidden preheader, and the three-path
+   dark mode. Google-font links **must** include `&display=swap` or FOIT hides all text.
+2. **Write the copy** in `build/content.json`. A `{{field}}` a partial references but the JSON omits
+   fails the build; a key no partial uses is warned. Terse, declarative, no em-dashes, no `lorem`,
+   mock brand marked fictitious in the footer.
+3. **Generate the art.** Implement the asset generator following `scripts/generate-cairn-assets.mjs`:
+   layered SVG scenes rendered by headless Chrome at 2x. Constrain every content `<img>` with a
+   `width`/`height` attribute matching its slot (Outlook draws at natural size otherwise). For a
+   wordmark logo, measure the rendered width and clip to it (`fit: true`, `white-space:nowrap`) so a
+   long brand name is never truncated — see the `fit` handling in `generate-meridian-assets.mjs`. If
+   a template inverts, ship a light + dark logo and wire the `darkmode-hide`/`darkmode-show` swap.
+4. **Verify.** `lint.mjs` at **0 fail / 0 warn**, `npm run smoke` clean, and eyeball the render in
+   both light and dark.
+5. **Wire it in.** Add the template to the `build`, `lint`, and `assets` scripts in `package.json`,
+   the build/lint steps in `.github/workflows/{ci,release}.yml`, and the README Templates table +
+   gallery. `npm run previews` will produce its `docs/preview/<name>.png`.
 
 ## Commit messages
 
