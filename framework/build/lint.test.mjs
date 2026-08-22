@@ -20,14 +20,15 @@ const GOOD = join(__dirname, 'test', 'good.html');
 const BAD = join(__dirname, 'test', 'bad.html');
 
 // Run lint.mjs on a file; return { code, out } without throwing on non-zero exit.
-function runLint(file) {
+function runLint(file, ...flags) {
   try {
-    const out = execFileSync('node', [LINT, file], { encoding: 'utf8' });
+    const out = execFileSync('node', [LINT, ...flags, file], { encoding: 'utf8' });
     return { code: 0, out };
   } catch (e) {
     return { code: e.status ?? 1, out: `${e.stdout || ''}${e.stderr || ''}` };
   }
 }
+const runHouse = (file) => runLint(file, '--profile', 'house');
 
 let failures = 0;
 const assert = (cond, msg) => {
@@ -42,7 +43,7 @@ const assert = (cond, msg) => {
 console.log('\nlint.mjs self-test\n');
 
 // --- good fixture: must pass cleanly (the gold-standard, 0 fail AND 0 warn) ---
-const good = runLint(GOOD);
+const good = runHouse(GOOD);
 assert(good.code === 0, 'good.html exits 0');
 assert(/0 fail/.test(good.out), 'good.html reports 0 fail');
 assert(/0 fail, 0 warn/.test(good.out), 'good.html reports 0 warn (fully conformant)');
@@ -50,7 +51,7 @@ assert(/Preheader length \d+ chars/.test(good.out), 'good.html: preheader-length
 assert(/placeholder href/.test(good.out), 'good.html: placeholder-href check runs');
 
 // --- bad fixture: must fail, and name each planted defect ---------------------
-const bad = runLint(BAD);
+const bad = runHouse(BAD);
 assert(bad.code === 1, 'bad.html exits 1');
 assert(/without an alt attribute/.test(bad.out), 'bad.html: missing-alt rule fires');
 assert(/without a width attribute/.test(bad.out), 'bad.html: missing-width rule fires');
@@ -61,6 +62,29 @@ assert(/No unsubscribe link found/.test(bad.out), 'bad.html: missing-unsubscribe
 assert(/color-scheme.*meta/.test(bad.out), 'bad.html: dark-mode-declaration rule fires');
 assert(/PixelsPerInch/.test(bad.out), 'bad.html: Outlook-DPI rule fires');
 assert(/prefers-color-scheme: dark\) block/.test(bad.out), 'bad.html: dark-mode-CSS rule fires');
+
+// --- profile split: the universal rules must be safe to point at anyone's HTML.
+// bad.html omits every house convention, so if those rules leaked into the
+// default profile the CLI would fail on all third-party output.
+const badUniversal = runLint(BAD);
+assert(!/PixelsPerInch/.test(badUniversal.out), 'universal profile: Outlook-DPI rule is not applied');
+assert(!/prefers-color-scheme: dark\) block/.test(badUniversal.out), 'universal profile: dark-mode-CSS rule is not applied');
+assert(!/preheader/i.test(badUniversal.out), 'universal profile: preheader rules are not applied');
+assert(/without an alt attribute/.test(badUniversal.out), 'universal profile: universal rules still apply');
+
+// A file that carries none of the house conventions but breaks no universal
+// rule must pass by default — the "lint MJML/React Email output" path.
+const PLAIN = join(__dirname, 'test', 'plain.html');
+const plain = runLint(PLAIN);
+assert(plain.code === 0, 'plain.html (no house conventions) exits 0 under the universal profile');
+assert(runHouse(PLAIN).code === 1, 'plain.html exits 1 under the house profile (conventions absent)');
+
+// JSON output must stay machine-parseable for CI consumers.
+const json = runLint(GOOD, '--json');
+let parsed = null;
+try { parsed = JSON.parse(json.out); } catch {}
+assert(parsed?.profile === 'universal', '--json emits parseable JSON with the profile');
+assert(Array.isArray(parsed?.results?.[0]?.findings), '--json exposes findings per file');
 
 console.log(`\n${failures ? '\x1b[31m' : '\x1b[32m'}${failures} assertion${failures === 1 ? '' : 's'} failed\x1b[0m\n`);
 process.exit(failures ? 1 : 0);

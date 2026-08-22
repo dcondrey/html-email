@@ -1,0 +1,30 @@
+<!--
+  lint fixture: PLAIN — third-party output, in the shape a compiler like MJML or
+  React Email emits. It breaks no universal rule, so the default profile must
+  pass it (exit 0); it adopts none of this framework's house conventions (no
+  color-scheme metas, no PixelsPerInch pin, no dark-mode CSS, no preheader), so
+  --profile house must fail it. See lint.test.mjs.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plain fixture</title>
+  <style type="text/css">
+    .container { max-width:600px; margin:0 auto; }
+    .btn { background:#2b6cb0; color:#ffffff; padding:12px 30px; }
+  </style>
+</head>
+<body>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <img src="hero.jpg" width="600" height="200" alt="Hero image" style="display:block;">
+        <a href="https://example.com/shop" class="btn">Shop now</a>
+        <p><a href="https://example.com/unsubscribe">Unsubscribe</a> from this mailing list.</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
