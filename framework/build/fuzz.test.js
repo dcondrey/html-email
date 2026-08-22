@@ -122,9 +122,12 @@ check('stays linear on adversarial unterminated markup', fc.property(
   fc.integer({ min: 20000, max: 60000 }),
   (fragment, n) => {
     const s = fragment.repeat(n);
+    // Linear takes ~20ms for the largest of these locally. The budget is loose
+    // enough for a slow CI runner and still an order of magnitude under the
+    // quadratic forms this pins (1.1s+ locally, worse on CI).
     const started = process.hrtime.bigint();
     analyze(s, { profile: 'house' });
-    return Number(process.hrtime.bigint() - started) / 1e6 < 2000;
+    return Number(process.hrtime.bigint() - started) / 1e6 < 1000;
   }
 ), { numRuns: 12 });
 
