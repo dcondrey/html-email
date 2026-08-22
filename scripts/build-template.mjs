@@ -21,6 +21,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve, basename } from 'node:path';
+import { isPreservedComment, withAttribution } from '../framework/build/banner.mjs';
 
 const args = process.argv.slice(2);
 const TEMPLATE = args.find((a) => !a.startsWith('--'));
@@ -83,16 +84,15 @@ html = html.replace(/{{\s*([\w-]+)\s*}}/g, (m, key) => content[key]);
 
 // ---- production minify (keep MSO conditional comments!) ---------------------
 if (PRODUCTION) {
-  html = html.replace(/<!--[\s\S]*?-->/g, (c) =>
-    /\[if\b|<!\[endif\]|\[endif\]/.test(c) ? c : ''
-  );
+  html = html.replace(/<!--[\s\S]*?-->/g, (c) => (isPreservedComment(c) ? c : ''));
   html = html.replace(/>\s+</g, '><').replace(/^\s*[\r\n]/gm, '');
 }
 
 // ---- write -----------------------------------------------------------------
 mkdirSync(dirname(OUT), { recursive: true });
-writeFileSync(OUT, html.trimStart() + '\n', 'utf8');
+const output = withAttribution(html.trimStart());
+writeFileSync(OUT, output + '\n', 'utf8');
 
-const kb = (Buffer.byteLength(html, 'utf8') / 1024).toFixed(1);
-const clip = Buffer.byteLength(html, 'utf8') > 102000 ? '  ⚠ over Gmail 102KB clip threshold' : '';
+const kb = (Buffer.byteLength(output, 'utf8') / 1024).toFixed(1);
+const clip = Buffer.byteLength(output, 'utf8') > 102000 ? '  ⚠ over Gmail 102KB clip threshold' : '';
 console.log(`built ${basename(TEMPLATE)} -> ${OUT}  (${kb} KB${clip})${PRODUCTION ? '  [production]' : ''}`);

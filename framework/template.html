@@ -211,8 +211,9 @@
 
               - width="600" attribute + class="fluid" = full width on desktop,
                 shrinks to screen on mobile, never upscales in Outlook.
-              - The <td> has an explicit bgcolor so Gmail's dark-mode engine does
-                not paint its own background behind a transparent PNG.
+              - The wrapping table declares an explicit background-color (and the
+                darkmode-card class that overrides it) so Gmail's dark-mode engine
+                does not paint its own background behind a transparent PNG.
 
               OPTIONAL: to bake text OVER a background image (the 2014 signature
               trick — still the only way to get a background image behind text in
@@ -329,11 +330,12 @@
               - Background is #2b2b30, NOT pure #000000. Apple Mail inverts pure
                 black/white outright in dark mode; an off-black is left alone.
                 (Same reason the light text is #d8d8d8, not #ffffff.)
-              - Every cell has an explicit bgcolor so Gmail's dark engine cannot
-                paint an unset cell.
+              - The wrapping table declares an explicit background-color, paired with
+                the darkmode-bg class that overrides it, so Gmail's dark engine has
+                nothing unset to repaint. The lint rule dark-bg-explicit enforces it.
               - The unsubscribe link is REQUIRED for CAN-SPAM / CASL / GDPR and
                 for one-click unsubscribe (RFC 8058) that Gmail & Yahoo now
-                enforce for bulk senders. Keep it real, not a placeholder.
+                enforce for bulk senders. Keep it real, not a sample value.
               - Social icons: width/height as attributes; alt text per icon.
             -->
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#2b2b30; border-radius:0 0 8px 8px;">

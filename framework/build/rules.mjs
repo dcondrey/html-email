@@ -406,6 +406,17 @@ export const RULES = [
         : [SEVERITY.FAIL, `No [if mso] font fallback — classic Outlook renders web fonts as Times New Roman.`],
   },
   {
+    // The licence asks for the notice to survive in copies, and the thing that
+    // gets copied is this file. Both builders inject it; this catches a builder
+    // regression silently dropping it from everything downstream.
+    id: 'attribution',
+    scope: 'house',
+    run: ({ html }) =>
+      /<!--!\s*html-email/i.test(html)
+        ? [SEVERITY.PASS, `Attribution notice present (survives the production minifier).`]
+        : [SEVERITY.FAIL, `No <!--! html-email attribution notice — the build should inject it after the doctype. See NOTICE.`],
+  },
+  {
     id: 'preheader',
     scope: 'house',
     run: ({ preheader }) =>

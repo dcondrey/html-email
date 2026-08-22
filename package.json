@@ -8,7 +8,7 @@
     "example": "examples"
   },
   "scripts": {
-    "build": "node framework/build/build.mjs && node framework/build/build.mjs --production --out ../dist/email.min.html && node scripts/build-template.mjs templates/cairn-wellness && node scripts/build-template.mjs templates/ferry-street-brewing && node scripts/build-template.mjs templates/lantern-and-quill && node scripts/build-template.mjs templates/voltline && node scripts/build-template.mjs templates/meridian-advisory",
+    "build": "node framework/build/build.mjs && node framework/build/build.mjs --production --out ../dist/email.min.html && node framework/build/build.mjs --skeleton --out ../template.html && node scripts/build-template.mjs templates/cairn-wellness && node scripts/build-template.mjs templates/ferry-street-brewing && node scripts/build-template.mjs templates/lantern-and-quill && node scripts/build-template.mjs templates/voltline && node scripts/build-template.mjs templates/meridian-advisory",
     "lint": "node framework/build/lint.mjs --profile house framework/dist/email.html templates/cairn-wellness/dist/email.html templates/ferry-street-brewing/dist/email.html templates/lantern-and-quill/dist/email.html templates/voltline/dist/email.html templates/meridian-advisory/dist/email.html",
     "verify": "npm run build && npm run lint",
     "smoke": "node scripts/smoke.mjs",
@@ -23,7 +23,8 @@
   },
   "files": [
     "framework/build/lint.mjs",
-    "framework/build/rules.mjs"
+    "framework/build/rules.mjs",
+    "NOTICE"
   ],
   "repository": {
     "type": "git",

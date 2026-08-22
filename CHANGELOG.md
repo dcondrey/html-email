@@ -4,6 +4,30 @@ All notable changes to this project are generated from the commit history.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) +
 [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [Unreleased]
+
+### Added
+
+- Attribution notice inside every built email. MIT requires the copyright notice to survive in
+  copies, but what actually gets copied here is the built HTML pasted into an ESP, not the
+  repository — so the notice ships in the artifact, 178 bytes immediately after the doctype
+  (before it would drop older engines into quirks mode). The production minifier now preserves
+  `<!--!` comments the way JS minifiers preserve `/*!`. The fill-in skeleton carries no notice.
+- `NOTICE` — what attribution is asked for, and an explicit list of what needs no permission at all
+  (commercial use, modification, rebranding, shipping inside a paid product). Included in the
+  release archive and the published package.
+
+### Fixed
+
+- `framework/template.html` was stale. It is generated from the partials, but nothing regenerated
+  it, so it still carried the pre-correction dark-mode comments. It is now part of `npm run build`
+  and covered by CI's no-drift assertion, which previously watched only `dist/`.
+
+### Changed
+
+- The README no longer says attribution is "not required". MIT does ask for the notice to be
+  retained, and saying otherwise waived the one thing the licence asks for.
+
 ## [1.0.0] - 2026-08-22
 
 ### Added
