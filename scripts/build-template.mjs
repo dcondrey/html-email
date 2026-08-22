@@ -22,6 +22,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve, basename } from 'node:path';
 import { isPreservedComment, withAttribution } from '../framework/build/banner.mjs';
+import { stripComments } from '../framework/build/comments.mjs';
 
 const args = process.argv.slice(2);
 const TEMPLATE = args.find((a) => !a.startsWith('--'));
@@ -84,7 +85,7 @@ html = html.replace(/{{\s*([\w-]+)\s*}}/g, (m, key) => content[key]);
 
 // ---- production minify (keep MSO conditional comments!) ---------------------
 if (PRODUCTION) {
-  html = html.replace(/<!--[\s\S]*?-->/g, (c) => (isPreservedComment(c) ? c : ''));
+  html = stripComments(html, isPreservedComment);
   html = html.replace(/>\s+</g, '><').replace(/^\s*[\r\n]/gm, '');
 }
 

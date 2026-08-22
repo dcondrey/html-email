@@ -24,6 +24,7 @@
   "files": [
     "framework/build/lint.mjs",
     "framework/build/rules.mjs",
+    "framework/build/comments.mjs",
     "NOTICE"
   ],
   "repository": {

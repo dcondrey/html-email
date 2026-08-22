@@ -20,6 +20,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isPreservedComment, withAttribution } from './banner.mjs';
+import { stripComments } from './comments.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PARTIALS = resolve(__dirname, '..', 'partials');
@@ -92,7 +93,7 @@ if (!SKELETON) {
 if (PRODUCTION) {
   // Drop documentation comments only. Preserve <!--[if ...]> ... <![endif]-->
   // and the <!--[if !mso]><!--> ... <!--<![endif]--> "downlevel-revealed" forms.
-  html = html.replace(/<!--[\s\S]*?-->/g, (c) => (isPreservedComment(c) ? c : ''));
+  html = stripComments(html, isPreservedComment);
   // Collapse runs of whitespace between tags; keep a single newline for sanity.
   html = html.replace(/>\s+</g, '><').replace(/^\s*[\r\n]/gm, '');
 }
