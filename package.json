@@ -21,6 +21,10 @@
   "bin": {
     "html-email-lint": "framework/build/lint.mjs"
   },
+  "files": [
+    "framework/build/lint.mjs",
+    "framework/build/rules.mjs"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dcondrey/html-email.git"
