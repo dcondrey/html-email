@@ -19,6 +19,8 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isPreservedComment, withAttribution } from './banner.mjs';
+import { stripComments } from './comments.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PARTIALS = resolve(__dirname, '..', 'partials');
@@ -91,18 +93,18 @@ if (!SKELETON) {
 if (PRODUCTION) {
   // Drop documentation comments only. Preserve <!--[if ...]> ... <![endif]-->
   // and the <!--[if !mso]><!--> ... <!--<![endif]--> "downlevel-revealed" forms.
-  html = html.replace(/<!--[\s\S]*?-->/g, (c) =>
-    /\[if\b|<!\[endif\]|\[endif\]/.test(c) ? c : ''
-  );
+  html = stripComments(html, isPreservedComment);
   // Collapse runs of whitespace between tags; keep a single newline for sanity.
   html = html.replace(/>\s+</g, '><').replace(/^\s*[\r\n]/gm, '');
 }
 
 // ---- write -----------------------------------------------------------------
 mkdirSync(dirname(OUT), { recursive: true });
-writeFileSync(OUT, html.trimStart() + '\n', 'utf8');
+// The skeleton is a fill-in master, not a shipped email; it carries no notice.
+const output = SKELETON ? html.trimStart() : withAttribution(html.trimStart());
+writeFileSync(OUT, output + '\n', 'utf8');
 
-const bytes = Buffer.byteLength(html, 'utf8');
+const bytes = Buffer.byteLength(output, 'utf8');
 const kb = (bytes / 1024).toFixed(1);
 const clip = bytes > 102000 ? '  ⚠ over Gmail 102KB clip threshold' : '';
 console.log(`built ${OUT}  (${kb} KB${clip})${SKELETON ? '  [skeleton]' : ''}${PRODUCTION ? '  [production]' : ''}`);

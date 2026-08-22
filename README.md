@@ -46,7 +46,7 @@ Most frameworks quietly drop the awkward clients because supporting them is tedi
 
 | | What it means |
 | --- | --- |
-| **Never drop support** | No workaround breaks an older client to help a newer one. [28 documented quirks](./docs/quirks.md), defended in the markup and enforced by 27 lint rules. |
+| **Never drop support** | No workaround breaks an older client to help a newer one. [28 documented quirks](./docs/quirks.md), defended in the markup and enforced by 28 lint rules. |
 | **Zero dependencies** | A ~120-line `build.mjs` concatenates partials and injects `content.json`. No MJML, no compiler, no fidelity loss. Puppeteer and fast-check are dev-only. |
 | **Verified, not just authored** | The linter gates the HTML, a [self-test](./framework/build/lint.test.mjs) gates the linter, a [fuzzer](./framework/build/fuzz.test.js) gates its edge cases, and [`smoke.mjs`](./scripts/smoke.mjs) gates the actual render in headless Chrome. |
 | **Works on anyone's email** | The default rule set is client behaviour every email is subject to, not this project's conventions. Point it at MJML, React Email, or Maizzle output. |
@@ -89,10 +89,10 @@ node framework/build/lint.mjs --sarif campaign.html  # upload to code scanning
 | Profile | Rules | Use for |
 | --- | --- | --- |
 | `universal` *(default)* | 14 rules — Gmail's 102 KB clip and 8 KB `<style>` cap, unbalanced CSS, missing `alt`/`width`, MSO conditional balance, unsubscribe link, `role="presentation"`, viewport/charset, inline images, CSS background images, dark-mode inversion risk | Any HTML email, whoever built it |
-| `house` | The above **plus** 13 framework invariants — both dark-mode metas, `<o:PixelsPerInch>96`, a `prefers-color-scheme` block, `.ExternalClass`, `mso-table-lspace`, `text-size-adjust`, iOS auto-linking, Apple reformatting, Outlook.com dark mode, MSO font fallback, explicit dark backgrounds, a hidden preheader | This repo's templates, or a fork of its conventions |
+| `house` | The above **plus** 14 framework invariants — both dark-mode metas, `<o:PixelsPerInch>96`, a `prefers-color-scheme` block, `.ExternalClass`, `mso-table-lspace`, `text-size-adjust`, iOS auto-linking, Apple reformatting, Outlook.com dark mode, MSO font fallback, explicit dark backgrounds, a hidden preheader, the attribution notice | This repo's templates, or a fork of its conventions |
 
 > [!WARNING]
-> `--profile house` is what `npm run lint` and CI use. Leave it off a file in this repo and thirteen real invariants pass silently.
+> `--profile house` is what `npm run lint` and CI use. Leave it off a file in this repo and fourteen real invariants pass silently.
 
 **Two layers.** `lint.mjs` validates the HTML; `npm run smoke` validates the *render* — it loads every build in headless Chrome, light and dark, and fails on a broken image, horizontal overflow, or page error. That is the class of bug a linter cannot see.
 
@@ -181,4 +181,15 @@ Security policy and private reporting: [SECURITY.md](./SECURITY.md).
 
 ## License
 
-MIT — use it, adapt it, ship it. Attribution appreciated, not required. © 2026 David Condrey.
+MIT — use it, adapt it, ship it commercially, no permission needed. © 2014-2026 David Condrey.
+
+MIT asks one thing in return: **keep the copyright notice**. Every built email carries it for you,
+as a 178-byte comment after the doctype that survives the production minifier and is invisible to
+recipients. Complying is automatic — just don't strip it.
+
+Shipping something built on this? A credit line is not required, but it is what keeps the oldest
+clients supported:
+
+> Email templates by [html-email](https://github.com/dcondrey/html-email), MIT Licensed.
+
+Details, and what you explicitly do *not* need permission for, in [NOTICE](./NOTICE).

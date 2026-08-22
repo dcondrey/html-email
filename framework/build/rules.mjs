@@ -9,6 +9,8 @@
  * output does not fail on conventions that project never adopted.
  */
 
+import { stripComments, isConditional } from './comments.mjs';
+
 export const SEVERITY = { FAIL: 'fail', WARN: 'warn', PASS: 'pass', INFO: 'info' };
 
 /** Gmail clips the message body past this, hiding the footer and unsubscribe. */
@@ -18,7 +20,6 @@ const GMAIL_STYLE_CHARS = 8192;
 /** Clients show roughly this much of the preheader before truncating. */
 const PREHEADER_MAX_CHARS = 140;
 
-const isConditional = (comment) => /\[if\b|<!\[endif\]|\[endif\]/.test(comment);
 
 /**
  * Tokenize every open tag in one left-to-right pass.
@@ -78,26 +79,8 @@ function findPreheader(html, tags) {
  * Structural checks (img/table/role) must ignore text inside documentation
  * comments — the word "<img>" in a comment is not an image tag. Conditional
  * comments are kept so real Outlook markup inside them still counts.
- *
- * Scanned rather than `replace`d: a regex replace over multi-character
- * delimiters leaves overlapping ones behind, which reads as a broken sanitizer
- * (CodeQL js/incomplete-multi-character-sanitization). An unterminated comment
- * is left in place, as the regex form did.
  */
-export function stripDocComments(html) {
-  let out = '';
-  let i = 0;
-  for (;;) {
-    const open = html.indexOf('<!--', i);
-    if (open === -1) break;
-    const close = html.indexOf('-->', open + 4);
-    if (close === -1) break;
-    const comment = html.slice(open, close + 3);
-    out += html.slice(i, open) + (isConditional(comment) ? comment : '');
-    i = close + 3;
-  }
-  return out + html.slice(i);
-}
+export const stripDocComments = (html) => stripComments(html, isConditional);
 
 /** Visible text of a fragment, for length only. Scanned, for the reason above. */
 export function stripTags(fragment) {
@@ -404,6 +387,17 @@ export const RULES = [
       /\[if mso\]/i.test(html) && /mso-font-alt|font-family\s*:\s*Arial/i.test(html)
         ? [SEVERITY.PASS, `MSO font fallback declared (Outlook would use Times New Roman otherwise).`]
         : [SEVERITY.FAIL, `No [if mso] font fallback — classic Outlook renders web fonts as Times New Roman.`],
+  },
+  {
+    // The licence asks for the notice to survive in copies, and the thing that
+    // gets copied is this file. Both builders inject it; this catches a builder
+    // regression silently dropping it from everything downstream.
+    id: 'attribution',
+    scope: 'house',
+    run: ({ html }) =>
+      /<!--!\s*html-email/i.test(html)
+        ? [SEVERITY.PASS, `Attribution notice present (survives the production minifier).`]
+        : [SEVERITY.FAIL, `No <!--! html-email attribution notice — the build should inject it after the doctype. See NOTICE.`],
   },
   {
     id: 'preheader',

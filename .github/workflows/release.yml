@@ -45,7 +45,7 @@ jobs:
       - name: Package release archive
         run: |
           zip -r "html-email-${GITHUB_REF_NAME}.zip" \
-            framework examples templates docs README.md LICENSE \
+            framework examples templates docs README.md LICENSE NOTICE \
             -x '*/node_modules/*'
 
       - name: Attest build provenance (SLSA)

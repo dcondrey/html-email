@@ -71,6 +71,7 @@ assert(/format-detection meta/.test(bad.out), 'bad.html: iOS auto-link rule fire
 assert(/x-apple-disable-message-reformatting/.test(bad.out), 'bad.html: Apple reformatting rule fires');
 assert(/data-ogsc/.test(bad.out), 'bad.html: Outlook.com dark-mode rule fires');
 assert(/Times New Roman/.test(bad.out), 'bad.html: MSO font-fallback rule fires');
+assert(/attribution notice/.test(bad.out), 'bad.html: attribution rule fires');
 
 // The dark-mode background rule must be exercised, not vacuously passed: a
 // darkmode-* class with no light-state colour is the failure it exists to catch.

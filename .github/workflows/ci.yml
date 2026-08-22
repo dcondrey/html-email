@@ -50,7 +50,7 @@ jobs:
         run: node framework/build/fuzz.test.js
 
       - name: Assert build output is committed (no drift)
-        run: git diff --exit-code -- framework/dist templates/*/dist
+        run: git diff --exit-code -- framework/dist framework/template.html templates/*/dist
 
   # Render smoke-test runs separately: it needs a browser (the build job above is
   # deliberately Chrome-free). ubuntu-latest ships google-chrome-stable, which
