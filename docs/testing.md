@@ -7,7 +7,7 @@ The framework enforces its own rules — run the linter on any built email. It t
 
 ```sh
 cd framework/build
-npm run lint        # or: node lint.mjs ../dist/email.html
+npm run lint        # or: node lint.mjs --profile house ../dist/email.html
 npm run verify      # build + lint in one step
 ```
 

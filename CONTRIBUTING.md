@@ -23,11 +23,11 @@ No install is needed to build or lint (Node 16+):
 # Framework
 node framework/build/build.mjs                      # dist/email.html (preview)
 node framework/build/build.mjs --production          # + strip doc comments, collapse whitespace
-node framework/build/lint.mjs framework/dist/email.html
+node framework/build/lint.mjs --profile house framework/dist/email.html
 
 # A template
 node scripts/build-template.mjs templates/cairn-wellness
-node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
+node framework/build/lint.mjs --profile house templates/cairn-wellness/dist/email.html
 ```
 
 Screenshots, placeholder assets, and the render smoke-test need the dev dependency:
@@ -44,6 +44,12 @@ npm run previews   # regenerate docs/preview/*.png
 There are **two layers of checks**: `lint.mjs` validates the *HTML* (Gmail size, dark-mode metas,
 bulletproof buttons, image widths, house-conformance invariants); `smoke.mjs` validates the *render*
 (broken images, horizontal overflow, page errors — what lint cannot see).
+
+The linter defaults to `--profile universal`, which is the client behaviour any email is subject to,
+so it is safe to point at output from MJML or anything else. Anything in **this** repo must be linted
+with `--profile house`, which adds the framework's own invariants (both dark-mode metas,
+`<o:PixelsPerInch>96`, a `prefers-color-scheme` block, the hidden preheader). `npm run lint` already
+does. Leave the profile off a repo target and three real failures pass silently.
 
 ## Before you open a PR
 
@@ -81,7 +87,7 @@ The scaffold is a complete, conformant starter (8 partials, manifest, `content.j
    wordmark logo, measure the rendered width and clip to it (`fit: true`, `white-space:nowrap`) so a
    long brand name is never truncated — see the `fit` handling in `generate-meridian-assets.mjs`. If
    a template inverts, ship a light + dark logo and wire the `darkmode-hide`/`darkmode-show` swap.
-4. **Verify.** `lint.mjs` at **0 fail / 0 warn**, `npm run smoke` clean, and eyeball the render in
+4. **Verify.** `npm run lint` at **0 fail / 0 warn**, `npm run smoke` clean, and eyeball the render in
    both light and dark.
 5. **Wire it in.** Add the template to the `build`, `lint`, and `assets` scripts in `package.json`,
    the build/lint steps in `.github/workflows/{ci,release}.yml`, and the README Templates table +

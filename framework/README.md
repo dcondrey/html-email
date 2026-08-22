@@ -38,7 +38,7 @@ cd build
 node build.mjs                 # → ../dist/email.html   (content injected)
 node build.mjs --production    # → ../dist/email.html   (minified)
 node build.mjs --skeleton --out ../template.html        # regenerate the fill-in master
-node lint.mjs ../dist/email.html                        # enforce the cross-client rules
+node lint.mjs --profile house ../dist/email.html        # enforce the cross-client rules
 # or: npm run build / build:prod / skeleton / lint / verify (build+lint)
 ```
 

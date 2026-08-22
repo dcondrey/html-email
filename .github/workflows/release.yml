@@ -40,13 +40,7 @@ jobs:
           node scripts/build-template.mjs templates/meridian-advisory
 
       - name: Lint
-        run: |
-          node framework/build/lint.mjs framework/dist/email.html
-          node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
-          node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html
-          node framework/build/lint.mjs templates/lantern-and-quill/dist/email.html
-          node framework/build/lint.mjs templates/voltline/dist/email.html
-          node framework/build/lint.mjs templates/meridian-advisory/dist/email.html
+        run: npm run lint
 
       - name: Package release archive
         run: |

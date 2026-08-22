@@ -7,7 +7,7 @@
 ## Checklist
 
 - [ ] `node framework/build/build.mjs` (and any `scripts/build-template.mjs <dir>`) rebuilt, output committed
-- [ ] `node framework/build/lint.mjs <output>` passes (0 fail)
+- [ ] `node framework/build/lint.mjs --profile house <output>` passes (0 fail)
 - [ ] Verified in a real client or a rendered screenshot (say which client)
 - [ ] Preserves the never-drop-support rule — no fix that breaks an older client to help a newer one
 - [ ] Stays zero-dependency (no MJML / compiler in the email build path)
