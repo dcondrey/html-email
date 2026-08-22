@@ -1,7 +1,7 @@
 {
-  "name": "html-email",
+  "name": "html-email-lint",
   "version": "1.0.0",
-  "description": "A hand-authored, zero-dependency cross-client HTML email framework that never drops support for the oldest clients.",
+  "description": "Zero-dependency cross-client HTML email linter. Gmail's clip and <style> limits, Outlook quirks, dark-mode metas, accessibility - on output from any framework.",
   "type": "module",
   "directories": {
     "doc": "docs",
@@ -31,6 +31,8 @@
   },
   "keywords": [
     "html-email",
+    "email-linter",
+    "linter",
     "email",
     "newsletter",
     "cross-client",
