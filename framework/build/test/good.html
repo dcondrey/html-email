@@ -1,7 +1,9 @@
 <!--
   lint fixture: GOOD — a minimal but valid email that must pass every lint rule
-  (0 fail). If a change to lint.mjs makes this file fail, either the change is
-  wrong or this fixture needs a matching, deliberate update. See lint.test.mjs.
+  (0 fail, 0 warn) under --profile house. It carries every house convention, so
+  it doubles as the smallest complete example of them. If a change to the rules
+  makes this file fail, either the change is wrong or this fixture needs a
+  matching, deliberate update. See lint.test.mjs.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -10,25 +12,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+  <meta name="x-apple-disable-message-reformatting">
   <title>Good fixture</title>
   <!--[if mso]>
   <noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <style type="text/css">
+    body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }
+  </style>
   <![endif]-->
   <style type="text/css">
+    body { margin:0; padding:0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass td { line-height:100%; }
     .email-container { max-width:600px; }
     a { text-decoration:none; }
+    a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; }
     @media (prefers-color-scheme: dark) {
       .darkmode-bg { background-color:#111114 !important; }
       .darkmode-text { color:#e6e6e6 !important; }
     }
     [data-ogsc] .darkmode-text { color:#e6e6e6 !important; }
+    [data-ogsb] .darkmode-bg { background-color:#111114 !important; }
   </style>
 </head>
 <body>
   <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">
     Hidden preheader controls the inbox preview line. &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
   </div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="darkmode-bg" style="background-color:#f4f4f7;">
     <tr>
       <td align="center">
         <img src="hero.jpg" width="600" height="200" alt="A valid hero image" style="display:block;">
@@ -40,7 +53,7 @@
         <!--[if !mso]><!-->
         <a href="#" style="background:#445942; color:#ffffff; display:inline-block; padding:12px 30px;">Shop now</a>
         <!--<![endif]-->
-        <p><a href="#unsub">Unsubscribe</a> from this mailing list.</p>
+        <p class="darkmode-text"><a href="#unsub">Unsubscribe</a> from this mailing list.</p>
       </td>
     </tr>
   </table>

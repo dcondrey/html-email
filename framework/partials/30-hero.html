@@ -9,8 +9,9 @@
 
               - width="600" attribute + class="fluid" = full width on desktop,
                 shrinks to screen on mobile, never upscales in Outlook.
-              - The <td> has an explicit bgcolor so Gmail's dark-mode engine does
-                not paint its own background behind a transparent PNG.
+              - The wrapping table declares an explicit background-color (and the
+                darkmode-card class that overrides it) so Gmail's dark-mode engine
+                does not paint its own background behind a transparent PNG.
 
               OPTIONAL: to bake text OVER a background image (the 2014 signature
               trick — still the only way to get a background image behind text in
