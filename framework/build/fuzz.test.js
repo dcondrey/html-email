@@ -8,7 +8,7 @@
  * Named .js, not .mjs, because that is what Scorecard's fuzzing detector globs.
  */
 import fc from 'fast-check';
-import { analyze, RULES, SEVERITY } from './rules.mjs';
+import { analyze, RULES, SEVERITY, stripDocComments, stripTags } from './rules.mjs';
 
 const PROFILES = ['universal', 'house'];
 const RULE_IDS = new Set(RULES.map((r) => r.id));
@@ -92,6 +92,27 @@ check('an <img> inside a doc comment never trips alt/width', fc.property(
 check('balanced MSO conditionals always pass', fc.property(fc.nat({ max: 30 }), (n) => {
   const s = '<!--[if mso]><![endif]-->'.repeat(n);
   return analyze(s, { profile: 'universal' }).findings.find((f) => f.id === 'mso-conditionals').severity === SEVERITY.PASS;
+}));
+
+// The comment and tag strips feed the structural rules, so a delimiter left
+// behind would let markup inside a comment be counted as real markup.
+// Idempotence is the real invariant: a second pass finding more to remove is
+// exactly the incomplete-sanitization failure. A nested `<!--` is NOT evidence
+// of one — `<!--[if !mso]><!-->` is the downlevel-revealed form, kept on purpose.
+check('stripDocComments reaches a fixed point in one pass', fc.property(html, (s) => {
+  const once = stripDocComments(s);
+  return stripDocComments(once) === once;
+}));
+
+check('stripTags leaves no complete tag behind', fc.property(html, (s) => {
+  const out = stripTags(s);
+  const lt = out.indexOf('<');
+  return lt === -1 || out.indexOf('>', lt + 1) === -1;
+}));
+
+check('stripTags reaches a fixed point in one pass', fc.property(html, (s) => {
+  const once = stripTags(s);
+  return stripTags(once) === once;
 }));
 
 // ReDoS regression guard. The single-regex preheader match and the `<tag[^>]*>`

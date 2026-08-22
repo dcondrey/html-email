@@ -78,9 +78,40 @@ function findPreheader(html, tags) {
  * Structural checks (img/table/role) must ignore text inside documentation
  * comments — the word "<img>" in a comment is not an image tag. Conditional
  * comments are kept so real Outlook markup inside them still counts.
+ *
+ * Scanned rather than `replace`d: a regex replace over multi-character
+ * delimiters leaves overlapping ones behind, which reads as a broken sanitizer
+ * (CodeQL js/incomplete-multi-character-sanitization). An unterminated comment
+ * is left in place, as the regex form did.
  */
-function stripDocComments(html) {
-  return html.replace(/<!--[\s\S]*?-->/g, (c) => (isConditional(c) ? c : ''));
+export function stripDocComments(html) {
+  let out = '';
+  let i = 0;
+  for (;;) {
+    const open = html.indexOf('<!--', i);
+    if (open === -1) break;
+    const close = html.indexOf('-->', open + 4);
+    if (close === -1) break;
+    const comment = html.slice(open, close + 3);
+    out += html.slice(i, open) + (isConditional(comment) ? comment : '');
+    i = close + 3;
+  }
+  return out + html.slice(i);
+}
+
+/** Visible text of a fragment, for length only. Scanned, for the reason above. */
+export function stripTags(fragment) {
+  let out = '';
+  let i = 0;
+  for (;;) {
+    const lt = fragment.indexOf('<', i);
+    if (lt === -1) break;
+    const gt = fragment.indexOf('>', lt + 1);
+    if (gt === -1) break;
+    out += fragment.slice(i, lt);
+    i = gt + 1;
+  }
+  return out + fragment.slice(i);
 }
 
 /**
@@ -274,11 +305,8 @@ export const RULES = [
     scope: 'house',
     run: ({ preheader }) => {
       if (!preheader) return null;
-      const text = preheader.inner
-        .replace(/&zwnj;|&nbsp;|&#8203;|&#x200c;|&#xfeff;/gi, '')
-        .replace(/<[^>]+>/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
+      const spacerless = preheader.inner.replace(/&zwnj;|&nbsp;|&#8203;|&#x200c;|&#xfeff;/gi, '');
+      const text = stripTags(spacerless).replace(/\s+/g, ' ').trim();
       return text.length > PREHEADER_MAX_CHARS
         ? [SEVERITY.WARN, `Preheader is ${text.length} chars — clients truncate around 90-140, so the tail is wasted.`]
         : [SEVERITY.PASS, `Preheader length ${text.length} chars (within the ~140 clients show).`];
