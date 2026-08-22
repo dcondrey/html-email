@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="docs/logo-light.png">
   <title>html-email — cross-client HTML email framework</title>
   <meta name="description" content="A hand-authored, zero-dependency HTML email framework built to never drop support for the oldest clients. Live renders and preview screenshots.">
   <style>
@@ -57,12 +58,23 @@
     }
     .previews figcaption { font-size: 13px; color: var(--warm-gray); text-align: center; padding-top: 8px; }
     .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
-    .gallery a {
-      display: block; text-decoration: none; color: var(--charcoal);
+    .tile {
+      display: flex; flex-direction: column;
       background: #fff; border: 1px solid #e5e0d5; border-radius: 10px; overflow: hidden;
       transition: border-color .15s, transform .15s;
     }
-    .gallery a:hover { border-color: var(--forest); transform: translateY(-2px); }
+    .tile:hover { border-color: var(--forest); transform: translateY(-2px); }
+    .tile > a, .card > a { display: block; text-decoration: none; color: var(--charcoal); }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 15px 14px; margin-top: auto; }
+    .actions a, .actions button {
+      font: inherit; font-size: 13px; font-weight: 600; line-height: 1.2;
+      padding: 7px 10px; border-radius: 6px; cursor: pointer; text-decoration: none;
+      border: 1px solid #d9d3c6; background: #faf8f3; color: var(--forest);
+    }
+    .actions a:hover, .actions button:hover,
+    .actions button[data-state="ok"] { background: var(--forest); color: #fff; border-color: var(--forest); }
+    .actions button[data-state="err"] { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
     .gallery .thumb { width: 100%; height: 190px; object-fit: cover; object-position: top center; display: block; border-bottom: 1px solid #e5e0d5; }
     .gallery .meta { padding: 12px 15px; }
     .gallery strong { display: block; font-size: 15px; color: var(--forest); margin-bottom: 2px; }
@@ -93,43 +105,88 @@
   <main class="wrap">
     <section>
       <h2>See it render</h2>
-      <p class="lead">Open the actual email HTML in your browser. Both preserve the full cross-client compatibility engineering.</p>
+      <p class="lead">Open, download, or copy the actual email HTML. Both preserve the full cross-client compatibility engineering.</p>
       <div class="cards">
-        <a class="card" href="framework/dist/email.html">
-          <strong>Framework build &rarr;</strong>
+        <div class="card">
+          <a href="framework/dist/email.html"><strong>Framework build &rarr;</strong></a>
           <span>The assembled output from <code>framework/</code> partials, populated with the Northwind Botanicals winter-arrivals campaign.</span>
-        </a>
-        <a class="card" href="examples/northwind-botanicals/campaign.html">
-          <strong>2014 reference campaign &rarr;</strong>
+          <div class="actions" style="padding:12px 0 0;">
+            <a href="framework/dist/email.html">Open</a>
+            <a href="framework/dist/email.html" download="html-email-framework.html">Download</a>
+            <button type="button" data-copy="framework/dist/email.html" aria-label="Copy the framework email HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
+        <div class="card">
+          <a href="examples/northwind-botanicals/campaign.html"><strong>2014 reference campaign &rarr;</strong></a>
           <span>A production template from 2014, content-scrubbed to a fictitious brand, compatibility engineering byte-preserved.</span>
-        </a>
+          <div class="actions" style="padding:12px 0 0;">
+            <a href="examples/northwind-botanicals/campaign.html">Open</a>
+            <a href="examples/northwind-botanicals/campaign.html" download="northwind-botanicals-2014.html">Download</a>
+            <button type="button" data-copy="examples/northwind-botanicals/campaign.html" aria-label="Copy the 2014 reference campaign HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section>
       <h2>Branded templates</h2>
-      <p class="lead">Five distinct designs, each rebuilt in the house conventions with a fictitious brand and self-authored generated art. Click any one to open its built email.</p>
+      <p class="lead">Five distinct designs, each rebuilt in the house conventions with a fictitious brand and self-authored generated art. Copy the HTML straight into your ESP, or download it to edit.</p>
       <div class="gallery">
-        <a href="templates/cairn-wellness/dist/email.html">
-          <img class="thumb" src="docs/preview/cairn-wellness.png" alt="Cairn Wellness template preview">
-          <div class="meta"><strong>Cairn Wellness</strong><span>Wellness shop &middot; green/cream/amber, Poppins</span></div>
-        </a>
-        <a href="templates/ferry-street-brewing/dist/email.html">
-          <img class="thumb" src="docs/preview/ferry-street-brewing.png" alt="Ferry Street Brewing template preview">
-          <div class="meta"><strong>Ferry Street Brewing</strong><span>Brewery &middot; amber/brown, Oswald &middot; tasting + gallery</span></div>
-        </a>
-        <a href="templates/lantern-and-quill/dist/email.html">
-          <img class="thumb" src="docs/preview/lantern-and-quill.png" alt="Lantern &amp; Quill template preview">
-          <div class="meta"><strong>Lantern &amp; Quill</strong><span>Bookshop &middot; coral/yellow, Playfair &middot; team + products</span></div>
-        </a>
-        <a href="templates/voltline/dist/email.html">
-          <img class="thumb" src="docs/preview/voltline.png" alt="Voltline template preview">
-          <div class="meta"><strong>Voltline</strong><span>Electronics, dark-first &middot; pink, Space Grotesk &middot; pricing</span></div>
-        </a>
-        <a href="templates/meridian-advisory/dist/email.html">
-          <img class="thumb" src="docs/preview/meridian-advisory.png" alt="Meridian Advisory template preview">
-          <div class="meta"><strong>Meridian Advisory</strong><span>Consulting &middot; charcoal/coral, IBM Plex &middot; quote block</span></div>
-        </a>
+        <div class="tile">
+          <a href="templates/cairn-wellness/dist/email.html">
+            <img class="thumb" src="docs/preview/cairn-wellness.png" alt="Cairn Wellness template preview">
+            <div class="meta"><strong>Cairn Wellness</strong><span>Wellness shop &middot; green/cream/amber, Poppins</span></div>
+          </a>
+          <div class="actions">
+            <a href="templates/cairn-wellness/dist/email.html">Open</a>
+            <a href="templates/cairn-wellness/dist/email.html" download="cairn-wellness.html">Download</a>
+            <button type="button" data-copy="templates/cairn-wellness/dist/email.html" aria-label="Copy the Cairn Wellness email HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
+        <div class="tile">
+          <a href="templates/ferry-street-brewing/dist/email.html">
+            <img class="thumb" src="docs/preview/ferry-street-brewing.png" alt="Ferry Street Brewing template preview">
+            <div class="meta"><strong>Ferry Street Brewing</strong><span>Brewery &middot; amber/brown, Oswald &middot; tasting + gallery</span></div>
+          </a>
+          <div class="actions">
+            <a href="templates/ferry-street-brewing/dist/email.html">Open</a>
+            <a href="templates/ferry-street-brewing/dist/email.html" download="ferry-street-brewing.html">Download</a>
+            <button type="button" data-copy="templates/ferry-street-brewing/dist/email.html" aria-label="Copy the Ferry Street Brewing email HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
+        <div class="tile">
+          <a href="templates/lantern-and-quill/dist/email.html">
+            <img class="thumb" src="docs/preview/lantern-and-quill.png" alt="Lantern &amp; Quill template preview">
+            <div class="meta"><strong>Lantern &amp; Quill</strong><span>Bookshop &middot; coral/yellow, Playfair &middot; team + products</span></div>
+          </a>
+          <div class="actions">
+            <a href="templates/lantern-and-quill/dist/email.html">Open</a>
+            <a href="templates/lantern-and-quill/dist/email.html" download="lantern-and-quill.html">Download</a>
+            <button type="button" data-copy="templates/lantern-and-quill/dist/email.html" aria-label="Copy the Lantern and Quill email HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
+        <div class="tile">
+          <a href="templates/voltline/dist/email.html">
+            <img class="thumb" src="docs/preview/voltline.png" alt="Voltline template preview">
+            <div class="meta"><strong>Voltline</strong><span>Electronics, dark-first &middot; pink, Space Grotesk &middot; pricing</span></div>
+          </a>
+          <div class="actions">
+            <a href="templates/voltline/dist/email.html">Open</a>
+            <a href="templates/voltline/dist/email.html" download="voltline.html">Download</a>
+            <button type="button" data-copy="templates/voltline/dist/email.html" aria-label="Copy the Voltline email HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
+        <div class="tile">
+          <a href="templates/meridian-advisory/dist/email.html">
+            <img class="thumb" src="docs/preview/meridian-advisory.png" alt="Meridian Advisory template preview">
+            <div class="meta"><strong>Meridian Advisory</strong><span>Consulting &middot; charcoal/coral, IBM Plex &middot; quote block</span></div>
+          </a>
+          <div class="actions">
+            <a href="templates/meridian-advisory/dist/email.html">Open</a>
+            <a href="templates/meridian-advisory/dist/email.html" download="meridian-advisory.html">Download</a>
+            <button type="button" data-copy="templates/meridian-advisory/dist/email.html" aria-label="Copy the Meridian Advisory email HTML to the clipboard">Copy HTML</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -153,6 +210,13 @@
     </section>
 
     <section>
+      <h2>Lint your own email</h2>
+      <p class="lead">The linter is zero-dependency and works on any HTML email, whatever built it &mdash; MJML, React Email, Maizzle, or hand-written. The default rule set is client behaviour every email is subject to, not this project's conventions.</p>
+      <p><code>node framework/build/lint.mjs campaign.html</code></p>
+      <p class="lead">It checks Gmail's 102&nbsp;KB clip and 8&nbsp;KB <code>&lt;style&gt;</code> cap, unbalanced CSS, missing <code>alt</code>/<code>width</code>, MSO conditional balance, the unsubscribe link, and more &mdash; with <code>--json</code> and <code>--sarif</code> output for CI.</p>
+    </section>
+
+    <section>
       <h2>Build it yourself</h2>
       <p class="lead">Zero dependencies. Assemble the partials and lint the output:</p>
       <p><code>cd framework/build &amp;&amp; node build.mjs &amp;&amp; node lint.mjs --profile house ../dist/email.html</code></p>
@@ -165,5 +229,26 @@
     Northwind Botanicals is a fictitious brand used as sample content. Full documentation is in the
     <a href="https://github.com/dcondrey/html-email#readme">README</a>.
   </footer>
+  <script>
+    document.addEventListener('click', async (event) => {
+      const button = event.target.closest('button[data-copy]');
+      if (!button) return;
+      const original = button.textContent;
+      try {
+        const response = await fetch(button.dataset.copy);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        await navigator.clipboard.writeText(await response.text());
+        button.dataset.state = 'ok';
+        button.textContent = 'Copied';
+      } catch {
+        button.dataset.state = 'err';
+        button.textContent = 'Open it instead';
+      }
+      setTimeout(() => {
+        button.textContent = original;
+        button.removeAttribute('data-state');
+      }, 2200);
+    });
+  </script>
 </body>
 </html>
