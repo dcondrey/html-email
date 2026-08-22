@@ -35,13 +35,18 @@ in translation on the oldest clients.
 - **Never-drop-support.** Every fix degrades gracefully; no workaround breaks an older client to help
   a newer one. [28 documented quirks](./docs/quirks.md), each defended in the markup.
 - **Zero dependencies.** A ~120-line `build.mjs` concatenates partials and injects `content.json`.
-  No framework, no MJML, no fidelity loss. (Puppeteer is a *dev*-only dependency for screenshots.)
-- **Verified two ways, not just authored.** `lint.mjs` gates the HTML — Gmail's 102 KB clip and 8 KB
-  `<style>` limit, bulletproof buttons, balanced MSO comments, `alt` text and image widths, dark-mode
-  metas + Outlook DPI pinning, a real unsubscribe link, `role="presentation"` — and ships with [its
-  own self-test](./framework/build/lint.test.mjs). Then `npm run smoke` renders every build in
-  headless Chrome (light + dark) and fails on a broken image, horizontal overflow, or page error —
-  the class of bug a HTML linter can't see.
+  No framework, no MJML, no fidelity loss. (Puppeteer and fast-check are *dev*-only dependencies,
+  for screenshots and fuzzing.)
+- **Verified three ways, not just authored.** `lint.mjs` gates the HTML — Gmail's 102 KB clip and
+  8 KB `<style>` limit, bulletproof buttons, balanced MSO comments, `alt` text and image widths,
+  dark-mode metas + Outlook DPI pinning, a real unsubscribe link, `role="presentation"` — and ships
+  with [its own self-test](./framework/build/lint.test.mjs) plus a [property-based
+  fuzzer](./framework/build/fuzz.test.js). Then `npm run smoke` renders every build in headless
+  Chrome (light + dark) and fails on a broken image, horizontal overflow, or page error — the class
+  of bug a HTML linter can't see.
+- **The linter works on anyone's email.** Point it at MJML, React Email, Maizzle, or hand-written
+  output — the default rule set is the client behaviour every email is subject to, not this
+  project's conventions. See [Lint any email](#lint-any-email).
 - **Three ways to use it.** Copy the single-file master, assemble the documented partials, or run the
   build. All three produce identical markup.
 - **Dark mode, three ways.** `prefers-color-scheme`, Outlook.com `[data-ogsc]`/`[data-ogsb]`, and
@@ -66,7 +71,7 @@ html-email/
 ├── framework/                 the maintained, modern template (start here)
 │   ├── template.html          single-file master, fully commented
 │   ├── partials/              the same template as documented components
-│   ├── build/                 build.mjs (assembler) + lint.mjs + content.json
+│   ├── build/                 build.mjs (assembler) + lint.mjs/rules.mjs + tests + content.json
 │   ├── dist/                  built output (email.html + email.min.html)
 │   └── assets/                sample images
 │
@@ -113,6 +118,27 @@ node scripts/build-template.mjs templates/cairn-wellness
 node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
 ```
 
+## Lint any email
+
+The linter is useful on its own, whatever produced the HTML. It has no runtime dependencies, so it
+runs straight from a clone:
+
+```sh
+node framework/build/lint.mjs campaign.html          # any HTML email
+node framework/build/lint.mjs --json dist/*.html     # machine-readable
+node framework/build/lint.mjs --sarif campaign.html  # upload to code scanning
+```
+
+Two rule sets:
+
+| Profile | Rules | Use for |
+| --- | --- | --- |
+| `universal` *(default)* | Gmail's 102 KB clip and 8 KB `<style>` cap, unbalanced CSS, missing `alt`/`width`, MSO conditional balance, unsubscribe link, `role="presentation"`, viewport/charset, dark-mode inversion risk | Any HTML email, whoever built it |
+| `house` | The above **plus** this framework's own techniques: both dark-mode metas, `<o:PixelsPerInch>96`, a `prefers-color-scheme` block, a hidden preheader | This repo's templates, or your own fork of its conventions |
+
+`--profile house` is what `npm run lint` and CI use. The default stays universal so pointing the
+linter at another framework's output reports real client bugs, not missing conventions.
+
 **Two layers of checks.** `lint.mjs` validates the HTML (Gmail size, dark-mode metas,
 bulletproof buttons, image widths, …). `npm run smoke` validates the *render*: it loads every
 built email in headless Chrome (light and dark) and fails on a broken image, horizontal overflow,
@@ -153,6 +179,9 @@ it with:
 ```sh
 gh attestation verify html-email-<tag>.zip --repo dcondrey/html-email
 ```
+
+The release workflow is in place but no version has been tagged yet, so there is nothing to verify
+until the first release.
 
 Security policy and private reporting: [SECURITY.md](./SECURITY.md).
 
