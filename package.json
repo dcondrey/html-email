@@ -9,13 +9,17 @@
   },
   "scripts": {
     "build": "node framework/build/build.mjs && node framework/build/build.mjs --production --out ../dist/email.min.html && node scripts/build-template.mjs templates/cairn-wellness && node scripts/build-template.mjs templates/ferry-street-brewing && node scripts/build-template.mjs templates/lantern-and-quill && node scripts/build-template.mjs templates/voltline && node scripts/build-template.mjs templates/meridian-advisory",
-    "lint": "node framework/build/lint.mjs framework/dist/email.html && node framework/build/lint.mjs templates/cairn-wellness/dist/email.html && node framework/build/lint.mjs templates/ferry-street-brewing/dist/email.html && node framework/build/lint.mjs templates/lantern-and-quill/dist/email.html && node framework/build/lint.mjs templates/voltline/dist/email.html && node framework/build/lint.mjs templates/meridian-advisory/dist/email.html",
+    "lint": "node framework/build/lint.mjs --profile house framework/dist/email.html templates/cairn-wellness/dist/email.html templates/ferry-street-brewing/dist/email.html templates/lantern-and-quill/dist/email.html templates/voltline/dist/email.html templates/meridian-advisory/dist/email.html",
     "verify": "npm run build && npm run lint",
     "smoke": "node scripts/smoke.mjs",
     "previews": "node scripts/generate-previews.mjs",
     "assets": "node scripts/generate-cairn-assets.mjs && node scripts/generate-ferry-assets.mjs && node scripts/generate-lantern-assets.mjs && node scripts/generate-voltline-assets.mjs && node scripts/generate-meridian-assets.mjs",
     "test:lint": "node framework/build/lint.test.mjs",
-    "test": "npm run verify && npm run test:lint"
+    "test:fuzz": "node framework/build/fuzz.test.js",
+    "test": "npm run verify && npm run test:lint && npm run test:fuzz"
+  },
+  "bin": {
+    "html-email-lint": "framework/build/lint.mjs"
   },
   "repository": {
     "type": "git",
@@ -39,6 +43,7 @@
   },
   "homepage": "https://github.com/dcondrey/html-email#readme",
   "devDependencies": {
+    "fast-check": "^4.9.0",
     "puppeteer": "^25.7.0"
   }
 }
