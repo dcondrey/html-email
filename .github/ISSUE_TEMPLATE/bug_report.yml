@@ -52,5 +52,5 @@ body:
     id: lint
     attributes:
       label: Lint output (if relevant)
-      description: Paste `node framework/build/lint.mjs <file>` output.
+      description: Paste `node framework/build/lint.mjs --profile house <file>` output.
       render: text

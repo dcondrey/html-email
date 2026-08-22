@@ -108,14 +108,14 @@ email in one commented file with `{{placeholders}}`. Replace them and ship.
 cd framework/build
 node build.mjs                 # inject content.json  → ../dist/email.html
 node build.mjs --production    # + minify (strips docs, keeps MSO comments)
-node lint.mjs ../dist/email.html
+node lint.mjs --profile house ../dist/email.html
 ```
 
 Build a branded template the same way:
 
 ```sh
 node scripts/build-template.mjs templates/cairn-wellness
-node framework/build/lint.mjs templates/cairn-wellness/dist/email.html
+node framework/build/lint.mjs --profile house templates/cairn-wellness/dist/email.html
 ```
 
 ## Lint any email

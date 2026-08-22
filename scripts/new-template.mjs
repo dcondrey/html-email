@@ -14,7 +14,7 @@
  *
  * After scaffolding:
  *   node scripts/build-template.mjs templates/acme-widgets
- *   node framework/build/lint.mjs templates/acme-widgets/dist/email.html
+ *   node framework/build/lint.mjs --profile house templates/acme-widgets/dist/email.html
  *   # then edit the palette in 00-document-open.html, the copy in content.json,
  *   # and fill in scripts/generate-acme-widgets-assets.mjs. Finally wire the
  *   # template into package.json + .github/workflows/{ci,release}.yml.
@@ -337,7 +337,7 @@ console.log(`✓ scaffolded templates/${NAME}/  (brand: ${BRAND}, asset prefix: 
 console.log('');
 console.log('Next:');
 console.log(`  node scripts/build-template.mjs templates/${NAME}`);
-console.log(`  node framework/build/lint.mjs templates/${NAME}/dist/email.html   # should be 0 fail`);
+console.log(`  node framework/build/lint.mjs --profile house templates/${NAME}/dist/email.html   # 0 fail`);
 console.log(`  # then retheme partials/00-document-open.html, edit build/content.json,`);
 console.log(`  # implement scripts/generate-${NAME}-assets.mjs, and wire the template into`);
 console.log(`  # package.json + .github/workflows/{ci,release}.yml.`);
