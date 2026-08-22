@@ -1,197 +1,183 @@
 <!-- html-email: a hand-authored, zero-dependency cross-client HTML email framework. Project landing README. -->
 
-<img align="right" width="130" height="130" hspace="40" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only">
-<img align="right" width="130" height="130" hspace="40" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only">
+<div align="center">
+
+<img width="120" height="120" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only">
+<img width="120" height="120" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only">
 
 # html-email
 
-### A cross-client HTML email framework that never drops support
+**HTML email that renders everywhere — classic Outlook to dark mode — with no compiler in the way.**
 
-Hand-authored, zero-dependency, and built on one rule: never abandon a client<br>
-while a single real person still uses it — from classic Outlook to dark mode.
+[![CI](https://github.com/dcondrey/html-email/actions/workflows/ci.yml/badge.svg)](https://github.com/dcondrey/html-email/actions/workflows/ci.yml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/dcondrey/html-email/badge)](https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email)
+[![SLSA Build L3](https://img.shields.io/badge/SLSA-Build%20L3-2ea44f.svg?logo=slsa&logoColor=white)](https://slsa.dev)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-2ea44f.svg)](#quickstart)
+[![Node](https://img.shields.io/badge/node-%E2%89%A516-blue.svg?logo=node.js&logoColor=white)](https://nodejs.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-<br clear="right">
+[Quickstart](#quickstart) • [Why](#why-html-email) • [How it builds](#how-it-builds) • [Lint any email](#lint-any-email) • [Templates](#templates) • [Docs](#documentation)
 
-<p align="center">
-  <a href="https://github.com/dcondrey/html-email/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/dcondrey/html-email/actions/workflows/ci.yml/badge.svg"></a>
-  <a href="https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email"><img alt="OpenSSF Scorecard" src="https://api.securityscorecards.dev/projects/github.com/dcondrey/html-email/badge"></a>
-  <a href="https://slsa.dev"><img alt="SLSA Build Level 3" src="https://img.shields.io/badge/SLSA-Build%20L3-2ea44f.svg?logo=slsa&logoColor=white"></a>
-  <a href="#quick-start"><img alt="Zero dependencies" src="https://img.shields.io/badge/dependencies-0-2ea44f.svg"></a>
-  <a href="https://nodejs.org"><img alt="Node" src="https://img.shields.io/badge/node-%E2%89%A516-blue.svg?logo=node.js&logoColor=white"></a>
-  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
-  <a href="https://orcid.org/0009-0003-1849-2963"><img alt="ORCID" src="https://img.shields.io/badge/ORCID-0009--0003--1849--2963-green.svg"></a>
-</p>
+**[Live demo →](https://dcondrey.github.io/html-email/)**
 
-Most email frameworks quietly abandon the awkward clients — classic Outlook, Android 4's stock mail,
-Windows Phone — because supporting them is tedious. **html-email does the opposite.** It began in 2014
-as "the most cross-compatible template you'll find anywhere," and it now covers **both** the 2014
-client landscape **and** everything since: dark mode, the new Chromium Outlook, Apple Mail Privacy
-Protection, one-click unsubscribe, and the accessibility expectations of VoiceOver/TalkBack. There is
-**no MJML and no compiler** — the built output is the hand-tuned partials verbatim, so nothing is lost
-in translation on the oldest clients.
+</div>
+
+---
+
+## Quickstart
+
+Node ≥ 16. No install needed to build or lint.
+
+```bash
+git clone https://github.com/dcondrey/html-email.git && cd html-email
+
+node framework/build/build.mjs                                   # partials + content.json -> framework/dist/email.html
+node framework/build/lint.mjs --profile house framework/dist/email.html
+```
+
+That is the whole loop. `npm ci` is only needed for screenshots (`npm run previews`) and the render smoke-test (`npm run smoke`).
+
+> [!TIP]
+> Three ways in, all producing identical markup: copy [`framework/template.html`](framework/template.html) (one commented file with `{{placeholders}}`), paste the components you need from [`framework/partials/`](framework/partials), or run the build above.
 
 ## Why html-email
 
-- **Never-drop-support.** Every fix degrades gracefully; no workaround breaks an older client to help
-  a newer one. [28 documented quirks](./docs/quirks.md), each defended in the markup.
-- **Zero dependencies.** A ~120-line `build.mjs` concatenates partials and injects `content.json`.
-  No framework, no MJML, no fidelity loss. (Puppeteer and fast-check are *dev*-only dependencies,
-  for screenshots and fuzzing.)
-- **Verified three ways, not just authored.** `lint.mjs` gates the HTML — Gmail's 102 KB clip and
-  8 KB `<style>` limit, bulletproof buttons, balanced MSO comments, `alt` text and image widths,
-  dark-mode metas + Outlook DPI pinning, a real unsubscribe link, `role="presentation"` — and ships
-  with [its own self-test](./framework/build/lint.test.mjs) plus a [property-based
-  fuzzer](./framework/build/fuzz.test.js). Then `npm run smoke` renders every build in headless
-  Chrome (light + dark) and fails on a broken image, horizontal overflow, or page error — the class
-  of bug a HTML linter can't see.
-- **The linter works on anyone's email.** Point it at MJML, React Email, Maizzle, or hand-written
-  output — the default rule set is the client behaviour every email is subject to, not this
-  project's conventions. See [Lint any email](#lint-any-email).
-- **Three ways to use it.** Copy the single-file master, assemble the documented partials, or run the
-  build. All three produce identical markup.
-- **Dark mode, three ways.** `prefers-color-scheme`, Outlook.com `[data-ogsc]`/`[data-ogsb]`, and a
-  Gmail-safe explicit `background-color` on every container the dark CSS repaints.
-- **Five branded templates, and a scaffolder.** Distinct designs (see below), each rebuilt in the
-  house conventions with self-authored generated art and passing both gates clean. Start a new one
-  with `node scripts/new-template.mjs <name> "Brand"` — a complete, conformant template out of the box.
+Most frameworks quietly drop the awkward clients because supporting them is tedious. This one does not. It began in 2014 as "the most cross-compatible template you'll find anywhere" and now covers **both** that client landscape **and** everything since.
 
-## Preview
+| | What it means |
+| --- | --- |
+| **Never drop support** | No workaround breaks an older client to help a newer one. [28 documented quirks](./docs/quirks.md), defended in the markup and enforced by 27 lint rules. |
+| **Zero dependencies** | A ~120-line `build.mjs` concatenates partials and injects `content.json`. No MJML, no compiler, no fidelity loss. Puppeteer and fast-check are dev-only. |
+| **Verified, not just authored** | The linter gates the HTML, a [self-test](./framework/build/lint.test.mjs) gates the linter, a [fuzzer](./framework/build/fuzz.test.js) gates its edge cases, and [`smoke.mjs`](./scripts/smoke.mjs) gates the actual render in headless Chrome. |
+| **Works on anyone's email** | The default rule set is client behaviour every email is subject to, not this project's conventions. Point it at MJML, React Email, or Maizzle output. |
+| **Dark mode, three ways** | `prefers-color-scheme`, Outlook.com `[data-ogsc]`/`[data-ogsb]`, and an explicit `background-color` on every container the dark CSS repaints. |
 
-| Framework — light | Framework — dark | Mobile | Cairn Wellness template |
-|:---:|:---:|:---:|:---:|
-| ![Light](docs/preview/desktop-light.png) | ![Dark](docs/preview/desktop-dark.png) | ![Mobile](docs/preview/mobile.png) | ![Cairn Wellness](docs/preview/cairn-wellness.png) |
+<div align="center">
 
-One source, no per-client forks. Screenshots are the Blink render; see [Testing](./docs/testing.md)
-for real-client verification. **Live demo:** <https://dcondrey.github.io/html-email/>
+| Desktop — light | Desktop — dark | Mobile |
+|:---:|:---:|:---:|
+| ![Light](docs/preview/desktop-light.png) | ![Dark](docs/preview/desktop-dark.png) | ![Mobile](docs/preview/mobile.png) |
 
-## What's in the box
+</div>
+
+## How it builds
+
+```mermaid
+flowchart LR
+    P["partials/*.html"] --> B["build.mjs"]
+    C["content.json"] --> B
+    B --> D["dist/email.html"]
+    B -. "--production" .-> M["dist/email.min.html"]
+    D --> L{"lint.mjs"}
+    L -->|"--profile universal"| U["client rules<br/>any email"]
+    L -->|"--profile house"| H["+ framework invariants"]
+    D --> S["smoke.mjs<br/>headless Chrome, light + dark"]
+```
+
+The output is the hand-tuned partials verbatim. Nothing is translated, so nothing is lost on the oldest clients.
+
+## Lint any email
+
+The linter has no runtime dependencies and works on any HTML email, whatever produced it.
+
+```bash
+node framework/build/lint.mjs campaign.html          # any HTML email
+node framework/build/lint.mjs --json dist/*.html     # machine-readable
+node framework/build/lint.mjs --sarif campaign.html  # upload to code scanning
+```
+
+| Profile | Rules | Use for |
+| --- | --- | --- |
+| `universal` *(default)* | 14 rules — Gmail's 102 KB clip and 8 KB `<style>` cap, unbalanced CSS, missing `alt`/`width`, MSO conditional balance, unsubscribe link, `role="presentation"`, viewport/charset, inline images, CSS background images, dark-mode inversion risk | Any HTML email, whoever built it |
+| `house` | The above **plus** 13 framework invariants — both dark-mode metas, `<o:PixelsPerInch>96`, a `prefers-color-scheme` block, `.ExternalClass`, `mso-table-lspace`, `text-size-adjust`, iOS auto-linking, Apple reformatting, Outlook.com dark mode, MSO font fallback, explicit dark backgrounds, a hidden preheader | This repo's templates, or a fork of its conventions |
+
+> [!WARNING]
+> `--profile house` is what `npm run lint` and CI use. Leave it off a file in this repo and thirteen real invariants pass silently.
+
+**Two layers.** `lint.mjs` validates the HTML; `npm run smoke` validates the *render* — it loads every build in headless Chrome, light and dark, and fails on a broken image, horizontal overflow, or page error. That is the class of bug a linter cannot see.
+
+## Templates
+
+Five distinct designs plus the canonical framework, each in the house conventions, each passing both gates clean.
+
+| Template | Design |
+| --- | --- |
+| [`framework/`](framework/) | The canonical modern template (header · hero · columns · button · footer) |
+| [`templates/cairn-wellness/`](templates/cairn-wellness/) | Wellness shop — green/cream/amber, Poppins |
+| [`templates/ferry-street-brewing/`](templates/ferry-street-brewing/) | Brewery — amber/brown on dark roast, Oswald · 3-col tasting + gallery |
+| [`templates/lantern-and-quill/`](templates/lantern-and-quill/) | Bookshop — coral+yellow on plum, Playfair · team + product cards |
+| [`templates/voltline/`](templates/voltline/) | Electronics, dark-first — dark+pink, Space Grotesk · pricing table |
+| [`templates/meridian-advisory/`](templates/meridian-advisory/) | Consulting — charcoal+coral on grey, IBM Plex Sans · quote block |
+| [`examples/northwind-botanicals/`](examples/northwind-botanicals/) | The 2014 production reference, scrubbed to a fictitious brand |
+
+<details>
+<summary><b>See the five branded templates</b></summary>
+
+<br>
+
+| Cairn Wellness | Ferry Street Brewing | Lantern & Quill | Voltline | Meridian Advisory |
+|:---:|:---:|:---:|:---:|:---:|
+| [![Cairn Wellness](docs/preview/cairn-wellness.png)](templates/cairn-wellness/) | [![Ferry Street Brewing](docs/preview/ferry-street-brewing.png)](templates/ferry-street-brewing/) | [![Lantern & Quill](docs/preview/lantern-and-quill.png)](templates/lantern-and-quill/) | [![Voltline](docs/preview/voltline.png)](templates/voltline/) | [![Meridian Advisory](docs/preview/meridian-advisory.png)](templates/meridian-advisory/) |
+
+Brand names and imagery are fictitious mock content; the art is self-authored, generated by `scripts/`.
+
+</details>
+
+**Start a new one:**
+
+```bash
+node scripts/new-template.mjs acme-widgets "Acme Widgets"
+```
+
+Scaffolds partials, manifest, `content.json`, and an asset-generator stub that builds and lints `0/0` out of the box. Then retheme `00-document-open.html`, edit the copy, fill in the generator, and wire it into `package.json` and the CI/release workflows.
+
+<details>
+<summary><b>Repository layout</b></summary>
 
 ```
 html-email/
 ├── framework/                 the maintained, modern template (start here)
 │   ├── template.html          single-file master, fully commented
 │   ├── partials/              the same template as documented components
-│   ├── build/                 build.mjs (assembler) + lint.mjs/rules.mjs + tests + content.json
+│   ├── build/                 build.mjs · lint.mjs/rules.mjs · tests · content.json
 │   ├── dist/                  built output (email.html + email.min.html)
 │   └── assets/                sample images
 │
-├── templates/                 distinct branded designs, house conventions
-│   ├── cairn-wellness/         partials + manifest + content.json + assets + dist
-│   ├── ferry-street-brewing/   brewery — 3-col tasting + gallery
-│   ├── lantern-and-quill/      bookshop — team + product cards
-│   ├── voltline/               electronics, dark-first — date-list + pricing table
-│   └── meridian-advisory/      consulting — quote block
-│
-├── examples/
-│   ├── northwind-botanicals/  the framework filled out as a real campaign
-│   └── campaigns-2014/        original 2014 campaigns, kept as references
-│
+├── templates/                 five distinct branded designs, house conventions
+├── examples/                  northwind-botanicals + the original 2014 campaigns
 ├── scripts/                   build-template.mjs, preview + asset generators
 ├── tools/                     email-checklist/ — self-contained pre-send checklist
 ├── docs/                      quirks reference, client matrix, testing, previews
 └── legacy/                    the preserved, unmodified 2014 artifact
 ```
 
-## Quick start
+</details>
 
-Zero dependencies, Node ≥ 16.
+<details>
+<summary><b>Supply chain &amp; provenance</b></summary>
 
-**1. Copy the single file.** Open [`framework/template.html`](framework/template.html) — the whole
-email in one commented file with `{{placeholders}}`. Replace them and ship.
+<br>
 
-**2. Assemble the partials.** [`framework/partials/`](framework/partials) breaks it into components
-(`header`, `hero`, `columns`, `button`, `footer`, …). Paste the ones you need in order.
+Actions are pinned to full commit SHAs. **CodeQL**, **Dependency Review**, **OpenSSF Scorecard**, and **Dependabot** run in CI. Tagged releases publish a signed [SLSA](https://slsa.dev) build-provenance attestation over the release archive (see [`release.yml`](.github/workflows/release.yml)):
 
-**3. Build it.**
-
-```sh
-cd framework/build
-node build.mjs                 # inject content.json  → ../dist/email.html
-node build.mjs --production    # + minify (strips docs, keeps MSO comments)
-node lint.mjs --profile house ../dist/email.html
-```
-
-Build a branded template the same way:
-
-```sh
-node scripts/build-template.mjs templates/cairn-wellness
-node framework/build/lint.mjs --profile house templates/cairn-wellness/dist/email.html
-```
-
-## Lint any email
-
-The linter is useful on its own, whatever produced the HTML. It has no runtime dependencies, so it
-runs straight from a clone:
-
-```sh
-node framework/build/lint.mjs campaign.html          # any HTML email
-node framework/build/lint.mjs --json dist/*.html     # machine-readable
-node framework/build/lint.mjs --sarif campaign.html  # upload to code scanning
-```
-
-Two rule sets:
-
-| Profile | Rules | Use for |
-| --- | --- | --- |
-| `universal` *(default)* | Gmail's 102 KB clip and 8 KB `<style>` cap, unbalanced CSS, missing `alt`/`width`, MSO conditional balance, unsubscribe link, `role="presentation"`, viewport/charset, dark-mode inversion risk | Any HTML email, whoever built it |
-| `house` | The above **plus** this framework's own techniques: both dark-mode metas, `<o:PixelsPerInch>96`, a `prefers-color-scheme` block, a hidden preheader | This repo's templates, or your own fork of its conventions |
-
-`--profile house` is what `npm run lint` and CI use. The default stays universal so pointing the
-linter at another framework's output reports real client bugs, not missing conventions.
-
-**Two layers of checks.** `lint.mjs` validates the HTML (Gmail size, dark-mode metas,
-bulletproof buttons, image widths, …). `npm run smoke` validates the *render*: it loads every
-built email in headless Chrome (light and dark) and fails on a broken image, horizontal overflow,
-or a page error — the class of bug lint cannot see. `npm test` runs the build + lint + the linter's
-own self-test; CI additionally runs the smoke-test.
-
-## Templates
-
-| Template | Design | Status |
-| --- | --- | --- |
-| `framework/` | The canonical modern template (header · hero · columns · button · footer) | ✅ Maintained |
-| `examples/northwind-botanicals/` | The 2014 production reference, scrubbed to a fictitious brand | ✅ |
-| `templates/cairn-wellness/` | Wellness shop (green/cream/amber, Poppins) | ✅ |
-| `templates/ferry-street-brewing/` | Brewery (amber/brown on dark roast, Oswald · 3-col tasting + gallery) | ✅ |
-| `templates/lantern-and-quill/` | Bookshop / education (coral+yellow on plum, Playfair · team + product cards) | ✅ |
-| `templates/voltline/` | Electronics sale, dark-first (dark+pink, Space Grotesk · date-list + pricing table) | ✅ |
-| `templates/meridian-advisory/` | Consulting / corporate (charcoal+coral on grey, IBM Plex Sans · quote block) | ✅ |
-
-| Cairn Wellness | Ferry Street Brewing | Lantern & Quill | Voltline | Meridian Advisory |
-|:---:|:---:|:---:|:---:|:---:|
-| [![Cairn Wellness](docs/preview/cairn-wellness.png)](templates/cairn-wellness/) | [![Ferry Street Brewing](docs/preview/ferry-street-brewing.png)](templates/ferry-street-brewing/) | [![Lantern & Quill](docs/preview/lantern-and-quill.png)](templates/lantern-and-quill/) | [![Voltline](docs/preview/voltline.png)](templates/voltline/) | [![Meridian Advisory](docs/preview/meridian-advisory.png)](templates/meridian-advisory/) |
-
-Brand names and imagery are fictitious mock content for demonstration; imagery is self-authored,
-generated by `scripts/`.
-
-**Start a new one:** `node scripts/new-template.mjs <kebab-name> "Brand Name"` scaffolds a complete
-template (partials, manifest, `content.json`, asset-generator stub) that builds and lints `0/0` out
-of the box. Retheme the palette in `00-document-open.html`, edit the copy, fill in the asset
-generator, then wire it into `package.json` and the CI/release workflows.
-
-## Supply chain & provenance
-
-Actions are pinned to full commit SHAs, and **CodeQL**, **Dependency Review**, **OpenSSF Scorecard**,
-and **Dependabot** run in CI. Tagged releases publish a signed **[SLSA](https://slsa.dev)
-build-provenance** attestation over the release archive (see `.github/workflows/release.yml`); verify
-it with:
-
-```sh
+```bash
 gh attestation verify html-email-<tag>.zip --repo dcondrey/html-email
 ```
 
-The release workflow is in place but no version has been tagged yet, so there is nothing to verify
-until the first release.
-
 Security policy and private reporting: [SECURITY.md](./SECURITY.md).
+
+</details>
 
 ## Documentation
 
-- [Quirks reference](./docs/quirks.md) — the 28 cross-client behaviours the framework defends against, explained
-- [Platform support](./docs/clients.md) — the client matrix and market data
-- [Testing & ESP integration](./docs/testing.md) — linting, real-client verification, merge tags, one-click unsubscribe
-- [Pre-send checklist](./tools/email-checklist/index.html) — a self-contained, zero-dependency checklist that walks setup → design → build → test → send (progress saves in your browser)
-- [Contributing](./CONTRIBUTING.md) · [Security](./SECURITY.md) · [Changelog](./CHANGELOG.md)
+| Guide | What's in it |
+| --- | --- |
+| [Quirks reference](./docs/quirks.md) | The 28 cross-client behaviours the framework defends against, each explained |
+| [Platform support](./docs/clients.md) | The client matrix and market data |
+| [Testing & ESP integration](./docs/testing.md) | Linting, real-client verification, merge tags, one-click unsubscribe |
+| [Pre-send checklist](./tools/email-checklist/index.html) | A zero-dependency checklist covering setup → design → build → test → send |
+
+[Contributing](./CONTRIBUTING.md) · [Security](./SECURITY.md) · [Changelog](./CHANGELOG.md)
 
 ## License
 
