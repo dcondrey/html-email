@@ -5,8 +5,9 @@
               - Background is #2b2b30, NOT pure #000000. Apple Mail inverts pure
                 black/white outright in dark mode; an off-black is left alone.
                 (Same reason the light text is #d8d8d8, not #ffffff.)
-              - Every cell has an explicit bgcolor so Gmail's dark engine cannot
-                paint an unset cell.
+              - The wrapping table declares an explicit background-color, paired with
+                the darkmode-bg class that overrides it, so Gmail's dark engine has
+                nothing unset to repaint. The lint rule dark-bg-explicit enforces it.
               - The unsubscribe link is REQUIRED for CAN-SPAM / CASL / GDPR and
                 for one-click unsubscribe (RFC 8058) that Gmail & Yahoo now
                 enforce for bulk senders. Keep it real, not a sample value.

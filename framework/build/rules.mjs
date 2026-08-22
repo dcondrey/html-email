@@ -141,16 +141,22 @@ function findStyleBlocks(html, tags) {
   return blocks;
 }
 
+/** Elements the dark-mode CSS repaints, so their light state must be explicit. */
+const PAINTED_CLASS = /class=["'][^"']*darkmode-(?:bg|card)\b/i;
+const EXPLICIT_BG = /background-color\s*:|bgcolor\s*=/i;
+
 function buildContext(html) {
   const structural = stripDocComments(html);
   const tags = scanTags(html);
-  const imgs = openTags(scanTags(structural), 'img').map((t) => t.raw);
+  const structuralTags = scanTags(structural);
+  const imgs = openTags(structuralTags, 'img').map((t) => t.raw);
   const styleBlocks = findStyleBlocks(html, tags);
   return {
     html,
     structural,
     imgs,
     styleBlocks,
+    painted: structuralTags.map((t) => t.raw).filter((t) => PAINTED_CLASS.test(t)),
     bytes: Buffer.byteLength(html, 'utf8'),
     preheader: findPreheader(html, tags),
   };
@@ -269,6 +275,27 @@ export const RULES = [
         : [SEVERITY.WARN, `Missing viewport or charset meta.`],
   },
   {
+    // Quirk 16: an <img> is inline by default, so the line-box descender leaves
+    // a ~3px gap under it in most clients. display:none is the dark-mode swap.
+    id: 'img-display',
+    scope: 'universal',
+    run: ({ imgs }) => {
+      const inline = imgs.filter((t) => !/display:\s*(?:block|none)/i.test(t));
+      return inline.length
+        ? [SEVERITY.WARN, `${inline.length} <img> without display:block — most clients leave a ~3px gap under an inline image. First: ${inline[0].slice(0, 80)}…`]
+        : [SEVERITY.PASS, `All ${imgs.length} <img> tags are display:block (or deliberately hidden).`];
+    },
+  },
+  {
+    // Quirk 6: classic Outlook drops CSS background images entirely.
+    id: 'css-background-image',
+    scope: 'universal',
+    run: ({ html, structural }) =>
+      !/background-image\s*:/i.test(structural) || /v:fill/i.test(html)
+        ? [SEVERITY.PASS, `No CSS background-image without a VML fallback.`]
+        : [SEVERITY.WARN, `CSS background-image with no <v:fill> fallback — classic Outlook drops it and paints nothing behind the content.`],
+  },
+  {
     id: 'placeholder-href',
     scope: 'universal',
     run: ({ structural }) => {
@@ -301,6 +328,82 @@ export const RULES = [
       /@media\s*\(prefers-color-scheme:\s*dark\)/i.test(html)
         ? [SEVERITY.PASS, `Dark-mode CSS present (prefers-color-scheme block).`]
         : [SEVERITY.FAIL, `No @media (prefers-color-scheme: dark) block — the template opts into dark mode but never styles it.`],
+  },
+  {
+    // Quirks 8 + 12: Gmail repaints a background it considers unset. The
+    // framework declares the light colour on the element the dark CSS overrides,
+    // not on every <td> — so that pairing is the invariant worth enforcing.
+    id: 'dark-bg-explicit',
+    scope: 'house',
+    run: ({ painted }) => {
+      const unset = painted.filter((t) => !EXPLICIT_BG.test(t));
+      return unset.length
+        ? [SEVERITY.FAIL, `${unset.length} element(s) carry a darkmode-bg/darkmode-card class with no explicit background-color — the dark override has nothing to override, so Gmail repaints them. First: ${unset[0].slice(0, 80)}…`]
+        : [SEVERITY.PASS, `All ${painted.length} dark-mode painted elements declare an explicit background-color.`];
+    },
+  },
+  {
+    // Quirk 17: Word injects space around tables unless both are zeroed.
+    id: 'mso-table-spacing',
+    scope: 'house',
+    run: ({ html }) =>
+      /mso-table-lspace/i.test(html) && /mso-table-rspace/i.test(html)
+        ? [SEVERITY.PASS, `mso-table-lspace/rspace zeroed (Outlook adds table gutters otherwise).`]
+        : [SEVERITY.FAIL, `No mso-table-lspace/rspace reset — Outlook injects extra space around every table.`],
+  },
+  {
+    // Quirk 18: Outlook.com wraps the body in .ExternalClass and restyles it.
+    id: 'external-class',
+    scope: 'house',
+    run: ({ html }) =>
+      /\.ExternalClass/i.test(html)
+        ? [SEVERITY.PASS, `.ExternalClass reset present (Outlook.com line-height/width).`]
+        : [SEVERITY.FAIL, `No .ExternalClass reset — Outlook.com alters line-height and width of the whole message.`],
+  },
+  {
+    // Quirk 14: iOS and Windows inflate text they judge too small.
+    id: 'text-size-adjust',
+    scope: 'house',
+    run: ({ html }) =>
+      /-webkit-text-size-adjust/i.test(html) && /-ms-text-size-adjust/i.test(html)
+        ? [SEVERITY.PASS, `text-size-adjust pinned for WebKit and Windows.`]
+        : [SEVERITY.FAIL, `Missing -webkit-/-ms-text-size-adjust — iOS and Windows auto-inflate "too small" text.`],
+  },
+  {
+    // Quirk 13: iOS auto-links dates, phones and addresses in system blue.
+    id: 'auto-link-detection',
+    scope: 'house',
+    run: ({ html }) =>
+      /name=["']format-detection["']/i.test(html) && /x-apple-data-detectors/i.test(html)
+        ? [SEVERITY.PASS, `format-detection meta + x-apple-data-detectors reset present.`]
+        : [SEVERITY.FAIL, `Missing format-detection meta or the x-apple-data-detectors reset — iOS recolours dates, phones and addresses.`],
+  },
+  {
+    // Quirk 15: Apple Mail rescales the whole layout without this.
+    id: 'apple-reformatting',
+    scope: 'house',
+    run: ({ html }) =>
+      /x-apple-disable-message-reformatting/i.test(html)
+        ? [SEVERITY.PASS, `x-apple-disable-message-reformatting present (Apple Mail leaves the layout alone).`]
+        : [SEVERITY.FAIL, `No x-apple-disable-message-reformatting meta — Apple Mail auto-scales and reformats the layout.`],
+  },
+  {
+    // Quirk 11: Outlook.com signals dark mode with its own attributes.
+    id: 'outlook-com-dark',
+    scope: 'house',
+    run: ({ html }) =>
+      /\[data-ogsc\]/i.test(html) && /\[data-ogsb\]/i.test(html)
+        ? [SEVERITY.PASS, `[data-ogsc]/[data-ogsb] overrides present (Outlook.com dark mode).`]
+        : [SEVERITY.FAIL, `No [data-ogsc]/[data-ogsb] rules — Outlook.com inverts text and background on its own terms.`],
+  },
+  {
+    // Quirk 3: Word falls back to Times New Roman, not the next stack entry.
+    id: 'mso-font-fallback',
+    scope: 'house',
+    run: ({ html }) =>
+      /\[if mso\]/i.test(html) && /mso-font-alt|font-family\s*:\s*Arial/i.test(html)
+        ? [SEVERITY.PASS, `MSO font fallback declared (Outlook would use Times New Roman otherwise).`]
+        : [SEVERITY.FAIL, `No [if mso] font fallback — classic Outlook renders web fonts as Times New Roman.`],
   },
   {
     id: 'preheader',

@@ -13,11 +13,11 @@ offender; several quirks affect more than one client. Every fix is annotated inl
 | 5 | No `max-width` → layout won't center/constrain | Outlook Windows | 600px MSO ghost table wrapping a fluid `.email-container` |
 | 6 | No CSS background images | Outlook Windows (classic); *partial* in Outlook.com & Yahoo | VML `v:fill type="frame"` for Outlook; solid `bgcolor` fallback always behind |
 | 7 | Message clipped at ~102 KB (footer/unsub hidden) | Gmail | `--production` minify; build warns past the threshold |
-| 8 | Runs its own dark-mode inversion, ignores `prefers-color-scheme` | Gmail | Explicit `bgcolor` on **every** cell so nothing is left "unset" |
+| 8 | Runs its own dark-mode inversion, ignores `prefers-color-scheme` | Gmail | Explicit `background-color` on every element the dark CSS repaints, so nothing is left "unset" |
 | 9 | Inverts pure `#000000` / `#ffffff` unconditionally | Apple Mail (dark) | Off-black `#2b2b30` / off-white text; `supported-color-schemes` meta |
 | 10 | `prefers-color-scheme` support is inconsistent | Cross-client | Progressive enhancement + `color-scheme` meta; never depended on |
 | 11 | Partial colour inversion, custom attributes | Outlook.com (dark) | `[data-ogsc]` (text) / `[data-ogsb]` (background) targeted overrides |
-| 12 | Undefined `<td>` background repainted dark | Gmail (dark) | Same as #8 — no cell without an explicit colour |
+| 12 | Undefined `<td>` background repainted dark | Gmail (dark) | Same as #8 — every `darkmode-bg`/`darkmode-card` container declares its light colour inline, gated by the `dark-bg-explicit` rule |
 | 13 | Auto-links dates, phones, addresses in blue | iOS Mail | `format-detection` meta + `a[x-apple-data-detectors]` reset |
 | 14 | Auto-inflates "too small" text | iOS, Windows | `-webkit-text-size-adjust` / `-ms-text-size-adjust:100%` |
 | 15 | Auto-scales/reformats the whole layout | Apple Mail | `x-apple-disable-message-reformatting` meta |

@@ -63,6 +63,21 @@ assert(/color-scheme.*meta/.test(bad.out), 'bad.html: dark-mode-declaration rule
 assert(/PixelsPerInch/.test(bad.out), 'bad.html: Outlook-DPI rule fires');
 assert(/prefers-color-scheme: dark\) block/.test(bad.out), 'bad.html: dark-mode-CSS rule fires');
 
+// --- quirk coverage: rules added for documented quirks must actually fire.
+assert(/mso-table-lspace/.test(bad.out), 'bad.html: Outlook table-gutter rule fires');
+assert(/ExternalClass/.test(bad.out), 'bad.html: Outlook.com .ExternalClass rule fires');
+assert(/text-size-adjust/.test(bad.out), 'bad.html: text-inflation rule fires');
+assert(/format-detection meta/.test(bad.out), 'bad.html: iOS auto-link rule fires');
+assert(/x-apple-disable-message-reformatting/.test(bad.out), 'bad.html: Apple reformatting rule fires');
+assert(/data-ogsc/.test(bad.out), 'bad.html: Outlook.com dark-mode rule fires');
+assert(/Times New Roman/.test(bad.out), 'bad.html: MSO font-fallback rule fires');
+
+// The dark-mode background rule must be exercised, not vacuously passed: a
+// darkmode-* class with no light-state colour is the failure it exists to catch.
+const paintedOk = runHouse(GOOD);
+assert(/dark-mode painted elements declare an explicit background-color/.test(paintedOk.out),
+  'good.html: dark-mode background rule runs against a real painted element');
+
 // --- profile split: the universal rules must be safe to point at anyone's HTML.
 // bad.html omits every house convention, so if those rules leaked into the
 // default profile the CLI would fail on all third-party output.

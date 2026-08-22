@@ -49,8 +49,8 @@ in translation on the oldest clients.
   project's conventions. See [Lint any email](#lint-any-email).
 - **Three ways to use it.** Copy the single-file master, assemble the documented partials, or run the
   build. All three produce identical markup.
-- **Dark mode, three ways.** `prefers-color-scheme`, Outlook.com `[data-ogsc]`/`[data-ogsb]`, and
-  Gmail-safe explicit `bgcolor` on every cell.
+- **Dark mode, three ways.** `prefers-color-scheme`, Outlook.com `[data-ogsc]`/`[data-ogsb]`, and a
+  Gmail-safe explicit `background-color` on every container the dark CSS repaints.
 - **Five branded templates, and a scaffolder.** Distinct designs (see below), each rebuilt in the
   house conventions with self-authored generated art and passing both gates clean. Start a new one
   with `node scripts/new-template.mjs <name> "Brand"` — a complete, conformant template out of the box.
