@@ -114,17 +114,27 @@ export function stripTags(fragment) {
   return out + fragment.slice(i);
 }
 
+const STYLE_CLOSE = '</style>';
+
 /**
  * The CSS of every non-MSO <style> block. An unterminated block is skipped, as
- * the original single-regex form did. PERF: linear, for the same reason
- * scanTags is — `<style[^>]*>` rescans to end-of-input at every `<style`.
+ * the original single-regex form did.
+ *
+ * PERF: linear. Blocks are non-overlapping — a `<style` opening inside a block
+ * already taken is skipped, matching how the global regex resumed after each
+ * match — so the close-tag searches and the slices never revisit input. Probing
+ * every opener independently is quadratic: 420KB of `<style>` with no close tag
+ * took 1.1s locally and blew the fuzz budget on CI.
  */
 function findStyleBlocks(html, tags) {
   const lower = html.toLowerCase();
   const blocks = [];
+  let cursor = 0;
   for (const tag of openTags(tags, 'style')) {
-    const close = lower.indexOf('</style>', tag.end);
-    if (close === -1) continue;
+    if (tag.start < cursor) continue;
+    const close = lower.indexOf(STYLE_CLOSE, tag.end);
+    if (close === -1) break;
+    cursor = close + STYLE_CLOSE.length;
     if (html.slice(Math.max(0, tag.start - 40), tag.start).includes('[if mso]')) continue;
     blocks.push(html.slice(tag.end, close));
   }
