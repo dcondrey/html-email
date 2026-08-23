@@ -60,6 +60,29 @@ Most frameworks quietly drop the awkward clients because supporting them is tedi
 
 </div>
 
+### Against the compiler frameworks
+
+Checked against each project's own documentation, 2026-08-22. These are all good
+tools; the axis that separates them is whether a compiler stands between you and the
+markup that ships.
+
+| | **html-email** | [MJML](https://github.com/mjmlio/mjml) | [Maizzle](https://maizzle.com) | [React Email](https://github.com/resend/react-email) |
+|---|:-:|:-:|:-:|:-:|
+| You author | HTML | `<mj-*>` markup language | Vue SFCs + Tailwind | React/JSX components |
+| Build step to get HTML | optional (concatenation only) | required (compile) | required (Vite pipeline) | required (render) |
+| Runtime dependencies | 0 | npm package | Node + Vite + Tailwind | Node + React |
+| Ships markup you wrote | yes | no — compiler output | no — pipeline output | no — render output |
+| Hand-editing the shipped HTML | expected | round-trip is lost | round-trip is lost | round-trip is lost |
+| CSS inlining | not needed (styles authored in place) | automatic | configurable transformers | via Tailwind component |
+| Lints *other* tools' output | yes — point it at any HTML email | no | no | no |
+
+The trade is real and runs both ways. A compiler gives you components, scoping, and
+a smaller surface to get wrong, and for a large template library that is worth a lot.
+This project takes the other side: the HTML in the repository is the HTML that
+arrives, so a client-specific quirk is fixed where you can see it, and nothing has to
+survive a regeneration. The [28 documented quirks](./docs/quirks.md) are the reason
+that trade is worth making here.
+
 ## How it builds
 
 ```mermaid
