@@ -52,6 +52,6 @@
   "homepage": "https://github.com/dcondrey/html-email#readme",
   "devDependencies": {
     "fast-check": "^4.9.0",
-    "puppeteer": "^25.7.0"
+    "puppeteer": "^25.8.0"
   }
 }
