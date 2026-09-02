@@ -1,26 +1,37 @@
 <!-- html-email: a hand-authored, zero-dependency cross-client HTML email framework. Project landing README. -->
 
-<div align="center">
+<img width="120" height="120" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only" align="left">
+<img width="120" height="120" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only" align="left">
 
-<img width="120" height="120" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only">
-<img width="120" height="120" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only">
+<h1>html-email</h1>
+<p><strong>HTML email that renders everywhere — classic Outlook to dark mode — with no compiler in the way.</strong></p>
 
-# html-email
+<br clear="left">
 
-**HTML email that renders everywhere — classic Outlook to dark mode — with no compiler in the way.**
+<!-- Badge palette: dynamic health; metadata #007ec6; standards #6a4c93; label #20232a; platform brand colors. -->
 
-[![CI](https://github.com/dcondrey/html-email/actions/workflows/ci.yml/badge.svg)](https://github.com/dcondrey/html-email/actions/workflows/ci.yml)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/dcondrey/html-email/badge)](https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email)
-[![SLSA Build L3](https://img.shields.io/badge/SLSA-Build%20L3-2ea44f.svg?logo=slsa&logoColor=white)](https://slsa.dev)
-[![Dependencies](https://img.shields.io/badge/dependencies-0-2ea44f.svg)](#quickstart)
-[![Node](https://img.shields.io/badge/node-%E2%89%A516-blue.svg?logo=node.js&logoColor=white)](https://nodejs.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+<p align="center">
+  <a href="https://github.com/dcondrey/html-email/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/ci.yml?branch=master&amp;style=flat-square&amp;label=CI&amp;labelColor=20232a" alt="CI"></a>
+  <a href="https://github.com/dcondrey/html-email/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/codeql.yml?branch=master&amp;style=flat-square&amp;label=CodeQL&amp;labelColor=20232a" alt="CodeQL"></a>
+  <a href="https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email"><img src="https://img.shields.io/ossf-scorecard/github.com/dcondrey/html-email?style=flat-square&amp;labelColor=20232a" alt="OpenSSF Scorecard"></a>
+  <a href="./.bestpractices.json"><img src="https://img.shields.io/badge/best_practices-evidence-6a4c93?style=flat-square&amp;labelColor=20232a" alt="Best Practices evidence"></a>
+  <a href="https://slsa.dev"><img src="https://img.shields.io/badge/SLSA-Build_L3-6a4c93?style=flat-square&amp;labelColor=20232a&amp;logo=slsa&amp;logoColor=white" alt="SLSA Build L3"></a>
+  <a href="#quickstart"><img src="https://img.shields.io/badge/dependencies-0-2ea44f?style=flat-square&amp;labelColor=20232a" alt="Zero build dependencies"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%E2%89%A516-007ec6?style=flat-square&amp;labelColor=20232a&amp;logo=nodedotjs&amp;logoColor=white" alt="Node 16+"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-007ec6?style=flat-square&amp;labelColor=20232a" alt="MIT license"></a>
+  <a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/code_of_conduct-Contributor_Covenant_2.1-6a4c93?style=flat-square&amp;labelColor=20232a" alt="Contributor Covenant 2.1"></a>
+  <a href="https://dcondrey.github.io/html-email/"><img src="https://img.shields.io/badge/live_demo-open-1abc9c?style=flat-square&amp;labelColor=20232a&amp;logo=googlechrome&amp;logoColor=white" alt="Live demo"></a>
+  <a href="https://github.com/sponsors/dcondrey"><img src="https://img.shields.io/badge/sponsor-dcondrey-EA4AAA?style=flat-square&amp;labelColor=20232a&amp;logo=githubsponsors&amp;logoColor=white" alt="Sponsor dcondrey"></a>
+</p>
 
-[Quickstart](#quickstart) • [Why](#why-html-email) • [How it builds](#how-it-builds) • [Lint any email](#lint-any-email) • [Templates](#templates) • [Docs](#documentation)
-
-**[Live demo →](https://dcondrey.github.io/html-email/)**
-
-</div>
+<p align="center">
+  <a href="#quickstart">Quickstart</a> &middot;
+  <a href="#why-html-email">Why</a> &middot;
+  <a href="#how-it-builds">How it builds</a> &middot;
+  <a href="#lint-any-email">Lint any email</a> &middot;
+  <a href="#templates">Templates</a> &middot;
+  <a href="#documentation">Docs</a>
+</p>
 
 ---
 

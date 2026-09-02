@@ -1,7 +1,12 @@
-# framework/
+<img width="88" height="88" alt="html-email logo" src="../docs/logo-light.png#gh-light-mode-only" align="left">
+<img width="88" height="88" alt="html-email logo" src="../docs/logo-dark.png#gh-dark-mode-only" align="left">
 
-The maintained, modern template. For the full quirks reference and platform
-matrix, see the [root README](../README.md). This file is the working quickstart.
+<h1>html-email framework</h1>
+<p><strong>The maintained modern template and working quickstart.</strong></p>
+
+<br clear="left">
+
+For the full quirks reference and platform matrix, see the [root README](../README.md).
 
 ## Files
 
