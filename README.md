@@ -14,7 +14,7 @@
   <a href="https://github.com/dcondrey/html-email/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/ci.yml?branch=master&amp;style=flat-square&amp;label=CI&amp;labelColor=20232a" alt="CI"></a>
   <a href="https://github.com/dcondrey/html-email/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/codeql.yml?branch=master&amp;style=flat-square&amp;label=CodeQL&amp;labelColor=20232a" alt="CodeQL"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email"><img src="https://img.shields.io/ossf-scorecard/github.com/dcondrey/html-email?style=flat-square&amp;labelColor=20232a" alt="OpenSSF Scorecard"></a>
-  <a href="./.bestpractices.json"><img src="https://img.shields.io/badge/best_practices-evidence-6a4c93?style=flat-square&amp;labelColor=20232a" alt="Best Practices evidence"></a>
+  <a href="https://www.bestpractices.dev/projects/14404"><img src="https://www.bestpractices.dev/projects/14404/badge" alt="OpenSSF Best Practices"></a>
   <a href="https://slsa.dev"><img src="https://img.shields.io/badge/SLSA-Build_L3-6a4c93?style=flat-square&amp;labelColor=20232a&amp;logo=slsa&amp;logoColor=white" alt="SLSA Build L3"></a>
   <a href="#quickstart"><img src="https://img.shields.io/badge/dependencies-0-2ea44f?style=flat-square&amp;labelColor=20232a" alt="Zero build dependencies"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%E2%89%A516-007ec6?style=flat-square&amp;labelColor=20232a&amp;logo=nodedotjs&amp;logoColor=white" alt="Node 16+"></a>
