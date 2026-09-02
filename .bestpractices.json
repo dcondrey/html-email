@@ -1,0 +1,202 @@
+{
+  "description_good_status": "Met",
+  "description_good_justification": "README.md opening line and package.json `description` both succinctly state the project's purpose: a zero-dependency, hand-authored, cross-client HTML email framework. GitHub repo description (via `gh repo view`) matches.",
+
+  "interact_status": "Met",
+  "interact_justification": "README.md 'Quickstart' section explains obtaining the code (git clone), SUPPORT.md explains feedback channels (Discussions for questions, GitHub Issues for bugs), and CONTRIBUTING.md explains how to contribute (PRs, dev setup, template scaffolding).",
+
+  "contribution_status": "Met",
+  "contribution_justification": "CONTRIBUTING.md documents the full PR process: ground rules, dev setup commands, a pre-PR checklist (rebuild dist, lint 0 fail/0 warn, run smoke test, verify in a real client, fill PR checklist), and commit message conventions.",
+
+  "contribution_requirements_status": "Met",
+  "contribution_requirements_justification": "CONTRIBUTING.md 'Ground rules' section states explicit acceptance requirements (never-drop-support, zero build-path dependencies, copy hygiene) and 'Before you open a PR' lists concrete gates (lint 0 fail/0 warn, smoke pass, client verification, PR checklist) plus a PR template at .github/pull_request_template.md.",
+
+  "floss_license_status": "Met",
+  "floss_license_justification": "LICENSE file at repo root is the MIT License, an OSI-approved FLOSS license.",
+
+  "floss_license_osi_status": "Met",
+  "floss_license_osi_justification": "MIT License (see LICENSE) is on the OSI-approved license list.",
+
+  "license_location_status": "Met",
+  "license_location_justification": "LICENSE file present at the repository root (/Volumes/A/html-email/LICENSE); also referenced from README.md badge and package.json `license: \"MIT\"`.",
+
+  "documentation_basics_status": "Met",
+  "documentation_basics_justification": "README.md covers quickstart, why/how, templates, and links to docs/ (quirks.md, clients.md, testing.md); CONTRIBUTING.md documents development workflow.",
+
+  "documentation_interface_status": "Met",
+  "documentation_interface_justification": "The external interface is the `html-email-lint` CLI (framework/build/lint.mjs). Its inputs/outputs/flags are documented in README.md 'Lint any email' section and docs/testing.md ('Lint before you look'), including exit-code and profile behavior.",
+
+  "sites_https_status": "Met",
+  "sites_https_justification": "Repo URL (https://github.com/dcondrey/html-email), live demo (https://dcondrey.github.io/html-email/), and all documentation links use HTTPS; no plain-http URLs found in README.md or docs/.",
+
+  "discussion_status": "Met",
+  "discussion_justification": "GitHub Issues is enabled (`gh repo view` shows hasIssuesEnabled: true, 7 open issues at github.com/dcondrey/html-email/issues) and is URL-addressable, searchable, and open to any GitHub user without a proprietary client. SUPPORT.md also points to GitHub Discussions, but `gh api repos/dcondrey/html-email` shows `has_discussions: false` (not actually enabled), so Issues is the operative mechanism.",
+
+  "english_status": "Met",
+  "english_justification": "All documentation (README.md, CONTRIBUTING.md, SECURITY.md, docs/*.md) is written in English; issue/PR templates are in English and accept English input.",
+
+  "maintained_status": "Met",
+  "maintained_justification": "`git log` shows the most recent commit on 2026-08-22 and 81 commits in the last 90 days; `gh api repos/dcondrey/html-email` shows pushed_at 2026-08-24, indicating active, ongoing maintenance.",
+
+  "repo_public_status": "Met",
+  "repo_public_justification": "Repository is public at https://github.com/dcondrey/html-email (`gh repo view` confirms isPrivate: false), version-controlled with git.",
+
+  "repo_track_status": "Met",
+  "repo_track_justification": "git log shows full commit history with author, timestamp, and message for every change (e.g. `git log --format='%an <%ae>'` and `git log -1 --format=%ci`), tracking who changed what and when.",
+
+  "repo_interim_status": "Met",
+  "repo_interim_justification": "git log shows 81 commits in the last 90 days between the single tagged release (v1.0.0), including an active 'Unreleased' section in CHANGELOG.md documenting interim work since 1.0.0.",
+
+  "repo_distributed_status": "Met",
+  "repo_distributed_justification": "Repository uses git, a distributed version control system (confirmed via `.git/` directory and `git remote -v`).",
+
+  "version_unique_status": "Met",
+  "version_unique_justification": "package.json declares `\"version\": \"1.0.0\"`, matching the git tag v1.0.0 (`git tag` output) and the GitHub Release (`gh release list` shows v1.0.0).",
+
+  "version_semver_status": "Met",
+  "version_semver_justification": "Version 1.0.0 in package.json and tag v1.0.0 follow Semantic Versioning (MAJOR.MINOR.PATCH) format.",
+
+  "version_tags_status": "Met",
+  "version_tags_justification": "`git tag` lists v1.0.0, and .github/workflows/release.yml triggers a release build on `push: tags: ['v*']`.",
+
+  "release_notes_status": "Met",
+  "release_notes_justification": "CHANGELOG.md follows Keep a Changelog format with a human-readable [1.0.0] entry (Added/Fixed/Changed sections), generated via git-cliff (cliff.toml) from Conventional Commits; the GitHub Release for v1.0.0 also has auto-generated release notes (release.yml uses `generate_release_notes: true`).",
+
+  "release_notes_vulns_status": "N/A",
+  "release_notes_vulns_justification": "No publicly known vulnerabilities have been fixed in any release yet (CHANGELOG.md 1.0.0 entry lists no CVE/security fixes); N/A per criterion.",
+
+  "report_process_status": "Met",
+  "report_process_justification": "GitHub Issues is the bug-report process (SUPPORT.md: 'Bugs (render/build/lint): open an issue'), with a structured bug_report.yml template at .github/ISSUE_TEMPLATE/bug_report.yml.",
+
+  "report_tracker_status": "Met",
+  "report_tracker_justification": "GitHub Issues is used as the individual issue tracker (github.com/dcondrey/html-email/issues), with 7 open issues observed via `gh issue list`.",
+
+  "report_responses_status": "Met",
+  "report_responses_justification": "The one historical bug report (issue #1, 'Uncheckable checkboxes', opened 2014-12-05) was resolved and closed (2016-01-25). The 5 currently open issues (#31-35) are maintainer-authored roadmap/feature items (`gh issue list --json author` shows all opened by dcondrey), not unanswered external bug reports, so there is no evidence of unacknowledged external reports in the covered window.",
+
+  "enhancement_responses_status": "Met",
+  "enhancement_responses_justification": "All currently open enhancement issues (#31-35) were filed and are being tracked by the maintainer (dcondrey) himself as an active roadmap; no external enhancement request is pending without engagement.",
+
+  "report_archive_status": "Met",
+  "report_archive_justification": "GitHub Issues provides a publicly available, searchable archive of all reports and responses at github.com/dcondrey/html-email/issues, including closed issue #1 dating to 2014.",
+
+  "vulnerability_report_process_status": "Met",
+  "vulnerability_report_process_justification": "SECURITY.md documents the vulnerability reporting process: GitHub Security Advisories (private) or email to davidcondrey@gmail.com, with expected initial response time.",
+
+  "vulnerability_report_private_status": "Met",
+  "vulnerability_report_private_justification": "SECURITY.md explicitly explains private reporting: 'Open a private advisory via GitHub Security Advisories ... or email davidcondrey@gmail.com', and states 'do not report through public GitHub issues.'",
+
+  "vulnerability_report_response_status": "N/A",
+  "vulnerability_report_response_justification": "No vulnerability reports have been received in the last 6 months (no security advisories found for this repo, and the project's public history shows no recorded vuln reports), so response-time cannot be evaluated; N/A per criterion.",
+
+  "build_status": "Met",
+  "build_justification": "package.json defines a `build` script (`node framework/build/build.mjs ...`) that is automated and required to produce framework/dist and template outputs; used in CI (.github/workflows/ci.yml 'Build framework' step).",
+
+  "build_common_tools_status": "Met",
+  "build_common_tools_justification": "Build uses Node.js and npm (`npm run build`, `npm ci`), standard/common tools for JavaScript projects; no bespoke build system.",
+
+  "build_floss_tools_status": "Met",
+  "build_floss_tools_justification": "Build depends only on Node.js (FLOSS, MIT-licensed) and its own zero-dependency build.mjs script; devDependencies fast-check and puppeteer (used only for dev/test, not the build path) are also FLOSS (MIT/Apache-2.0).",
+
+  "test_status": "Met",
+  "test_justification": "Automated FLOSS test suite exists: framework/build/lint.test.mjs (self-test against fixtures) and framework/build/fuzz.test.js (property-based fuzzing), run via `npm test` (package.json). Documented in CONTRIBUTING.md and README.md ('a self-test gates the linter, a fuzzer gates its edge cases').",
+
+  "test_invocation_status": "Met",
+  "test_invocation_justification": "Tests are invoked via the standard `npm test` command (package.json `\"test\": \"npm run verify && npm run test:lint && npm run test:fuzz\"`), the conventional invocation for a Node.js project.",
+
+  "test_most_status": "Met",
+  "test_most_justification": "lint.test.mjs exercises the linter's rule set against pass/fail fixtures (framework/build/test/good.html, bad.html) covering house-profile invariants, and fuzz.test.js property-tests the analyzer across 300 runs per property against arbitrary/malformed input, covering the 28 documented lint rules (docs/quirks.md).",
+
+  "test_continuous_integration_status": "Met",
+  "test_continuous_integration_justification": ".github/workflows/ci.yml runs the self-test ('Self-test the linter') and fuzz suite ('Fuzz the rule set') on every push and PR to master.",
+
+  "test_policy_status": "Met",
+  "test_policy_justification": "Recent feature commits consistently add/update test fixtures alongside new functionality (e.g. commit 16eb6ed 'feat: gate ten more documented quirks' touches framework/build/lint.test.mjs and framework/build/test/good.html; commit ab20331 likewise). This is a consistent practice though not written down verbatim in CONTRIBUTING.md.",
+
+  "tests_are_added_status": "Met",
+  "tests_are_added_justification": "`git show --stat 16eb6ed` and `git show --stat ab20331` confirm framework/build/lint.test.mjs and framework/build/test/good.html were modified in the same commits that added new lint rules/functionality, demonstrating the policy was followed in recent major changes.",
+
+  "tests_documented_added_status": "Unmet",
+  "tests_documented_added_justification": "CONTRIBUTING.md's 'Before you open a PR' checklist does not explicitly instruct contributors to add/update tests (lint.test.mjs fixtures or fuzz.test.js) for new functionality; the practice is followed in commit history but not written into the contribution instructions.",
+
+  "warnings_status": "Unmet",
+  "warnings_justification": "No linter (e.g. ESLint) or `'use strict'`/strict-mode configuration was found for the project's own JavaScript source (no .eslintrc*, eslint.config.*, or lint script targeting framework/build/*.mjs itself found via search). FLOSS linters exist for JavaScript, so this is Unmet rather than N/A; the project does run CodeQL static analysis, but that is separate from a warnings/lint-level check.",
+
+  "warnings_fixed_status": "Unmet",
+  "warnings_fixed_justification": "No JS-source linter is configured (see `warnings`), so there are no lint warnings being tracked or fixed as a matter of process.",
+
+  "warnings_strict_status": "Unmet",
+  "warnings_strict_justification": "No JS-source linter/warnings configuration exists to be tuned to maximal strictness (see `warnings`).",
+
+  "know_secure_design_status": "Met",
+  "know_secure_design_justification": "SECURITY.md 'Threat model for an email framework' section explicitly discusses the project's security surface (injection into rendered output, link/image destination review, unsubscribe/compliance) and a 'Supply-chain security' section describing SHA-pinned Actions, Scorecard, CodeQL, Dependency Review, Dependabot, and SLSA build provenance (.github/workflows/release.yml) — concrete evidence of secure-design awareness by the primary developer.",
+
+  "know_common_errors_status": "Met",
+  "know_common_errors_justification": "Commit history shows security-motivated fixes with clear vulnerability-class awareness, e.g. commit 2de8995 'security: share one comment scanner instead of a third regex replace' and f173ac2 'security: scan for comment and tag boundaries instead of regex-replacing them', addressing regex-based injection/parsing pitfalls; CodeQL alerts (js/incomplete-multi-character-sanitization, js/unsafe-html-expansion) were triaged (fixed/dismissed) per `gh api repos/dcondrey/html-email/code-scanning/alerts`.",
+
+  "crypto_published_status": "N/A",
+  "crypto_published_justification": "Project produces static HTML email and a lint tool; no cryptographic protocols or algorithms are implemented or used.",
+
+  "crypto_call_status": "N/A",
+  "crypto_call_justification": "No cryptographic functionality is present in the codebase (confirmed by reviewing framework/build/*.mjs and scripts/; no crypto imports found).",
+
+  "crypto_floss_status": "N/A",
+  "crypto_floss_justification": "No cryptographic functionality is implemented or required by this project.",
+
+  "crypto_keylength_status": "N/A",
+  "crypto_keylength_justification": "No cryptographic keys are used or generated by this project.",
+
+  "crypto_working_status": "N/A",
+  "crypto_working_justification": "No cryptographic algorithms (broken or otherwise) are used by this project.",
+
+  "crypto_weaknesses_status": "N/A",
+  "crypto_weaknesses_justification": "No cryptographic algorithms are used by this project.",
+
+  "crypto_pfs_status": "N/A",
+  "crypto_pfs_justification": "No key-agreement/cryptographic protocol is implemented by this project.",
+
+  "crypto_password_storage_status": "N/A",
+  "crypto_password_storage_justification": "Project has no authentication system and stores no passwords.",
+
+  "crypto_random_status": "N/A",
+  "crypto_random_justification": "No cryptographic keys or nonces are generated by this project.",
+
+  "delivery_mitm_status": "Met",
+  "delivery_mitm_justification": "Source is delivered via git over HTTPS/SSH (git remote at git@github.com:dcondrey/html-email, and https://github.com/dcondrey/html-email.git per package.json `repository.url`), both of which counter MITM.",
+
+  "delivery_unsigned_status": "Met",
+  "delivery_unsigned_justification": "No unsigned hash-only integrity check is retrieved over plain HTTP anywhere in the delivery path; source comes from GitHub over HTTPS, and release archives are additionally covered by a signed SLSA build-provenance attestation (.github/workflows/release.yml, actions/attest-build-provenance).",
+
+  "vulnerabilities_fixed_60_days_status": "Met",
+  "vulnerabilities_fixed_60_days_justification": "No public, unpatched medium-or-higher severity vulnerability report was found for this project (no open GitHub Security Advisories; `gh api .../secret-scanning/alerts` returns empty; CodeQL alerts are in fixed/dismissed state per `gh api repos/dcondrey/html-email/code-scanning/alerts`).",
+
+  "vulnerabilities_critical_fixed_status": "Met",
+  "vulnerabilities_critical_fixed_justification": "No critical vulnerabilities have been reported against this project to date, so none are outstanding; the SECURITY.md process (private advisory/email) is in place to enable rapid response if one is reported.",
+
+  "no_leaked_credentials_status": "Met",
+  "no_leaked_credentials_justification": "`grep -rIn -E \"(api[_-]?key|secret|password|token)\\s*=\\s*['\\\"][A-Za-z0-9]{10,}\"` across the repo (excluding node_modules) found no hardcoded credentials; `gh api repos/dcondrey/html-email/secret-scanning/alerts` returns an empty list.",
+
+  "static_analysis_status": "Met",
+  "static_analysis_justification": ".github/workflows/codeql.yml runs GitHub CodeQL static analysis (javascript-typescript) on push, PR, and weekly cron, a FLOSS-available static analysis tool for JavaScript.",
+
+  "static_analysis_common_vulnerabilities_status": "Met",
+  "static_analysis_common_vulnerabilities_justification": ".github/codeql/codeql-config.yml sets `queries: uses: security-extended`, CodeQL's deeper security query pack covering common vulnerability classes (injection, unsafe HTML expansion, prototype pollution, etc., as seen in the alert history).",
+
+  "static_analysis_fixed_status": "Met",
+  "static_analysis_fixed_justification": "`gh api repos/dcondrey/html-email/code-scanning/alerts` shows the majority of historical alerts (js/unsafe-html-expansion, js/functionality-from-untrusted-source, js/prototype-pollution-utility) in `fixed` state; remaining `dismissed` alerts (js/incomplete-multi-character-sanitization, all in legacy/, excluded via codeql-config.yml `paths-ignore: legacy/**`) are explicitly justified as an intentionally unmaintained 2014 artifact per legacy/README.md.",
+
+  "static_analysis_often_status": "Met",
+  "static_analysis_often_justification": "codeql.yml runs on every push and pull_request to master in addition to a weekly cron (`cron: '31 4 * * 1'`), i.e. on every commit.",
+
+  "dynamic_analysis_status": "Met",
+  "dynamic_analysis_justification": "framework/build/fuzz.test.js applies property-based dynamic fuzzing (fast-check) to the lint rule engine, run via `npm run test:fuzz` and in CI (ci.yml 'Fuzz the rule set') before merges to master.",
+
+  "dynamic_analysis_unsafe_status": "N/A",
+  "dynamic_analysis_unsafe_justification": "Project contains no memory-unsafe (C/C++) code; it is pure JavaScript/Node.js.",
+
+  "dynamic_analysis_enable_assertions_status": "Met",
+  "dynamic_analysis_enable_assertions_justification": "fuzz.test.js asserts invariants (no crash, no pathological backtracking, valid rule IDs/severities) across 300 runs per property (`fc.check(property, { numRuns: 300 })`), and lint.test.mjs uses explicit assert() checks against expected pass/fail output.",
+
+  "dynamic_analysis_fixed_status": "N/A",
+  "dynamic_analysis_fixed_justification": "No outstanding dynamic-analysis (fuzz) findings exist; the fuzz suite currently passes cleanly in CI, so there are no medium+ findings pending a fix."
+}

@@ -1,9 +1,13 @@
-# legacy/ — the 2014 artifact
+<img width="88" height="88" alt="html-email logo" src="../docs/logo-light.png#gh-light-mode-only" align="left">
+<img width="88" height="88" alt="html-email logo" src="../docs/logo-dark.png#gh-dark-mode-only" align="left">
 
-Preserved exactly as written in 2014. Nothing here has been modernised; it is
-kept as a historical reference and as the origin of the
-[framework](../framework/). Do not edit these files — the maintained template
-lives in `framework/`.
+<h1>html-email legacy</h1>
+<p><strong>The preserved 2014 artifact and historical origin of the modern framework.</strong></p>
+
+<br clear="left">
+
+Nothing here has been modernised. The files are kept as a historical reference;
+the maintained template lives in [`framework/`](../framework/).
 
 ## `campaign.html`
 
