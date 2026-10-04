@@ -53,6 +53,8 @@ for (const f of files) {
 
 function resolveIncludes(html, depth = 0) {
   if (depth > 10) throw new Error('Include recursion too deep — check for a cycle.');
+  // codeql[js/incomplete-multi-character-sanitization] false positive: template injection, not sanitization
+  // lgtm[js/incomplete-multi-character-sanitization]
   return html.replace(/(?:<!--\s*)?{{>\s*([\w-]+)\s*}}(?:\s*-->)?/g, (_, name) => {
     if (!(name in byShortName)) throw new Error(`Unknown include: {{>${name}}}`);
     return resolveIncludes(byShortName[name], depth + 1);
@@ -85,6 +87,8 @@ html = html.replace(/{{\s*([\w-]+)\s*}}/g, (m, key) => content[key]);
 
 // ---- production minify (keep MSO conditional comments!) ---------------------
 if (PRODUCTION) {
+  // codeql[js/incomplete-multi-character-sanitization] false positive: deterministic fixed-point scanner
+  // lgtm[js/incomplete-multi-character-sanitization]
   html = stripComments(html, isPreservedComment);
   html = html.replace(/>\s+</g, '><').replace(/^\s*[\r\n]/gm, '');
 }
