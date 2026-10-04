@@ -30,8 +30,18 @@
   <a href="#how-it-builds">How it builds</a> &middot;
   <a href="#lint-any-email">Lint any email</a> &middot;
   <a href="#templates">Templates</a> &middot;
-  <a href="#documentation">Docs</a>
+  <a href="docs/README.md">Documentation</a>
 </p>
+
+## Table of Contents
+- [Quickstart](#quickstart)
+- [Why html-email](#why-html-email)
+  - [Against the compiler frameworks](#against-the-compiler-frameworks)
+- [How it builds](#how-it-builds)
+- [Lint any email](#lint-any-email)
+- [Templates](#templates)
+- [Documentation](#documentation)
+- [License](#license)
 
 ---
 
@@ -203,6 +213,8 @@ Security policy and private reporting: [SECURITY.md](./SECURITY.md).
 </details>
 
 ## Documentation
+
+**[Browse the full documentation in the `docs/` directory.](docs/README.md)**
 
 | Guide | What's in it |
 | --- | --- |
