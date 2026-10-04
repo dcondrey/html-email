@@ -3,7 +3,7 @@
 <img width="120" height="120" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only" align="left">
 <img width="120" height="120" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only" align="left">
 
-<h1>html-email</h1>
+<h3>html-email</h3>
 <p><strong>HTML email that renders everywhere — classic Outlook to dark mode — with no compiler in the way.</strong></p>
 
 <br clear="left">
@@ -11,10 +11,10 @@
 <!-- Badge palette: dynamic health; metadata #007ec6; standards #6a4c93; label #20232a; platform brand colors. -->
 
 <p align="center">
+  <a href="https://www.bestpractices.dev/projects/14404"><img src="https://www.bestpractices.dev/projects/14404/badge" alt="OpenSSF Best Practices"></a>
   <a href="https://github.com/dcondrey/html-email/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/ci.yml?branch=master&amp;style=flat-square&amp;label=CI&amp;labelColor=20232a" alt="CI"></a>
   <a href="https://github.com/dcondrey/html-email/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/codeql.yml?branch=master&amp;style=flat-square&amp;label=CodeQL&amp;labelColor=20232a" alt="CodeQL"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email"><img src="https://img.shields.io/ossf-scorecard/github.com/dcondrey/html-email?style=flat-square&amp;labelColor=20232a" alt="OpenSSF Scorecard"></a>
-  <a href="https://www.bestpractices.dev/projects/14404"><img src="https://www.bestpractices.dev/projects/14404/badge" alt="OpenSSF Best Practices"></a>
   <a href="https://slsa.dev"><img src="https://img.shields.io/badge/SLSA-Build_L3-6a4c93?style=flat-square&amp;labelColor=20232a&amp;logo=slsa&amp;logoColor=white" alt="SLSA Build L3"></a>
   <a href="#quickstart"><img src="https://img.shields.io/badge/dependencies-0-2ea44f?style=flat-square&amp;labelColor=20232a" alt="Zero build dependencies"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%E2%89%A516-007ec6?style=flat-square&amp;labelColor=20232a&amp;logo=nodedotjs&amp;logoColor=white" alt="Node 16+"></a>
