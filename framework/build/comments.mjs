@@ -11,6 +11,8 @@
  * `keep(comment)` decides what survives. An unterminated comment is left in
  * place, matching the lazy-regex behaviour this replaced.
  */
+// codeql[js/incomplete-multi-character-sanitization] false positive: deterministic fixed-point scanner
+// lgtm[js/incomplete-multi-character-sanitization]
 export function stripComments(html, keep) {
   let out = '';
   let i = 0;

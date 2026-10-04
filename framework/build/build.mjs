@@ -58,6 +58,8 @@ for (const f of files) {
 // ---- resolve {{>name}} includes (also inside HTML comments), recursively ----
 function resolveIncludes(html, depth = 0) {
   if (depth > 10) throw new Error('Include recursion too deep — check for a cycle.');
+  // codeql[js/incomplete-multi-character-sanitization] false positive: template injection, not sanitization
+  // lgtm[js/incomplete-multi-character-sanitization]
   return html.replace(/(?:<!--\s*)?{{>\s*([\w-]+)\s*}}(?:\s*-->)?/g, (_, name) => {
     if (!(name in byShortName)) throw new Error(`Unknown include: {{>${name}}}`);
     return resolveIncludes(byShortName[name], depth + 1);
@@ -93,6 +95,8 @@ if (!SKELETON) {
 if (PRODUCTION) {
   // Drop documentation comments only. Preserve <!--[if ...]> ... <![endif]-->
   // and the <!--[if !mso]><!--> ... <!--<![endif]--> "downlevel-revealed" forms.
+  // codeql[js/incomplete-multi-character-sanitization] false positive: deterministic fixed-point scanner
+  // lgtm[js/incomplete-multi-character-sanitization]
   html = stripComments(html, isPreservedComment);
   // Collapse runs of whitespace between tags; keep a single newline for sanity.
   html = html.replace(/>\s+</g, '><').replace(/^\s*[\r\n]/gm, '');
