@@ -1,28 +1,12 @@
-<!-- html-email: a hand-authored, zero-dependency cross-client HTML email framework. Project landing README. -->
+### html-email
 
-<img width="120" height="120" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only" align="left">
-<img width="120" height="120" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only" align="left">
-
-<h3>html-email</h3>
-<p><strong>HTML email that renders everywhere — classic Outlook to dark mode — with no compiler in the way.</strong></p>
+<img align="left" width="96" alt="html-email logo" src="./docs/logo-light.png#gh-light-mode-only">
+<img align="left" width="96" alt="html-email logo" src="./docs/logo-dark.png#gh-dark-mode-only">
+HTML email that renders everywhere, from classic Outlook to dark mode, with no compiler in the way.
 
 <br clear="left">
 
-<!-- Badge palette: dynamic health; metadata #007ec6; standards #6a4c93; label #20232a; platform brand colors. -->
-
-<p align="center">
-  <a href="https://www.bestpractices.dev/projects/14404"><img src="https://www.bestpractices.dev/projects/14404/badge" alt="OpenSSF Best Practices"></a>
-  <a href="https://github.com/dcondrey/html-email/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/ci.yml?branch=master&amp;style=flat-square&amp;label=CI&amp;labelColor=20232a" alt="CI"></a>
-  <a href="https://github.com/dcondrey/html-email/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/codeql.yml?branch=master&amp;style=flat-square&amp;label=CodeQL&amp;labelColor=20232a" alt="CodeQL"></a>
-  <a href="https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email"><img src="https://img.shields.io/ossf-scorecard/github.com/dcondrey/html-email?style=flat-square&amp;labelColor=20232a" alt="OpenSSF Scorecard"></a>
-  <a href="https://slsa.dev"><img src="https://img.shields.io/badge/SLSA-Build_L3-6a4c93?style=flat-square&amp;labelColor=20232a&amp;logo=slsa&amp;logoColor=white" alt="SLSA Build L3"></a>
-  <a href="#quickstart"><img src="https://img.shields.io/badge/dependencies-0-2ea44f?style=flat-square&amp;labelColor=20232a" alt="Zero build dependencies"></a>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%E2%89%A516-007ec6?style=flat-square&amp;labelColor=20232a&amp;logo=nodedotjs&amp;logoColor=white" alt="Node 16+"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-007ec6?style=flat-square&amp;labelColor=20232a" alt="MIT license"></a>
-  <a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/code_of_conduct-Contributor_Covenant_2.1-6a4c93?style=flat-square&amp;labelColor=20232a" alt="Contributor Covenant 2.1"></a>
-  <a href="https://dcondrey.github.io/html-email/"><img src="https://img.shields.io/badge/live_demo-open-1abc9c?style=flat-square&amp;labelColor=20232a&amp;logo=googlechrome&amp;logoColor=white" alt="Live demo"></a>
-  <a href="https://github.com/sponsors/dcondrey"><img src="https://img.shields.io/badge/sponsor-dcondrey-EA4AAA?style=flat-square&amp;labelColor=20232a&amp;logo=githubsponsors&amp;logoColor=white" alt="Sponsor dcondrey"></a>
-</p>
+[![CI](https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/ci.yml?branch=master&style=flat-square&label=CI)](https://github.com/dcondrey/html-email/actions/workflows/ci.yml) [![CodeQL](https://img.shields.io/github/actions/workflow/status/dcondrey/html-email/codeql.yml?branch=master&style=flat-square&label=CodeQL)](https://github.com/dcondrey/html-email/actions/workflows/codeql.yml) [![OpenSSF Scorecard](https://img.shields.io/ossf-scorecard/github.com/dcondrey/html-email?style=flat-square&label=OpenSSF%20Scorecard)](https://scorecard.dev/viewer/?uri=github.com/dcondrey/html-email) [![Release](https://img.shields.io/github/v/release/dcondrey/html-email?style=flat-square)](https://github.com/dcondrey/html-email/releases) [![License](https://img.shields.io/github/license/dcondrey/html-email?style=flat-square)](https://github.com/dcondrey/html-email/blob/master/LICENSE)
 
 <p align="center">
   <a href="#quickstart">Quickstart</a> &middot;
